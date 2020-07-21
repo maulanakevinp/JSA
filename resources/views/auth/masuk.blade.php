@@ -12,8 +12,11 @@
     <div class="col-lg-5 col-md-7">
         <div class="card bg-secondary shadow border-0">
             <div class="card-body px-lg-5 py-lg-5">
-                <div class="text-center text-muted mb-4">
+                <div class="text-center text-muted mb-3">
                     <small>Masuk</small>
+                </div>
+                <div class="text-center mb-4">
+                    <img height="150px" src="{{ url('/storage/logo.png') }}" alt="logo">
                 </div>
                 <form role="form" action="{{ route('masuk') }}" method="POST">
                     @csrf
