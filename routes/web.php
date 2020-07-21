@@ -31,4 +31,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::patch('/update-pengaturan/{user}', 'UserController@updatePengaturan')->name('update-pengaturan');
     Route::patch('/update-profil/{user}', 'UserController@updateProfil')->name('update-profil');
 
+    Route::group(['middleware' => ['can:super_admin']], function () {
+        Route::resource('pengguna', 'UserController');
+    });
+
 });

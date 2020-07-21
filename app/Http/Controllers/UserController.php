@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Peran;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -11,6 +12,131 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $users = User::orderBy('id', 'desc')->paginate(12);
+
+        if ($request->cari) {
+            $users = User::where('nama', 'like', "%{$request->cari}%")
+                        ->whereHas('peran', function ($peran) use ($request) {
+                            $peran->where('nama', 'like', "%{$request->cari}%");
+                        })
+                        ->paginate(12);
+        }
+
+        return view('user.index', compact('users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $peran = Peran::all();
+        return view('user.create', compact('peran'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama'          => ['required', 'string', 'max:128', 'unique:users,nama'],
+            'peran'         => ['required'],
+            'foto_profil'   => ['nullable' ,'image', 'max:2048'],
+        ]);
+
+        $data['nama']       = $request->nama;
+        $data['peran_id']   = $request->peran;
+
+        if ($request->foto_profil) {
+            $data['foto_profil'] = $request->foto_profil->store('public/foto_profil');
+        }
+
+        $user = User::create($data);
+
+        return redirect()->route('pengguna.show', $user)->with('success', 'Penggunaa berhasil ditambahkan');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\User  $pengguna
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $pengguna)
+    {
+        return view('user.show', compact('pengguna'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\User  $pengguna
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $pengguna)
+    {
+        $peran = Peran::all();
+        return view('user.edit', compact('pengguna','peran'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $pengguna
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $pengguna)
+    {
+        $request->validate([
+            'nama'          => ['required', 'string', 'max:128'],
+            'peran'         => ['required'],
+            'foto_profil'   => ['nullable' ,'image', 'max:2048'],
+        ]);
+
+        $pengguna->nama       = $request->nama;
+        $pengguna->peran_id   = $request->peran;
+
+        if ($request->foto_profil) {
+            if ($pengguna->foto_profil != 'noavatar.png') {
+                File::delete(storage_path('app/' . $pengguna->foto_profil));
+            }
+            $pengguna->foto_profil = $request->foto_profil->store('public/foto_profil');
+        }
+
+        $pengguna->save();
+
+        return redirect()->back()->with('success', 'Penggunaa berhasil diperbarui');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\User  $pengguna
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $pengguna)
+    {
+        if ($pengguna->foto_profil != 'noavatar.png') {
+            File::delete(storage_path('app/' . $pengguna->foto_profil));
+        }
+        $pengguna->delete();
+        return redirect()->back()->with('success', 'Penggunaa berhasil dihapus');
+    }
+
     public function profil()
     {
         return view('user.profil');
@@ -20,7 +146,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\User  $pengguna
      * @return \Illuminate\Http\Response
      */
     public function updateProfil(Request $request, User $user)

@@ -60,6 +60,14 @@
         @yield('form-search-mobile')
         <!-- Navigation -->
         <ul class="navbar-nav">
+            @can('super_admin')
+                <li class="nav-item">
+                    <a class="nav-link @if (Request::segment(1) == 'pengguna') active @endif" href="{{ route('pengguna.index') }}">
+                        <i class="fas fa-users text-primary"></i>
+                        <span class="nav-link-inner--text">Pengguna</span>
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a class="nav-link @if (Request::segment(1) == 'profil' || Request::segment(1) == 'pengaturan') active @endif" href="{{ route('profil') }}">
                     <i class="ni ni-single-02 text-yellow"></i>

@@ -120,6 +120,10 @@
     transition: .4s;
 }
 
+.single-service:hover {
+    top: -5px;
+}
+
 .single-service:hover i.fa {
     border-radius: 50%;
 }
