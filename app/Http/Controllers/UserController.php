@@ -23,8 +23,8 @@ class UserController extends Controller
 
         if ($request->cari) {
             $users = User::where('nama', 'like', "%{$request->cari}%")
-                        ->whereHas('peran', function ($peran) use ($request) {
-                            $peran->where('nama', 'like', "%{$request->cari}%");
+                        ->orWhereHas('peran', function ($peran) use ($request) {
+                            return $peran->where('nama', 'like', "%{$request->cari}%");
                         })
                         ->paginate(12);
         }

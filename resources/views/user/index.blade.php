@@ -37,7 +37,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search"></i></span>
             </div>
-            <input class="form-control" placeholder="Search" type="text" name="cari" value="{{ request('cari') }}">
+            <input class="form-control" placeholder="Cari Pengguna ...." type="text" name="cari" value="{{ request('cari') }}">
         </div>
     </div>
 </form>

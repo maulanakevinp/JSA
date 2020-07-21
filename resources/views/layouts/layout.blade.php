@@ -80,7 +80,7 @@
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link nav-link-icon" href="{{ route('masuk') }}">
-                                    <i class="fas fa-home"></i>
+                                    <i class="fas fa-sign-in-alt"></i>
                                     <span class="nav-link-inner--text">Masuk</span>
                                 </a>
                             </li>
