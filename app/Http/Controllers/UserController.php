@@ -186,7 +186,7 @@ class UserController extends Controller
         $nama = false;
         $password = false;
         $request->validate([
-            'nama'          => ['nullable','string','nama','max:128',Rule::unique('users','nama')->ignore($user)],
+            'nama'          => ['nullable','string','max:128',Rule::unique('users','nama')->ignore($user)],
             'password'      => ['nullable','string','min:8','confirmed'],
             'password_lama' => ['required','string','min:8'],
         ]);
@@ -196,7 +196,6 @@ class UserController extends Controller
             } else {
                 if($request->nama){
                     $user->nama = $request->nama;
-                    $user->nama_verified_at = null;
                     $nama = true;
                 }
 
