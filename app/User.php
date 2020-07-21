@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nama', 'peran_id', 'foto_profil', 'password',
     ];
 
     /**
@@ -28,12 +28,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function peran()
+    {
+        return $this->belongsTo('App\Peran', 'peran_id');
+    }
 }

@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => ['web', 'guest']], function () {
+
+    Route::get('/', function () {
+        return redirect('/masuk');
+    });
+    Route::get('/masuk', 'AuthController@index')->name('masuk');
+    Route::post('/masuk', 'AuthController@masuk');
+
+});
+
+Route::group(['middleware' => ['web', 'auth']], function () {
+
+    Route::post('/keluar', 'AuthController@keluar')->name('keluar');
+    Route::get('/pengaturan', 'UserController@pengaturan')->name('pengaturan');
+    Route::get('/profil', 'UserController@profil')->name('profil');
+    Route::patch('/update-pengaturan/{user}', 'UserController@updatePengaturan')->name('update-pengaturan');
+    Route::patch('/update-profil/{user}', 'UserController@updateProfil')->name('update-profil');
+
+    Route::group(['middleware' => ['can:super_admin']], function () {
+        Route::resource('pengguna', 'UserController');
+    });
+
 });
