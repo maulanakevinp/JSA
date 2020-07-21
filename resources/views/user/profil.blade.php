@@ -93,7 +93,8 @@ Profil Pengguna
 
 <script>
     $(document).ready(function(){
-        $('#btn-ganti-foto_profil').on('click', function () {
+        $('#btn-ganti-foto_profil').on('click', function (e) {
+            e.preventDefault();
             $('#input-foto_profil').click();
         });
 
