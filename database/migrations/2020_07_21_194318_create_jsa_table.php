@@ -16,17 +16,21 @@ class CreateJsaTable extends Migration
         Schema::create('jsa', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pengaju_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('pereview_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade')->nullable();
-            $table->foreignId('penyetuju_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade')->nullable();
-            $table->string('no_jsa');
-            $table->string('nama_pekerjaan');
-            $table->string('lokasi');
-            $table->string('nomor_kontrak');
+            $table->unsignedBigInteger('pereview_id')->nullable();
+            $table->foreign('pereview_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('penyetuju_id')->nullable();
+            $table->foreign('penyetuju_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('no_jsa', 128);
+            $table->string('nama_pekerjaan', 128);
+            $table->string('lokasi', 128);
+            $table->string('nomor_kontrak', 128);
             $table->date('tanggal_kontrak');
             $table->date('tanggal_review')->nullable();
             $table->date('tanggal_persetujuan')->nullable();
-            $table->string('satuan_kerja_pemberi_kerja')->nullable();
-            $table->string('satuan_kerja_penanggung_jawab')->nullable();
+            $table->string('satuan_kerja_pemberi_kerja', 128)->nullable();
+            $table->string('satuan_kerja_penanggung_jawab', 128)->nullable();
+            $table->boolean('status_review')->default(0);
+            $table->boolean('status_persetujuan')->default(0);
             $table->timestamps();
         });
     }

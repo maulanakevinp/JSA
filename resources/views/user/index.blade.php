@@ -47,7 +47,7 @@
 @include('layouts.components.alert')
 <div class="row mt-4 justify-content-center">
     @forelse ($users as $user)
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-sm-6 mb-5">
             <div class="card card-profile shadow">
                 <div class="row justify-content-center">
                     <div class="col-lg-3 order-lg-2">
@@ -72,15 +72,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="single-service bg-white rounded shadow">
-                <a href="{{ route('pengguna.show', $user) }}">
-                    <div style="background-image: url('{{ url(Storage::url($user->foto_profil)) }}'); background-size: cover; height: 250px; width: 100%;"></div>
-                    <h4>{{ $user->nama }}</h4>
-                </a>
-                <p>Sebagai {{ $user->peran->nama }}</p>
-                <a href="{{ route('pengguna.edit', $user) }}" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i> Edit</a>
-                <a class="btn btn-sm btn-danger hapus" data-nama="{{ $user->nama }}" data-id="{{ $user->id }}" data-toggle="modal" href="#modal-hapus" title="Hapus"><i class="fas fa-trash"></i> Hapus</a>
-            </div> --}}
         </div>
     @empty
         <div class="col">
@@ -107,7 +98,7 @@
                 <div class="py-3 text-center">
                     <i class="ni ni-bell-55 ni-3x"></i>
                     <h4 class="heading mt-4">Perhatian!!</h4>
-                    <p>Menghapus surat akan menghapus semua data yang dimilikinya</p>
+                    <p>Menghapus pengguna akan menghapus semua data yang dimilikinya</p>
                     <p><strong id="nama-hapus"></strong></p>
                 </div>
 
