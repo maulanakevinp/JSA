@@ -47,6 +47,7 @@
 
 @section('content')
 @include('layouts.components.alert')
+
 @if (Request::segment(1) == 'jsa-grid')
     <div class="row d-flex justify-content-center">
         @forelse ($jsa as $item)
