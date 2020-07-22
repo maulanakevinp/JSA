@@ -35,4 +35,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::resource('pengguna', 'UserController');
     });
 
+    Route::group(['middleware' => ['can:kontraktor']], function () {
+        Route::resource('jsa', 'JsaController');
+    });
+
 });

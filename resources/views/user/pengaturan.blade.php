@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="nama_baru">Nama Baru</label>
-                            <input class="form-control form-control-alternative @error('nama') is-invalid @enderror" type="text" name="nama" id="nama" placeholder="Masukkan alamat nama baru ..." value="{{ old('nama') }}">
+                            <input class="form-control form-control-alternative @error('nama') is-invalid @enderror" type="text" name="nama" id="nama" placeholder="Masukkan nama baru ..." value="{{ old('nama') }}">
                             @error('nama')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

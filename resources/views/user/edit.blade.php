@@ -135,8 +135,41 @@ Ubah Pengguna
                     success: function (data) {
                         if (data.error) {
                             $('#img-foto_profil').attr('src', $("#img-foto_profil").attr('alt'));
+                            $('.notifikasi').html(`
+                                <div class="alert alert-danger alert-dismissible fade show">
+                                    <span class="alert-icon"><i class="fas fa-times-circle"></i> <strong>Gagal</strong></span>
+                                    <span class="alert-text">
+                                        <ul id="pesanError">
+                                        </ul>
+                                    </span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            `);
+                            $.each(data.message, function (i, e) {
+                                $('#pesanError').append(`<li>`+e+`</li>`);
+                            });
+                            setTimeout(() => {
+                                $(".notifikasi").html('');
+                            }, 7000);
                         } else {
-                            location.reload();
+                            $('.notifikasi').html(`
+                                <div class="alert alert-success alert-dismissible fade show">
+                                    <span class="alert-icon"><i class="fas fa-check-circle"></i> <strong>Berhasil</strong></span>
+                                    <span class="alert-text">
+                                        Foto Profil berhasil diperbarui
+                                    </span>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            `);
+
+                            setTimeout(() => {
+                                $(".notifikasi").html('');
+                                location.reload();
+                            }, 1000);
                         }
                     }
                 });
