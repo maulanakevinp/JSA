@@ -36,6 +36,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['middleware' => ['can:kontraktor']], function () {
+        Route::get('/jsa-grid', 'JsaController@index');
         Route::resource('jsa', 'JsaController');
     });
 

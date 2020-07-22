@@ -13,15 +13,15 @@
             <div class="col">
                 <div class="card shadow h-100">
                     <div class="card-header border-0">
-                        <div class="row">
-                            <div class="col-6">
+                        <div class="d-flex justify-content-between">
+                            <div class="">
                                 <h2 class="mb-0">JSA</h2>
                                 <p class="mb-0 text-sm">Kelola JSA {{ config('app.name') }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                <a href="{{ route('jsa.create') }}" class="btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
-                                <a href="?show=table" class="btn btn-outline-light {{ request('show') == 'table' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
-                                <a href="?show=grid" class="btn btn-outline-light {{ request('show') == 'grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                            <div class="">
+                                <a href="{{ url('jsa') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
+                                <a href="{{ url('/jsa-grid') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                                <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
                             </div>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
 @endsection
 
 @section('form-search')
-<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" action="{{ route('jsa.index') }}" method="GET">
+<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" action="{{ URL::current() }}" method="GET">
     <div class="form-group mb-0">
         <div class="input-group input-group-alternative">
             <div class="input-group-prepend">
@@ -47,8 +47,8 @@
 
 @section('content')
 @include('layouts.components.alert')
-@if (request('show') == 'grid')
-    <div class="row">
+@if (Request::segment(1) == 'jsa-grid')
+    <div class="row d-flex justify-content-center">
         @forelse ($jsa as $item)
             <div class="col-lg-6 mb-3">
                 <div class="card shadow">
@@ -126,83 +126,16 @@
                 </div>
             </div>
         @empty
-            <div class="col">
-                <div class="single-service bg-white rounded shadow">
-                    <h4>Data belum tersedia</h4>
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <h3>Data belum tersedia</h3>
+                    </div>
                 </div>
             </div>
         @endforelse
-        <div class="col">
+        <div class="col-12">
             {{ $jsa->links() }}
-        </div>
-    </div>
-@elseif(request('show') == 'table')
-    <div class="card shadow">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>No. JSA</th>
-                            <th>Nama Pekerjaan</th>
-                            <th>Lokasi</th>
-                            <th>Nomor Kontrak</th>
-                            <th>Tanggal Kontrak</th>
-                            <th>Tanggal Review</th>
-                            <th>Tanggal Persetujuan</th>
-                            <th>Status</th>
-                            <th>Opsi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse ($jsa as $item)
-                            <tr>
-                                <td>{{ $item->no_jsa }}</td>
-                                <td>{{ $item->nama_pekerjaan }}</td>
-                                <td>{{ $item->lokasi }}</td>
-                                <td>{{ $item->nomor_kontrak }}</td>
-                                <td>{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
-                                <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
-                                <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
-                                <td>
-                                    @if ($item->status_review == 0)
-                                        Belum direview
-                                    @endif
-                                    @if ($item->status_review == 1)
-                                        Telah direview
-                                    @endif
-                                    @if ($item->status_review == 2)
-                                        Review ditolak
-                                    @endif
-                                    dan
-                                    @if ($item->status_persetujuan == 0)
-                                        belum disetujui
-                                    @endif
-                                    @if ($item->status_review == 1)
-                                        telah disetujui
-                                    @endif
-                                    @if ($item->status_review == 2)
-                                        persetujuan ditolak
-                                    @endif
-                                </td>
-                                <td>
-                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
-                                        <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
-                                    @else
-                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
-                                    @endif
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="9" align="center">Data Tidak Tersedia</td>
-                            </tr>
-                        @endforelse
-                    </tbody>
-                </table>
-                {{ $jsa->links() }}
-            </div>
         </div>
     </div>
 @else
@@ -270,6 +203,8 @@
                         @endforelse
                     </tbody>
                 </table>
+            </div>
+            <div class="mt-3">
                 {{ $jsa->links() }}
             </div>
         </div>
@@ -314,6 +249,7 @@
 @push('scripts')
 <script>
     $(document).ready(function(){
+        $(".pagination").addClass('justify-content-center')
         $('.hapus').on('click', function(){
             $('#nama-hapus').html('Apakah Anda yakin ingin menghapus ' + $(this).data('nama') + '???');
             $('#form-hapus').attr('action', $("meta[name='base-url']").attr('content') + '/jsa/' + $(this).data('id'));
