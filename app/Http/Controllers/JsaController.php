@@ -12,9 +12,23 @@ class JsaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $jsa = Jsa::paginate(12);
+
+        if ($request->cari) {
+            $jsa = Jsa::where('no_jsa', 'like', "%{$request->cari}%")
+                        ->orWhere('nama_pekerjaan', 'like', "%{$request->cari}%")
+                        ->orWhere('lokasi', 'like', "%{$request->cari}%")
+                        ->orWhere('nomor_kontrak', 'like', "%{$request->cari}%")
+                        ->orWhere('tanggal_kontrak', 'like', "%{$request->cari}%")
+                        ->orWhere('tanggal_review', 'like', "%{$request->cari}%")
+                        ->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%")
+                        ->paginate(12);
+        }
+
+        $jsa->appends($request->only('cari'));
+
         return view('jsa.index', compact('jsa'));
     }
 
