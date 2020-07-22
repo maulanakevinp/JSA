@@ -13,15 +13,15 @@
             <div class="col">
                 <div class="card shadow h-100">
                     <div class="card-header border-0">
-                        <div class="row">
-                            <div class="col-6">
+                        <div class="d-flex justify-content-between">
+                            <div class="">
                                 <h2 class="mb-0">JSA</h2>
                                 <p class="mb-0 text-sm">Kelola JSA {{ config('app.name') }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                <a href="{{ route('jsa.create') }}" class="btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
-                                <a href="{{ url('jsa') }}" class="btn btn-outline-light {{ Request::segment(1) == 'jsa' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
-                                <a href="{{ url('/jsa-grid') }}" class="btn btn-outline-light {{ Request::segment(1) == 'jsa-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                            <div class="">
+                                <a href="{{ url('jsa') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
+                                <a href="{{ url('/jsa-grid') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                                <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@
 @section('content')
 @include('layouts.components.alert')
 @if (Request::segment(1) == 'jsa-grid')
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         @forelse ($jsa as $item)
             <div class="col-lg-6 mb-3">
                 <div class="card shadow">
