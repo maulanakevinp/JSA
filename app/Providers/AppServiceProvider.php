@@ -42,5 +42,11 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('kontraktor', function($user){
             return $user->peran->nama == 'Kontraktor';
         });
+
+        Gate::define('hse-kontraktor', function($user){
+            if ($user->peran->nama == 'Kontraktor' || $user->peran->nama == 'HSE') {
+                return true;
+            }
+        });
     }
 }

@@ -68,6 +68,14 @@
                     </a>
                 </li>
             @endcan
+            @can('hse-kontraktor')
+                <li class="nav-item">
+                    <a class="nav-link @if (Request::segment(1) == 'jsa') active @endif" href="{{ route('jsa.index') }}">
+                        <i class="fas fa-file-invoice text-primary"></i>
+                        <span class="nav-link-inner--text">JSA</span>
+                    </a>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a class="nav-link @if (Request::segment(1) == 'profil' || Request::segment(1) == 'pengaturan') active @endif" href="{{ route('profil') }}">
                     <i class="ni ni-single-02 text-yellow"></i>

@@ -48,7 +48,31 @@
 <div class="row mt-4 justify-content-center">
     @forelse ($users as $user)
         <div class="col-lg-4 col-md-6">
-            <div class="single-service bg-white rounded shadow">
+            <div class="card card-profile shadow">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 order-lg-2">
+                        <div class="card-profile-image">
+                            <a href="{{ route('pengguna.show', $user) }}" title="Detail Pengguna">
+                                <img id="foto_profil" src="{{url(Storage::url($user->foto_profil))}}" alt="Foto Profil {{ $user->nama }}" class="rounded-circle" style="max-height: 150px; max-width: 200px">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-header text-center border-0 pt-md-4 pb-0 pb-md-4"></div>
+                <div class="card-body pt-0 pt-md-4 pt-5">
+                    <div class="text-center mt-5">
+                        <h3>
+                            {{ $user->nama }}
+                        </h3>
+                        <div class="h5 font-weight-300">
+                            {{ $user->peran->nama }}
+                        </div>
+                        <a href="{{ route('pengguna.edit', $user) }}" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i> Edit</a>
+                        <a class="btn btn-sm btn-danger hapus" data-nama="{{ $user->nama }}" data-id="{{ $user->id }}" data-toggle="modal" href="#modal-hapus" title="Hapus"><i class="fas fa-trash"></i> Hapus</a>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="single-service bg-white rounded shadow">
                 <a href="{{ route('pengguna.show', $user) }}">
                     <div style="background-image: url('{{ url(Storage::url($user->foto_profil)) }}'); background-size: cover; height: 250px; width: 100%;"></div>
                     <h4>{{ $user->nama }}</h4>
@@ -56,7 +80,7 @@
                 <p>Sebagai {{ $user->peran->nama }}</p>
                 <a href="{{ route('pengguna.edit', $user) }}" class="btn btn-sm btn-success" title="Edit"><i class="fas fa-edit"></i> Edit</a>
                 <a class="btn btn-sm btn-danger hapus" data-nama="{{ $user->nama }}" data-id="{{ $user->id }}" data-toggle="modal" href="#modal-hapus" title="Hapus"><i class="fas fa-trash"></i> Hapus</a>
-            </div>
+            </div> --}}
         </div>
     @empty
         <div class="col">
