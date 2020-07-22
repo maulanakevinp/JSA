@@ -20,6 +20,8 @@
                             </div>
                             <div class="col-6 text-right">
                                 <a href="{{ route('jsa.create') }}" class="btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
+                                <a href="?show=table" class="btn btn-outline-light {{ request('show') == 'table' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
+                                <a href="?show=grid" class="btn btn-outline-light {{ request('show') == 'grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
                             </div>
                         </div>
                     </div>
@@ -45,79 +47,241 @@
 
 @section('content')
 @include('layouts.components.alert')
-<div class="card shadow">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>No. JSA</th>
-                        <th>Nama Pekerjaan</th>
-                        <th>Lokasi</th>
-                        <th>Nomor Kontrak</th>
-                        <th>Tanggal Kontrak</th>
-                        <th>Tanggal Review</th>
-                        <th>Tanggal Persetujuan</th>
-                        <th>Status</th>
-                        <th>Opsi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($jsa as $item)
-                        <tr>
-                            <td>{{ $item->no_jsa }}</td>
-                            <td>{{ $item->nama_pekerjaan }}</td>
-                            <td>{{ $item->lokasi }}</td>
-                            <td>{{ $item->nomor_kontrak }}</td>
-                            <td>{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
-                            <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
-                            <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
-                            <td>
-                                @if ($item->status_review == 0)
-                                    Belum direview
-                                @endif
-                                @if ($item->status_review == 1)
-                                    Telah direview
-                                @endif
-                                @if ($item->status_review == 2)
-                                    Review ditolak
-                                @endif
-                                dan
-                                @if ($item->status_persetujuan == 0)
-                                    Belum disetujui
-                                @endif
-                                @if ($item->status_review == 1)
-                                    Telah disetujui
-                                @endif
-                                @if ($item->status_review == 2)
-                                    Persetujuan ditolak
-                                @endif
-                            </td>
-                            <td>
-                                @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
-                                    <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
-                                @endif
-                                <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="9" align="center">Data Tidak Tersedia</td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
+@if (request('show') == 'grid')
+    <div class="row">
+        @forelse ($jsa as $item)
+            <div class="col-lg-6 mb-3">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <table class="">
+                            <tr>
+                                <td valign="top">No. JSA</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->no_jsa }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Nama Pekerjaan</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->nama_pekerjaan }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Lokasi</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->lokasi }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Nomor Kontrak</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->nomor_kontrak }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Tanggal Kontrak</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Tanggal Review</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Tanggal Persetujuan</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
+                            </tr>
+                            <tr>
+                                <td valign="top">Status</td>
+                                <td valign="top">:</td>
+                                <td valign="top">
+                                    @if ($item->status_review == 0)
+                                        Belum direview
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        Telah direview
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        Review ditolak
+                                    @endif
+                                    dan
+                                    @if ($item->status_persetujuan == 0)
+                                        belum disetujui
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        telah disetujui
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        persetujuan ditolak
+                                    @endif
+                                </td>
+                            </tr>
+                        </table>
+
+                        @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                            <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
+                        @else
+                            <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col">
+                <div class="single-service bg-white rounded shadow">
+                    <h4>Data belum tersedia</h4>
+                </div>
+            </div>
+        @endforelse
+        <div class="col">
+            {{ $jsa->links() }}
         </div>
     </div>
-</div>
+@elseif(request('show') == 'table')
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No. JSA</th>
+                            <th>Nama Pekerjaan</th>
+                            <th>Lokasi</th>
+                            <th>Nomor Kontrak</th>
+                            <th>Tanggal Kontrak</th>
+                            <th>Tanggal Review</th>
+                            <th>Tanggal Persetujuan</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($jsa as $item)
+                            <tr>
+                                <td>{{ $item->no_jsa }}</td>
+                                <td>{{ $item->nama_pekerjaan }}</td>
+                                <td>{{ $item->lokasi }}</td>
+                                <td>{{ $item->nomor_kontrak }}</td>
+                                <td>{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
+                                <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
+                                <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
+                                <td>
+                                    @if ($item->status_review == 0)
+                                        Belum direview
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        Telah direview
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        Review ditolak
+                                    @endif
+                                    dan
+                                    @if ($item->status_persetujuan == 0)
+                                        belum disetujui
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        telah disetujui
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        persetujuan ditolak
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                        <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
+                                    @else
+                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" align="center">Data Tidak Tersedia</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+                {{ $jsa->links() }}
+            </div>
+        </div>
+    </div>
+@else
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No. JSA</th>
+                            <th>Nama Pekerjaan</th>
+                            <th>Lokasi</th>
+                            <th>Nomor Kontrak</th>
+                            <th>Tanggal Kontrak</th>
+                            <th>Tanggal Review</th>
+                            <th>Tanggal Persetujuan</th>
+                            <th>Status</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($jsa as $item)
+                            <tr>
+                                <td>{{ $item->no_jsa }}</td>
+                                <td>{{ $item->nama_pekerjaan }}</td>
+                                <td>{{ $item->lokasi }}</td>
+                                <td>{{ $item->nomor_kontrak }}</td>
+                                <td>{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
+                                <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
+                                <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
+                                <td>
+                                    @if ($item->status_review == 0)
+                                        Belum direview
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        Telah direview
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        Review ditolak
+                                    @endif
+                                    dan
+                                    @if ($item->status_persetujuan == 0)
+                                        belum disetujui
+                                    @endif
+                                    @if ($item->status_review == 1)
+                                        telah disetujui
+                                    @endif
+                                    @if ($item->status_review == 2)
+                                        persetujuan ditolak
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                        <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
+                                    @else
+                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                                    @endif
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" align="center">Data Tidak Tersedia</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+                {{ $jsa->links() }}
+            </div>
+        </div>
+    </div>
+@endif
 
 <div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus" aria-hidden="true">
     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
         <div class="modal-content bg-gradient-danger">
 
             <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-delete">Hapus Pengguna?</h6>
+                <h6 class="modal-title" id="modal-title-delete">Hapus JSA?</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>

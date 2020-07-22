@@ -29,6 +29,8 @@ class UserController extends Controller
                         ->paginate(12);
         }
 
+        $users->appends($request->only('cari'));
+
         return view('user.index', compact('users'));
     }
 
