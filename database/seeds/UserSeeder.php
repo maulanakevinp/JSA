@@ -21,5 +21,15 @@ class UserSeeder extends Seeder
             'nama'      => 'HSE',
             'peran_id'  => 2
         ]);
+
+        User::create([
+            'nama'      => 'PGN SOLUTION',
+            'peran_id'  => 4
+        ]);
+
+        User::create([
+            'nama'      => 'PGN SAKA',
+            'peran_id'  => 4
+        ]);
     }
 }

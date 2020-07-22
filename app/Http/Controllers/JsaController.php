@@ -14,7 +14,8 @@ class JsaController extends Controller
      */
     public function index()
     {
-        //
+        $jsa = Jsa::paginate(12);
+        return view('jsa.index', compact('jsa'));
     }
 
     /**
@@ -24,7 +25,7 @@ class JsaController extends Controller
      */
     public function create()
     {
-        //
+        return view('jsa.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class JsaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'no_jsa'            => ['required', 'string', 'max:128'],
+            'nama_pekerjaan'    => ['required', 'string', 'max:128'],
+            'lokasi'            => ['required', 'string', 'max:128'],
+            'nomor_kontrak'     => ['required', 'string', 'max:128'],
+            'tanggal_kontrak'   => ['required', 'date', 'after:now'],
+        ],[
+            'tanggal_kontrak.after' => 'Tanggal kontrak harus sesudah tanggal sekarang'
+        ]);
+
+        $data['pengaju_id'] = auth()->user()->id;
+
+        Jsa::create($data);
+
+        return redirect()->route('jsa.index')->with('success', 'JSA Berhasil Ditambahkan');
     }
 
     /**
@@ -46,7 +61,7 @@ class JsaController extends Controller
      */
     public function show(Jsa $jsa)
     {
-        //
+        return view('jsa.show', compact('jsa'));
     }
 
     /**
@@ -57,7 +72,7 @@ class JsaController extends Controller
      */
     public function edit(Jsa $jsa)
     {
-        //
+        return view('jsa.edit', compact('jsa'));
     }
 
     /**
@@ -69,7 +84,17 @@ class JsaController extends Controller
      */
     public function update(Request $request, Jsa $jsa)
     {
-        //
+        $data = $request->validate([
+            'no_jsa'            => ['required', 'string', 'max:128'],
+            'nama_pekerjaan'    => ['required', 'string', 'max:128'],
+            'lokasi'            => ['required', 'string', 'max:128'],
+            'nomor_kontrak'     => ['required', 'string', 'max:128'],
+            'tanggal_kontrak'   => ['required', 'date', 'after:now'],
+        ]);
+
+        $jsa->update($data);
+
+        return redirect()->back()->with('success', 'JSA Berhasil Diperbarui');
     }
 
     /**
@@ -80,6 +105,7 @@ class JsaController extends Controller
      */
     public function destroy(Jsa $jsa)
     {
-        //
+        $jsa->delete();
+        return redirect()->back()->with('success', 'JSA Berhasil Dihapus');
     }
 }
