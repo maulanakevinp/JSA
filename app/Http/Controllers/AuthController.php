@@ -20,7 +20,14 @@ class AuthController extends Controller
             'password'  => ['required']
         ]);
 
-        return redirect()->route('profil');
+        if (auth()->user()->peran->nama == 'Admin Kontraktor') {
+            return redirect()->route('jsa.edit');
+        } elseif (auth()->user()->peran->nama == 'Super Admin') {
+            return redirect()->route('pengguna.index');
+        } else {
+            return redirect()->route('jsa.index');
+        }
+
     }
 
     public function keluar()
