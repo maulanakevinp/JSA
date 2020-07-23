@@ -21,7 +21,7 @@
                             <div class="">
                                 <a href="{{ url('jsa') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
                                 <a href="{{ url('/jsa-grid') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
-                                <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
+                                <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
                             </div>
                         </div>
                     </div>
@@ -47,6 +47,7 @@
 
 @section('content')
 @include('layouts.components.alert')
+
 @if (Request::segment(1) == 'jsa-grid')
     <div class="row d-flex justify-content-center">
         @forelse ($jsa as $item)
@@ -117,10 +118,14 @@
                         </table>
 
                         @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                        <div class="text-center mt-3">
                             <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
+                        </div>
                         @else
-                            <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                        <div class="text-center mt-3">
+                            <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success"><i class="fas fa-edit"> Edit</i></a>
+                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash"> Hapus</i></a>
+                        </div>
                         @endif
                     </div>
                 </div>
@@ -191,7 +196,7 @@
                                     @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
                                         <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
                                     @else
-                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                                         <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
                                     @endif
                                 </td>

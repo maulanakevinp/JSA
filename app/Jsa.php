@@ -23,4 +23,9 @@ class Jsa extends Model
     {
         return $this->belongsTo('App\User', 'penyetuju_id');
     }
+
+    public function langkahPekerjaan()
+    {
+        return $this->hasMany('App\LangkahPekerjaan');
+    }
 }

@@ -62,9 +62,9 @@ class JsaController extends Controller
 
         $data['pengaju_id'] = auth()->user()->id;
 
-        Jsa::create($data);
+        $jsa = Jsa::create($data);
 
-        return redirect()->route('jsa.index')->with('success', 'JSA Berhasil Ditambahkan');
+        return redirect()->route('jsa.edit', $jsa)->with('success', 'JSA Berhasil Ditambahkan');
     }
 
     /**

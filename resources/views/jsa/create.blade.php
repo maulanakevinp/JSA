@@ -15,7 +15,7 @@
                                 <p class="mb-0 text-sm">Kelola JSA {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="{{ route('jsa.index') }}" class="btn btn-success" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                <a href="{{ route('jsa.index') }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>

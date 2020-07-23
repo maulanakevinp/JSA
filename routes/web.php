@@ -35,9 +35,12 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::resource('pengguna', 'UserController');
     });
 
-    Route::group(['middleware' => ['can:kontraktor']], function () {
+    Route::group(['middleware' => ['can:sub_kontraktor']], function () {
         Route::get('/jsa-grid', 'JsaController@index');
         Route::resource('jsa', 'JsaController');
+
+        Route::get('/langkahPekerjaan/create/{jsa}', 'LangkahPekerjaanController@create')->name('langkahPekerjaan.create');
+        Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','show');
     });
 
 });
