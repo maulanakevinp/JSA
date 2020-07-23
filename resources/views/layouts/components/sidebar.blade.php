@@ -70,7 +70,7 @@
             @endcan
             @can('hse-sub_kontraktor')
                 <li class="nav-item">
-                    <a class="nav-link @if (Request::segment(1) == 'jsa' || Request::segment(1) == 'jsa-grid') active @endif" href="{{ route('jsa.index') }}">
+                    <a class="nav-link @if (Request::segment(1) == 'jsa' || Request::segment(1) == 'jsa-grid' || Request::segment(1) == 'langkahPekerjaan') active @endif" href="{{ route('jsa.index') }}">
                         <i class="fas fa-file-invoice text-primary"></i>
                         <span class="nav-link-inner--text">JSA</span>
                     </a>

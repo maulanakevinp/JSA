@@ -19,7 +19,7 @@
                                 <p class="mb-0 text-sm">Kelola Pengguna {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="{{ route('pengguna.create') }}" class="btn btn-success" title="Tambah"><i class="fas fa-plus"></i> Tambah Pengguna</a>
+                                <a href="{{ route('pengguna.create') }}" class="btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah Pengguna</a>
                             </div>
                         </div>
                     </div>
