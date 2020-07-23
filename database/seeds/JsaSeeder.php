@@ -12,8 +12,6 @@ class JsaSeeder extends Seeder
      */
     public function run()
     {
-        Jsa::create([
-            'pengaju_id'    => 4
-        ]);
+
     }
 }

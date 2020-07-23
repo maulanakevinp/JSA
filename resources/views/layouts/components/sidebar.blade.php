@@ -68,15 +68,7 @@
                     </a>
                 </li>
             @endcan
-            @can('admin_kontraktor')
-                <li class="nav-item">
-                    <a class="nav-link @if (Request::segment(1) == 'form-jsa' || Request::segment(1) == 'langkahPekerjaan') active @endif" href="{{ route('jsa.edit') }}">
-                        <i class="fas fa-file-invoice text-primary"></i>
-                        <span class="nav-link-inner--text">Form JSA</span>
-                    </a>
-                </li>
-            @endcan
-            @can('hse-manager_kontraktor')
+            @can('no_admin')
                 <li class="nav-item">
                     <a class="nav-link @if (Request::segment(1) == 'jsa' || Request::segment(1) == 'jsa-grid' || Request::segment(1) == 'langkahPekerjaan') active @endif" href="{{ route('jsa.index') }}">
                         <i class="fas fa-file-invoice text-primary"></i>

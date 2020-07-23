@@ -35,6 +35,6 @@ class User extends Authenticatable
 
     public function jsa()
     {
-        return $this->hasOne('App\Jsa','pengaju_id');
+        return $this->hasMany('App\Jsa','pengaju_id');
     }
 }
