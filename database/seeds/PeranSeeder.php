@@ -21,11 +21,11 @@ class PeranSeeder extends Seeder
         ]);
 
         Peran::create([
-            'nama'  => 'Sub Kontraktor'
+            'nama'  => 'Manager Kontraktor'
         ]);
 
         Peran::create([
-            'nama'  => 'Kontraktor'
+            'nama'  => 'Admin Kontraktor'
         ]);
     }
 }

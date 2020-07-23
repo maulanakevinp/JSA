@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="waktu">Waktu</label>
-                        <input class="form-control form-control-alternative" type="datetime-local" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ old('waktu') }}">
+                        <input class="form-control form-control-alternative" type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ old('waktu') }}">
                         @error('waktu')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

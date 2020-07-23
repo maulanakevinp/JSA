@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'JSA')
+@section('title', 'Kelola JSA')
 
 @section('styles')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -16,12 +16,11 @@
                         <div class="d-flex justify-content-between">
                             <div class="">
                                 <h2 class="mb-0">JSA</h2>
-                                <p class="mb-0 text-sm">Kelola JSA {{ config('app.name') }}</p>
+                                <p class="mb-0 text-sm">Kelola JSA</p>
                             </div>
                             <div class="">
                                 <a href="{{ url('jsa') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
                                 <a href="{{ url('/jsa-grid') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'jsa-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
-                                <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
                             </div>
                         </div>
                     </div>
@@ -53,45 +52,53 @@
         @forelse ($jsa as $item)
             <div class="col-lg-6 mb-3">
                 <div class="card shadow">
+                    <div class="card-header d-inline-flex justify-content-between">
+                        <h3>{{ $item->pengaju->nama }}</h3>
+                        @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                            <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
+                        @else
+                            <a href="{{ route('jsa.verifikasi',$item) }}" class="btn btn-sm btn-success"><i class="fas fa-edit"> Verifikasi</i></a>
+                        @endif
+                    </div>
                     <div class="card-body">
                         <table class="">
                             <tr>
-                                <td valign="top">No. JSA</td>
+                                <td width="180px" valign="top">No. JSA</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->no_jsa }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Nama Pekerjaan</td>
+                                <td width="180px" valign="top">Nama Pekerjaan</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->nama_pekerjaan }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Lokasi</td>
+                                <td width="180px" valign="top">Lokasi</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->lokasi }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Nomor Kontrak</td>
+                                <td width="180px" valign="top">Nomor Kontrak</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->nomor_kontrak }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Tanggal Kontrak</td>
+                                <td width="180px" valign="top">Tanggal Kontrak</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Tanggal Review</td>
+                                <td width="180px" valign="top">Tanggal Review</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Tanggal Persetujuan</td>
+                                <td width="180px" valign="top">Tanggal Persetujuan</td>
                                 <td valign="top">:</td>
                                 <td valign="top">{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
                             </tr>
                             <tr>
-                                <td valign="top">Status</td>
+                                <td width="180px" valign="top">Status</td>
                                 <td valign="top">:</td>
                                 <td valign="top">
                                     @if ($item->status_review == 0)
@@ -107,26 +114,15 @@
                                     @if ($item->status_persetujuan == 0)
                                         belum disetujui
                                     @endif
-                                    @if ($item->status_review == 1)
+                                    @if ($item->status_persetujuan == 1)
                                         telah disetujui
                                     @endif
-                                    @if ($item->status_review == 2)
+                                    @if ($item->status_persetujuan == 2)
                                         persetujuan ditolak
                                     @endif
                                 </td>
                             </tr>
                         </table>
-
-                        @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
-                        <div class="text-center mt-3">
-                            <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
-                        </div>
-                        @else
-                        <div class="text-center mt-3">
-                            <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success"><i class="fas fa-edit"> Edit</i></a>
-                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash"> Hapus</i></a>
-                        </div>
-                        @endif
                     </div>
                 </div>
             </div>
@@ -150,6 +146,7 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
+                            <th>Nama Perusahaan</th>
                             <th>No. JSA</th>
                             <th>Nama Pekerjaan</th>
                             <th>Lokasi</th>
@@ -164,11 +161,12 @@
                     <tbody>
                         @forelse ($jsa as $item)
                             <tr>
+                                <td width="180px">{{ $item->pengaju->nama }}</td>
                                 <td>{{ $item->no_jsa }}</td>
                                 <td>{{ $item->nama_pekerjaan }}</td>
                                 <td>{{ $item->lokasi }}</td>
                                 <td>{{ $item->nomor_kontrak }}</td>
-                                <td>{{ date('d/m/Y', strtotime($item->tanggal_kontrak)) }}</td>
+                                <td>{{ $item->tanggal_kontrak ? date('d/m/Y', strtotime($item->tanggal_kontrak)) : '-' }}</td>
                                 <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
                                 <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
                                 <td>
@@ -185,10 +183,10 @@
                                     @if ($item->status_persetujuan == 0)
                                         belum disetujui
                                     @endif
-                                    @if ($item->status_review == 1)
+                                    @if ($item->status_persetujuan == 1)
                                         telah disetujui
                                     @endif
-                                    @if ($item->status_review == 2)
+                                    @if ($item->status_persetujuan == 2)
                                         persetujuan ditolak
                                     @endif
                                 </td>
@@ -196,14 +194,13 @@
                                     @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
                                         <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-success" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
                                     @else
-                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                                        <a href="{{ route('jsa.verifikasi',$item) }}" class="btn btn-sm btn-success" title="Verifikasi" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                                     @endif
                                 </td>
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" align="center">Data Tidak Tersedia</td>
+                                <td width="180px" colspan="9" align="center">Data Tidak Tersedia</td>
                             </tr>
                         @endforelse
                     </tbody>

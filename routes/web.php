@@ -35,12 +35,22 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::resource('pengguna', 'UserController');
     });
 
-    Route::group(['middleware' => ['can:sub_kontraktor']], function () {
-        Route::get('/jsa-grid', 'JsaController@index');
-        Route::resource('jsa', 'JsaController');
+    Route::group(['middleware' => ['can:no_admin']], function () {
+        Route::resource('jsa', 'JsaController')->except('create','store','destroy','index');
+        Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','update','destroy','edit','index');
+    });
+
+    Route::group(['middleware' => ['can:admin_kontraktor']], function () {
+        Route::get('/form-jsa', 'JsaController@edit')->name('jsa.edit');
 
         Route::get('/langkahPekerjaan/create/{jsa}', 'LangkahPekerjaanController@create')->name('langkahPekerjaan.create');
-        Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','show');
+        Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','show','index');
+    });
+
+    Route::group(['middleware' => ['can:hse-manager_kontraktor']], function () {
+        Route::get('/jsa/verifikasi/{jsa}', 'JsaController@edit')->name('jsa.verifikasi');
+        Route::get('/jsa-grid', 'JsaController@index');
+        Route::resource('jsa', 'JsaController')->except('create','update','store','destroy','show');
     });
 
 });

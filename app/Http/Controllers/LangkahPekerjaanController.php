@@ -36,13 +36,10 @@ class LangkahPekerjaanController extends Controller
             'tingkat_risiko'                    => ['required'],
             'rencana_tindakan_pencegahan'       => ['required'],
             'pic_pelaksana'                     => ['required'],
-            'waktu'                             => ['nullable', 'after:now'],
+            'waktu'                             => ['required'],
         ]);
 
         $data['jsa_id'] = $request->jsa_id;
-        if ($request->waktu) {
-            $data['waktu']  = date('Y-m-d H:i:s', strtotime($request->waktu));
-        }
 
         LangkahPekerjaan::create($data);
 
@@ -58,6 +55,17 @@ class LangkahPekerjaanController extends Controller
     public function edit(LangkahPekerjaan $langkahPekerjaan)
     {
         return view('langkah-pekerjaan.edit', compact('langkahPekerjaan'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\LangkahPekerjaan  $langkahPekerjaan
+     * @return \Illuminate\Http\Response
+     */
+    public function show(LangkahPekerjaan $langkahPekerjaan)
+    {
+        return view('langkah-pekerjaan.show', compact('langkahPekerjaan'));
     }
 
     /**
@@ -77,12 +85,8 @@ class LangkahPekerjaanController extends Controller
             'tingkat_risiko'                    => ['required'],
             'rencana_tindakan_pencegahan'       => ['required'],
             'pic_pelaksana'                     => ['required'],
-            'waktu'                             => ['nullable', 'after:now'],
+            'waktu'                             => ['required'],
         ]);
-
-        if ($request->waktu) {
-            $data['waktu']  = date('Y-m-d H:i:s', strtotime($request->waktu));
-        }
 
         $langkahPekerjaan->update($data);
         return redirect()->back()->with('success', 'Langkah-langkah pekerjaan berhasil diperbarui');
