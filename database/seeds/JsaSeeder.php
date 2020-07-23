@@ -1,5 +1,6 @@
 <?php
 
+use App\Jsa;
 use Illuminate\Database\Seeder;
 
 class JsaSeeder extends Seeder
@@ -11,6 +12,8 @@ class JsaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Jsa::create([
+            'pengaju_id'    => 4
+        ]);
     }
 }

@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Peran', 'peran_id');
     }
+
+    public function jsa()
+    {
+        return $this->hasOne('App\Jsa','pengaju_id');
+    }
 }

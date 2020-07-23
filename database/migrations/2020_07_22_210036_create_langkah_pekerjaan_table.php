@@ -23,7 +23,7 @@ class CreateLangkahPekerjaanTable extends Migration
             $table->text('tingkat_risiko');
             $table->text('rencana_tindakan_pencegahan');
             $table->text('pic_pelaksana');
-            $table->timestamp('waktu')->nullable();
+            $table->text('waktu')->nullable();
             $table->timestamps();
         });
     }

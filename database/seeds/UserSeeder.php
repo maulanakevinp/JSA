@@ -29,7 +29,7 @@ class UserSeeder extends Seeder
 
         User::create([
             'nama'      => 'PGN SAKA',
-            'peran_id'  => 3
+            'peran_id'  => 4
         ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jsa;
 use App\Peran;
 use App\User;
 use Illuminate\Http\Request;
@@ -67,6 +68,11 @@ class UserController extends Controller
         }
 
         $user = User::create($data);
+        if ($request->peran == 4) {
+            Jsa::create([
+                'pengaju_id'    => $user->id
+            ]);
+        }
 
         return redirect()->route('pengguna.show', $user)->with('success', 'Penggunaa berhasil ditambahkan');
     }

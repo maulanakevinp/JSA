@@ -35,16 +35,22 @@ class AppServiceProvider extends ServiceProvider
             return $user->peran->nama == 'HSE';
         });
 
-        Gate::define('sub_kontraktor', function($user){
-            return $user->peran->nama == 'Sub Kontraktor';
+        Gate::define('admin_kontraktor', function($user){
+            return $user->peran->nama == 'Admin Kontraktor';
         });
 
-        Gate::define('kontraktor', function($user){
-            return $user->peran->nama == 'Kontraktor';
+        Gate::define('manager_kontraktor', function($user){
+            return $user->peran->nama == 'Manager Kontraktor';
         });
 
-        Gate::define('hse-sub_kontraktor', function($user){
-            if ($user->peran->nama == 'Sub Kontraktor' || $user->peran->nama == 'HSE') {
+        Gate::define('hse-manager_kontraktor', function($user){
+            if ($user->peran->nama == 'Manager Kontraktor' || $user->peran->nama == 'HSE') {
+                return true;
+            }
+        });
+
+        Gate::define('no_admin', function($user){
+            if ($user->peran->nama == 'Admin Kontraktor' || $user->peran->nama == 'Manager Kontraktor' || $user->peran->nama == 'HSE') {
                 return true;
             }
         });
