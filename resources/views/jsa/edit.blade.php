@@ -2,7 +2,7 @@
 
 @section('title')
 @can('admin_kontraktor')
-    Form JSA
+    Edit JSA
 @endcan
 
 @can('hse-manager_kontraktor')
@@ -21,7 +21,7 @@
                             <div class="col-6">
                                 <h2 class="mb-0">
                                     @can('admin_kontraktor')
-                                        Form JSA
+                                        Edit JSA
                                     @endcan
 
                                     @can('hse-manager_kontraktor')
@@ -31,9 +31,7 @@
                                 <p class="mb-0 text-sm">Kelola JSA</p>
                             </div>
                             <div class="col-6 text-right">
-                                @can('hse-manager_kontraktor')
-                                    <a href="{{ route('jsa.index') }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                @endcan
+                                <a href="{{ route('jsa.index') }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -46,6 +44,19 @@
 
 @section('content')
 @include('layouts.components.alert')
+
+@if (count($jsa->langkahPekerjaan) < 1)
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="fas fa-exclamation-triangle"></i></span>
+        <span class="alert-text">
+            <strong>Perhatian</strong>
+            Harap menambahkan urutan langkah-langkah pekerjaan
+        </span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
 
 @if ($jsa->status_review == 0)
     <div class="alert alert-info fade show" role="alert">
@@ -101,7 +112,7 @@
     <div class="card-header bg-white border-0 d-flex justify-content-between">
         <h3 class="mb-0">
             @can('admin_kontraktor')
-                Form JSA
+                Edit JSA
             @endcan
 
             @can('hse-manager_kontraktor')
