@@ -138,7 +138,7 @@ class JsaController extends Controller
      */
     public function show(Jsa $jsa)
     {
-        return "PDF nya masih belum dibikin";
+        return view('jsa.edit', compact('jsa'));
     }
 
     /**
@@ -161,13 +161,15 @@ class JsaController extends Controller
      */
     public function update(Request $request, Jsa $jsa)
     {
-        $validation = [
-            'no_jsa'            => ['required', 'string', 'max:128'],
-            'nama_pekerjaan'    => ['required', 'string', 'max:128'],
-            'lokasi'            => ['required', 'string', 'max:128'],
-            'nomor_kontrak'     => ['required', 'string', 'max:128'],
-            'tanggal_kontrak'   => ['required', 'date', 'after:now'],
-        ];
+        if (auth()->user()->peran->nama == 'Admin Kontraktor') {
+            $validation = [
+                'no_jsa'            => ['required', 'string', 'max:128'],
+                'nama_pekerjaan'    => ['required', 'string', 'max:128'],
+                'lokasi'            => ['required', 'string', 'max:128'],
+                'nomor_kontrak'     => ['required', 'string', 'max:128'],
+                'tanggal_kontrak'   => ['required', 'date', 'after:now'],
+            ];
+        }
 
         if (auth()->user()->peran->nama == 'Manager Kontraktor') {
             $validation['satuan_kerja_pemberi_kerja']   = ['required'];

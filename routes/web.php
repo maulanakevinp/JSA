@@ -46,6 +46,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/jsa/verifikasi/{jsa}', 'JsaController@edit')->name('jsa.verifikasi');
     });
 
+    Route::group(['middleware' => ['can:hse']], function () {
+        Route::get('/ijinKerjaPanas/create/{jsa}', 'IjinKerjaPanasController@create')->name('ijinKerjaPanas.create');
+        Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create');
+    });
+
     Route::group(['middleware' => ['can:no_admin']], function () {
         Route::get('/jsa-grid', 'JsaController@index');
         Route::resource('jsa', 'JsaController')->except('create','store','destroy');

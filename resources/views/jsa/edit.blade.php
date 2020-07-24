@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
 @section('title')
-@can('admin_kontraktor')
-    Edit JSA
-@endcan
+@if ($jsa->status_persetujuan == 1)
+    Detail JSA
+@else
+    @can('admin_kontraktor')
+        Edit JSA
+    @endcan
 
-@can('hse-manager_kontraktor')
-    Verifikasi JSA
-@endcan
+    @can('hse-manager_kontraktor')
+        Verifikasi JSA
+    @endcan
+@endif
 @endsection
 
 @section('content-header')
@@ -20,13 +24,17 @@
                         <div class="row">
                             <div class="col-6">
                                 <h2 class="mb-0">
-                                    @can('admin_kontraktor')
-                                        Edit JSA
-                                    @endcan
+                                    @if ($jsa->status_persetujuan == 1)
+                                        Detail JSA
+                                    @else
+                                        @can('admin_kontraktor')
+                                            Edit JSA
+                                        @endcan
 
-                                    @can('hse-manager_kontraktor')
-                                        Verifikasi JSA
-                                    @endcan
+                                        @can('hse-manager_kontraktor')
+                                            Verifikasi JSA
+                                        @endcan
+                                    @endif
                                 </h2>
                                 <p class="mb-0 text-sm">Kelola JSA</p>
                             </div>
@@ -111,13 +119,17 @@
 <div class="card bg-secondary shadow h-100 mb-3">
     <div class="card-header bg-white border-0 d-flex justify-content-between">
         <h3 class="mb-0">
-            @can('admin_kontraktor')
-                Edit JSA
-            @endcan
+            @if ($jsa->status_persetujuan == 1)
+                Detail JSA
+            @else
+                @can('admin_kontraktor')
+                    Edit JSA
+                @endcan
 
-            @can('hse-manager_kontraktor')
-                Verifikasi JSA
-            @endcan
+                @can('hse-manager_kontraktor')
+                    Verifikasi JSA
+                @endcan
+            @endif
         </h3>
         @if ($jsa->status_persetujuan == 1)
             <a href="{{ route('jsa.show', $jsa) }}" class="btn btn-sm btn-success"><i class="fas fa-print"> Cetak</i></a>
@@ -325,6 +337,41 @@
         </div>
     </div>
 </div>
+@if ($jsa->status_persetujuan == 1)
+    <div class="card shadow h-100 mb-3">
+        <div class="card-header bg-secondary border-0 d-flex justify-content-between">
+            <h3 class="mb-0">Ijin Kerja</h3>
+            @can('hse')
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Opsi
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                        <a href="{{ route('ijinKerjaPanas.create', $jsa) }}" class="dropdown-item">Buat Ijin Kerja Panas</a>
+                    </div>
+                </div>
+            @endcan
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Jenis Ijin Kerja</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" align="center">Harap Membuatkan Ijin Kerja</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@endif
 
 <div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus" aria-hidden="true">
     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
