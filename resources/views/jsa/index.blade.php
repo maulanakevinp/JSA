@@ -58,20 +58,24 @@
                     <div class="card-header d-inline-flex justify-content-between">
                         <h3 class="mb-0">{{ $item->pengaju->nama }}</h3>
                         <div class="dropdown">
-                            <a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-v" data-toggle="tooltip" title="Opsi"></i>
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
-                                    <a href="{{ route('jsa.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
-                                @endif
                                 @can('admin_kontraktor')
-                                    <a href="{{ route('jsa.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
-                                    <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
+                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                        <a href="{{ route('jsa.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                    @else
+                                        <a href="{{ route('jsa.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
+                                        <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
+                                    @endif
                                 @endcan
                                 @can('hse-manager_kontraktor')
-                                    <a href="{{ route('jsa.verifikasi',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Verifikasi</i></a>
+                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                        <a href="{{ route('jsa.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                    @else
+                                        <a href="{{ route('jsa.verifikasi',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Verifikasi</i></a>
+                                    @endif
                                 @endcan
                             </div>
                         </div>
@@ -207,15 +211,20 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
-                                        <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-primary" title="Cetak" data-toggle="tooltip"><i class="fas fa-print"></i></a>
-                                    @endif
                                     @can('admin_kontraktor')
-                                        <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i></a>
+                                        @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                            <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-primary" title="Detail" data-toggle="tooltip"><i class="fas fa-fw fa-eye"></i></a>
+                                        @else
+                                            <a href="{{ route('jsa.edit',$item) }}" class="btn btn-sm btn-success" title="Edit" data-toggle="tooltip"><i class="fas fa-fw fa-edit"></i></a>
+                                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->nama_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                                        @endif
                                     @endcan
                                     @can('hse-manager_kontraktor')
-                                        <a href="{{ route('jsa.verifikasi',$item) }}" class="btn btn-sm btn-success" title="Verifikasi" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                                        @if ($item->status_review == 1 && $item->status_persetujuan == 1 )
+                                            <a href="{{ route('jsa.show',$item) }}" class="btn btn-sm btn-primary" title="Detail" data-toggle="tooltip"><i class="fas fa-fw fa-eye"></i></a>
+                                        @else
+                                            <a href="{{ route('jsa.verifikasi',$item) }}" class="btn btn-sm btn-primary" title="Verifikasi" data-toggle="tooltip"><i class="fas fa-fw fa-edit"></i></a>
+                                        @endif
                                     @endcan
                                 </td>
                             </tr>
