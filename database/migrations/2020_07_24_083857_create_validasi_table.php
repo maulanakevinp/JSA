@@ -21,9 +21,9 @@ class CreateValidasiTable extends Migration
             $table->unsignedBigInteger('ijin_kerja_ruang_terbatas_id')->nullable();
             $table->unsignedBigInteger('ijin_kerja_panas_id')->nullable();
             $table->unsignedBigInteger('ijin_kerja_radiografi_id')->nullable();
-            $table->date('hari');
-            $table->time('mulai');
-            $table->time('selesai');
+            $table->date('validasi_hari');
+            $table->time('validasi_mulai_hari');
+            $table->time('validasi_selesai_hari');
             $table->string('nama_pelaksana', 64);
             $table->string('inisial_pelaksana', 64);
             $table->string('nama_pengawas', 64);

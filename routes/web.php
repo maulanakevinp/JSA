@@ -48,12 +48,18 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
     Route::group(['middleware' => ['can:hse']], function () {
         Route::get('/ijinKerjaPanas/create/{jsa}', 'IjinKerjaPanasController@create')->name('ijinKerjaPanas.create');
-        Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create');
+        Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','show');
     });
 
     Route::group(['middleware' => ['can:no_admin']], function () {
         Route::get('/jsa-grid', 'JsaController@index');
         Route::resource('jsa', 'JsaController')->except('create','store','destroy');
+
+        Route::get('/ijin-kerja-grid', 'JsaController@ijinKerja')->name('ijin-kerja-grid');
+        Route::get('/ijin-kerja', 'JsaController@ijinKerja')->name('ijin-kerja');
+
+        Route::get('/ijin-kerja-panas/{id}/cetak/', 'IjinKerjaPanasController@cetak')->name('ijinKerjaPanas.cetak');
+        Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','update','destroy','store','edit');
 
         Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','update','destroy','edit','index');
     });

@@ -39,7 +39,7 @@
                     @csrf
                     <div class="form-group">
                         <label class="form-control-label" for="no_jsa">Nomor JSA</label>
-                        <input onchange="clearError(this)" class="form-control form-control-alternative @error('no_jsa') is-invalid @enderror" type="text" name="no_jsa" id="no_jsa" placeholder="Masukkan nomor JSA ..." value="{{ old('no_jsa') }}">
+                        <input class="form-control form-control-alternative @error('no_jsa') is-invalid @enderror" type="text" name="no_jsa" id="no_jsa" placeholder="Masukkan nomor JSA ..." value="{{ old('no_jsa') }}">
                         @error('no_jsa')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="nama_pekerjaan">Nama Pekerjaan</label>
-                        <input onchange="clearError(this)" class="form-control form-control-alternative @error('nama_pekerjaan') is-invalid @enderror" type="text" name="nama_pekerjaan" id="nama_pekerjaan" placeholder="Masukkan nama pekerjaan ..." value="{{ old('nama_pekerjaan') }}">
+                        <input class="form-control form-control-alternative @error('nama_pekerjaan') is-invalid @enderror" type="text" name="nama_pekerjaan" id="nama_pekerjaan" placeholder="Masukkan nama pekerjaan ..." value="{{ old('nama_pekerjaan') }}">
                         @error('nama_pekerjaan')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="lokasi">Lokasi</label>
-                        <input onchange="clearError(this)" class="form-control form-control-alternative @error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="lokasi" placeholder="Masukkan lokasi ..." value="{{ old('lokasi') }}">
+                        <input class="form-control form-control-alternative @error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="lokasi" placeholder="Masukkan lokasi ..." value="{{ old('lokasi') }}">
                         @error('lokasi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="nomor_kontrak">Nomor Kontrak</label>
-                        <input onchange="clearError(this)" class="form-control form-control-alternative @error('nomor_kontrak') is-invalid @enderror" type="text" name="nomor_kontrak" id="nomor_kontrak" placeholder="Masukkan nomor kontrak ..." value="{{ old('nomor_kontrak') }}">
+                        <input class="form-control form-control-alternative @error('nomor_kontrak') is-invalid @enderror" type="text" name="nomor_kontrak" id="nomor_kontrak" placeholder="Masukkan nomor kontrak ..." value="{{ old('nomor_kontrak') }}">
                         @error('nomor_kontrak')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="tanggal_kontrak">Tanggal Kontrak</label>
-                        <input onchange="clearError(this)" class="form-control form-control-alternative @error('tanggal_kontrak') is-invalid @enderror" type="date" name="tanggal_kontrak" id="tanggal_kontrak" placeholder="Masukkan tanggal kontrak ..." value="{{ old('tanggal_kontrak') }}">
+                        <input class="form-control form-control-alternative @error('tanggal_kontrak') is-invalid @enderror" type="date" name="tanggal_kontrak" id="tanggal_kontrak" placeholder="Masukkan tanggal kontrak ..." value="{{ old('tanggal_kontrak') }}">
                         @error('tanggal_kontrak')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -89,12 +89,3 @@
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-    function clearError(element) {
-        $(element).removeClass('is-invalid');
-        $(element).siblings('.invalid-feedback').remove();
-    }
-</script>
-@endpush
