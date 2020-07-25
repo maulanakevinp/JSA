@@ -17,14 +17,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input disabled type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap1" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap1', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap1) ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap1" placeholder="Masukkan Waktu ..." value="{{ date('Y-m-d\TH:i' ,strtotime(old('waktu_saat_pelaksanaan_pekerjaan_setiap1', $ijinKerja->ujiKandunganGas->waktu_saat_pelaksanaan_pekerjaan_setiap1))) }}">
+                            <input disabled type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap1" data-placeholder="Masukkan Waktu ..." value="{{ old('waktu_pelaksanaan_pekerjaan_setiap1', $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap1) }}">
                         </div>
                     </div>
                 </td>
@@ -44,14 +44,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input disabled type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap2" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap2', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap2) ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap2" placeholder="Masukkan Waktu ..." value="{{ date('Y-m-d\TH:i' ,strtotime(old('waktu_saat_pelaksanaan_pekerjaan_setiap2', $ijinKerja->ujiKandunganGas->waktu_saat_pelaksanaan_pekerjaan_setiap2))) }}">
+                            <input disabled type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap2" data-placeholder="Masukkan Waktu ..." value="{{ old('waktu_pelaksanaan_pekerjaan_setiap2', $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap2) }}">
                         </div>
                     </div>
                 </td>
@@ -71,14 +71,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input disabled type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap3" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap3', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap3) ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap3" placeholder="Masukkan Waktu ..." value="{{ date('Y-m-d\TH:i' ,strtotime(old('waktu_saat_pelaksanaan_pekerjaan_setiap3', $ijinKerja->ujiKandunganGas->waktu_saat_pelaksanaan_pekerjaan_setiap3))) }}">
+                            <input disabled type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap3" data-placeholder="Masukkan Waktu ..." value="{{ old('waktu_pelaksanaan_pekerjaan_setiap3', $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap3) }}">
                         </div>
                     </div>
                 </td>

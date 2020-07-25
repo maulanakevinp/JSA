@@ -38,15 +38,15 @@
                 <form id="form" autocomplete="off" action="javascript:;" method="POST">
                     @csrf
                     <input type="hidden" name="jsa_id" value="{{ $jsa->id }}">
-                    @include('bagian-isi-kerja.umum-create')
+                    @include('bagian-isi-kerja.umum.create')
                     <hr>
-                    @include('bagian-isi-kerja.jenis-pekerjaan-create')
+                    @include('bagian-isi-kerja.jenis-pekerjaan.create')
                     <hr>
-                    @include('bagian-isi-kerja.sumber-bahaya-alat-create')
+                    @include('bagian-isi-kerja.sumber-bahaya-alat.create')
                     <hr>
-                    @include('bagian-isi-kerja.alat-pelindung-diri-create')
+                    @include('bagian-isi-kerja.alat-pelindung-diri.create')
                     <hr>
-                    @include('bagian-isi-kerja.dokumen-pendukung-create')
+                    @include('bagian-isi-kerja.dokumen-pendukung.create')
                     <hr>
                     <h6 class="heading-small text-muted">SAFETY CHECKLIST</h6>
                     <div class="pl-lg-4">
@@ -281,11 +281,11 @@
                         </div>
                     </div>
                     <hr>
-                    @include('bagian-isi-kerja.uji-kandungan-gas-create')
+                    @include('bagian-isi-kerja.uji-kandungan-gas.create')
                     <hr>
-                    @include('bagian-isi-kerja.petugas-pengawas-create')
+                    @include('bagian-isi-kerja.petugas-pengawas.create')
                     <hr>
-                    @include('bagian-isi-kerja.pengesahan-create')
+                    @include('bagian-isi-kerja.pengesahan.create')
                     <hr>
                     <p class="mb-0 heading-small font-weight-bold">VALIDASI</p>
                     <div id="validasi" class="pl-lg-4">

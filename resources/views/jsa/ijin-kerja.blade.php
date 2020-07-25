@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kelola JSA')
+@section('title', 'Kelola Ijin Kerja')
 
 @section('styles')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -15,15 +15,12 @@
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
                             <div class="">
-                                <h2 class="mb-0">JSA</h2>
-                                <p class="mb-0 text-sm">Kelola JSA</p>
+                                <h2 class="mb-0">Ijin Kerja</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja</p>
                             </div>
                             <div class="">
                                 <a href="{{ url('ijin-kerja') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
                                 <a href="{{ url('/ijin-kerja-grid') }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
-                                @can('admin_kontraktor')
-                                    <a href="{{ route('jsa.create') }}" class="mb-2 btn btn-primary" title="Tambah"><i class="fas fa-plus"></i> Tambah JSA</a>
-                                @endcan
                             </div>
                         </div>
                     </div>

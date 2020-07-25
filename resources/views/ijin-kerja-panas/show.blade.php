@@ -36,15 +36,15 @@
             </div>
             <div class="card-body">
                 <input type="hidden" name="jsa_id" value="{{ $ijinKerja->jsa->id }}">
-                @include('bagian-isi-kerja.umum-show')
+                @include('bagian-isi-kerja.umum.show')
                 <hr>
-                @include('bagian-isi-kerja.jenis-pekerjaan-show')
+                @include('bagian-isi-kerja.jenis-pekerjaan.show')
                 <hr>
-                @include('bagian-isi-kerja.sumber-bahaya-alat-show')
+                @include('bagian-isi-kerja.sumber-bahaya-alat.show')
                 <hr>
-                @include('bagian-isi-kerja.alat-pelindung-diri-show')
+                @include('bagian-isi-kerja.alat-pelindung-diri.show')
                 <hr>
-                @include('bagian-isi-kerja.dokumen-pendukung-show')
+                @include('bagian-isi-kerja.dokumen-pendukung.show')
                 <hr>
                 <h6 class="heading-small text-muted">SAFETY CHECKLIST</h6>
                 <div class="pl-lg-4">
@@ -279,11 +279,11 @@
                     </div>
                 </div>
                 <hr>
-                @include('bagian-isi-kerja.uji-kandungan-gas-show')
+                @include('bagian-isi-kerja.uji-kandungan-gas.show')
                 <hr>
-                @include('bagian-isi-kerja.petugas-pengawas-show')
+                @include('bagian-isi-kerja.petugas-pengawas.show')
                 <hr>
-                @include('bagian-isi-kerja.pengesahan-show')
+                @include('bagian-isi-kerja.pengesahan.show')
                 <hr>
                 <p class="mb-0 heading-small font-weight-bold">VALIDASI</p>
                 <div id="validasi" class="pl-lg-4">

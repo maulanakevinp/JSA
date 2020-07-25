@@ -18,15 +18,15 @@ class CreateUjiKandunganGasTable extends Migration
             $table->boolean('o2')->nullable()->default(0);
             $table->boolean('sebelum_pelaksanaan_pekerjaan1')->nullable()->default(0);
             $table->boolean('saat_pelaksanaan_pekerjaan_setiap1')->nullable()->default(0);
-            $table->timestamp('waktu_pelaksanaan_pekerjaan1')->nullable();
+            $table->string('waktu_pelaksanaan_pekerjaan1', 64)->nullable();
             $table->boolean('toxic')->nullable()->default(0);
             $table->boolean('sebelum_pelaksanaan_pekerjaan2')->nullable()->default(0);
             $table->boolean('saat_pelaksanaan_pekerjaan_setiap2')->nullable()->default(0);
-            $table->timestamp('waktu_pelaksanaan_pekerjaan2')->nullable();
+            $table->string('waktu_pelaksanaan_pekerjaan2', 64)->nullable();
             $table->boolean('combustible')->nullable()->default(0);
             $table->boolean('sebelum_pelaksanaan_pekerjaan3')->nullable()->default(0);
             $table->boolean('saat_pelaksanaan_pekerjaan_setiap3')->nullable()->default(0);
-            $table->timestamp('waktu_pelaksanaan_pekerjaan3')->nullable();
+            $table->string('waktu_pelaksanaan_pekerjaan3', 64)->nullable();
             $table->timestamps();
         });
     }

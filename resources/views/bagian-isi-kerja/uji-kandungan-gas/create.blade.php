@@ -17,14 +17,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap1" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap1" placeholder="Masukkan Waktu ...">
+                            <input type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap1" placeholder="Masukkan Waktu (hari/jam) ...">
                         </div>
                     </div>
                 </td>
@@ -44,14 +44,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap2" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap2" placeholder="Masukkan Waktu ...">
+                            <input type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap2" placeholder="Masukkan Waktu (hari/jam) ...">
                         </div>
                     </div>
                 </td>
@@ -71,14 +71,14 @@
                 </td>
                 <td>
                     <div class="form-group">
-                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap</label>
+                        <label class="form-control-label">Saat Pelaksanaan Pekerjaan Setiap (hari/jam)</label>
                         <div class="input-group input-group-alternative mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <input type="checkbox" name="saat_pelaksanaan_pekerjaan_setiap3" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="datetime-local" class="form-control" name="waktu_saat_pelaksanaan_pekerjaan_setiap3" placeholder="Masukkan Waktu ...">
+                            <input type="text" class="form-control" name="waktu_pelaksanaan_pekerjaan_setiap3" placeholder="Masukkan Waktu (hari/jam) ...">
                         </div>
                     </div>
                 </td>
