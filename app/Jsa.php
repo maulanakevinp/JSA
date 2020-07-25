@@ -28,4 +28,9 @@ class Jsa extends Model
     {
         return $this->hasMany('App\LangkahPekerjaan');
     }
+
+    public function ijinKerjaPanas()
+    {
+        return $this->hasOne('App\IjinKerjaPanas');
+    }
 }

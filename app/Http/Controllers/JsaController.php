@@ -118,9 +118,9 @@ class JsaController extends Controller
             'nama_pekerjaan'    => ['required', 'string', 'max:128'],
             'lokasi'            => ['required', 'string', 'max:128'],
             'nomor_kontrak'     => ['required', 'string', 'max:128'],
-            'tanggal_kontrak'   => ['required', 'date', 'after:now'],
+            'tanggal_kontrak'   => ['required', 'date', 'after:yesterday'],
         ],[
-            'tanggal_kontrak.after' => 'Tanggal kontrak harus sesudah tanggal sekarang'
+            'tanggal_kontrak.after' => 'Tanggal kontrak harus sesudahnya kemarin'
         ]);
 
         $data['pengaju_id'] = auth()->user()->id;
@@ -167,7 +167,7 @@ class JsaController extends Controller
                 'nama_pekerjaan'    => ['required', 'string', 'max:128'],
                 'lokasi'            => ['required', 'string', 'max:128'],
                 'nomor_kontrak'     => ['required', 'string', 'max:128'],
-                'tanggal_kontrak'   => ['required', 'date', 'after:now'],
+                'tanggal_kontrak'   => ['required', 'date', 'after:yesterday'],
             ];
         }
 
@@ -240,5 +240,70 @@ class JsaController extends Controller
     {
         $jsa->delete();
         return redirect()->back()->with('success', 'JSA Berhasil Dihapus');
+    }
+
+    public function ijinKerja(Request $request)
+    {
+        if (auth()->user()->peran->nama == "Manager Kontraktor" || auth()->user()->peran->nama == "HSE") {
+            $jsa = Jsa::where('no_jsa', '!=', null)
+                ->where('nama_pekerjaan', '!=', null)
+                ->where('lokasi', '!=', null)
+                ->where('nomor_kontrak', '!=', null)
+                ->where('tanggal_kontrak', '!=', null)
+                ->where('status_review', 1)
+                ->whereHas('langkahPekerjaan')
+                ->paginate(12);
+
+            if ($request->cari) {
+                $jsa = Jsa::where('status_review', 1)
+                    ->whereHas('langkahPekerjaan')
+                    ->where(function($jsa) use ($request) {
+                    $jsa->where('no_jsa', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('nama_pekerjaan', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('lokasi', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('nomor_kontrak', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_kontrak', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_review', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%");
+                    $jsa->orWhereHas('pengaju', function ($pengaju) use ($request) {
+                        $pengaju->where('nama', 'like', "%{$request->cari}%");
+                    });
+                })
+                ->paginate(12);
+            }
+        } else {
+            $jsa = Jsa::where('no_jsa', '!=', null)
+                ->where('nama_pekerjaan', '!=', null)
+                ->where('lokasi', '!=', null)
+                ->where('nomor_kontrak', '!=', null)
+                ->where('tanggal_kontrak', '!=', null)
+                ->where('pengaju_id', auth()->user()->id)
+                ->where('status_review', 1)
+                ->whereHas('langkahPekerjaan')
+                ->paginate(12);
+
+            if ($request->cari) {
+                $jsa = Jsa::where('status_review', 1)
+                ->whereHas('langkahPekerjaan')
+                ->where('pengaju_id', auth()->user()->id)
+                ->where(function($jsa) use ($request) {
+                    $jsa->where('no_jsa', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('nama_pekerjaan', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('lokasi', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('nomor_kontrak', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_kontrak', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_review', 'like', "%{$request->cari}%");
+                    $jsa->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%");
+                    $jsa->orWhereHas('pengaju', function ($pengaju) use ($request) {
+                        $pengaju->where('nama', 'like', "%{$request->cari}%");
+                    });
+                })
+                ->paginate(12);
+            }
+        }
+
+        $jsa->appends($request->only('cari'));
+
+        return view('jsa.ijin-kerja', compact('jsa'));
     }
 }

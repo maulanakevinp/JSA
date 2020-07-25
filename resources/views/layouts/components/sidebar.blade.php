@@ -75,6 +75,12 @@
                         <span class="nav-link-inner--text">JSA</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link @if (Request::segment(1) == 'ijin-kerja' || Request::segment(1) == 'ijin-kerja-grid') active @endif" href="{{ route('ijin-kerja') }}">
+                        <i class="fas fa-file-invoice text-success"></i>
+                        <span class="nav-link-inner--text">Ijin Kerja</span>
+                    </a>
+                </li>
             @endcan
             <li class="nav-item">
                 <a class="nav-link @if (Request::segment(1) == 'profil' || Request::segment(1) == 'pengaturan') active @endif" href="{{ route('profil') }}">

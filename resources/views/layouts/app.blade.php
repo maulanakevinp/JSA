@@ -130,6 +130,27 @@
                 token: "ee6fab19c5a04ac1a32a645abde4613a",
                 application: "argon-dashboard-free"
             });
+        $(document).ready(function () {
+            document.addEventListener("keydown", function(event) {
+                if (event.keyCode == 27) {
+                    $('.alert-dismissible').remove();
+                    $(".modal").modal('hide');
+                }
+            });
+
+            $("input").on("change", function () {
+                $(this).removeClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+                $('.alert-dismissible').remove();
+            });
+
+            $("textarea").on("change", function () {
+                $(this).removeClass('is-invalid');
+                $(this).siblings('.invalid-feedback').remove();
+                $('.alert-dismissible').remove();
+            });
+
+        });
     </script>
     @stack('scripts')
 </body>
