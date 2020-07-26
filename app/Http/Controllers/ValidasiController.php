@@ -8,26 +8,6 @@ use Illuminate\Http\Request;
 class ValidasiController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -35,29 +15,47 @@ class ValidasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = $request->validate([
+            'validasi_hari'           => ['required', 'date', 'after:yesterday'],
+            'validasi_mulai_hari'     => ['required'],
+            'validasi_selesai_hari'   => ['required'],
+            'nama_pelaksana'          => ['required', 'string', 'max:64'],
+            'inisial_pelaksana'       => ['required', 'string', 'max:64'],
+            'nama_pengawas'           => ['required', 'string', 'max:64'],
+            'inisial_pengawas'        => ['required', 'string', 'max:64'],
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Validasi  $validasi
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Validasi $validasi)
-    {
-        //
-    }
+        if ($request->ijin_kerja_panas_id) {
+            $data['ijin_kerja_panas_id']    = $request->ijin_kerja_panas_id;
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Validasi  $validasi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Validasi $validasi)
-    {
-        //
+        if ($request->ijin_kerja_galian_id) {
+            $data['ijin_kerja_galian_id']    = $request->ijin_kerja_galian_id;
+        }
+
+        if ($request->ijin_kerja_listrik_id) {
+            $data['ijin_kerja_listrik_id']    = $request->ijin_kerja_listrik_id;
+        }
+
+        if ($request->ijin_kerja_radiografi_id) {
+            $data['ijin_kerja_radiografi_id']    = $request->ijin_kerja_radiografi_id;
+        }
+
+        if ($request->ijin_kerja_di_ketinggian_id) {
+            $data['ijin_kerja_di_ketinggian_id']    = $request->ijin_kerja_di_ketinggian_id;
+        }
+
+        if ($request->ijin_kerja_ruang_terbatas_id) {
+            $data['ijin_kerja_ruang_terbatas_id']    = $request->ijin_kerja_ruang_terbatas_id;
+        }
+
+        $validasi = Validasi::create($data);
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Data validasi berhasil ditambahkan',
+            'url'       => route('validasi.update', $validasi->id),
+            'id'        => $validasi->id
+        ]);
     }
 
     /**
@@ -67,9 +65,26 @@ class ValidasiController extends Controller
      * @param  \App\Validasi  $validasi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Validasi $validasi)
+    public function update(Request $request, $id)
     {
-        //
+        $validasi = Validasi::find($id);
+
+        $data = $request->validate([
+            'validasi_hari'           => ['required', 'date', 'after:yesterday'],
+            'validasi_mulai_hari'     => ['required'],
+            'validasi_selesai_hari'   => ['required'],
+            'nama_pelaksana'          => ['required', 'string', 'max:64'],
+            'inisial_pelaksana'       => ['required', 'string', 'max:64'],
+            'nama_pengawas'           => ['required', 'string', 'max:64'],
+            'inisial_pengawas'        => ['required', 'string', 'max:64'],
+        ]);
+
+        $validasi->update($data);
+
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Data validasi berhasil diperbarui',
+        ]);
     }
 
     /**
@@ -78,8 +93,13 @@ class ValidasiController extends Controller
      * @param  \App\Validasi  $validasi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Validasi $validasi)
+    public function destroy($id)
     {
-        //
+        $validasi = Validasi::find($id);
+        $validasi->delete();
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Data validasi berhasil dihapus'
+        ]);
     }
 }

@@ -138,13 +138,13 @@
                 }
             });
 
-            $("input").on("change", function () {
+            $(document).on("change", "input", function () {
                 $(this).removeClass('is-invalid');
                 $(this).siblings('.invalid-feedback').remove();
                 $('.alert-dismissible').remove();
             });
 
-            $("textarea").on("change", function () {
+            $(document).on("change", "textarea", function () {
                 $(this).removeClass('is-invalid');
                 $(this).siblings('.invalid-feedback').remove();
                 $('.alert-dismissible').remove();

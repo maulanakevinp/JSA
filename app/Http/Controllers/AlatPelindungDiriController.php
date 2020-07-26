@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\SumberBahayaAlat;
+use App\AlatPelindungDiri;
 use Illuminate\Http\Request;
 
-class SumberBahayaAlatController extends Controller
+class AlatPelindungDiriController extends Controller
 {
     /**
      * Update the specified resource in storage.
@@ -15,15 +15,15 @@ class SumberBahayaAlatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sumberBahayaAlat = SumberBahayaAlat::find($id);
+        $alatPelindungDiri = AlatPelindungDiri::find($id);
 
-        $data = $this->dataSumberBahayaAlat($request);
+        $data = $this->dataAlatPelindungDiri($request);
 
-        $sumberBahayaAlat->update($data);
+        $alatPelindungDiri->update($data);
 
         return response()->json([
             'success'   => true,
-            'message'   => 'Data sumber bahaya alat berhasil diperbarui',
+            'message'   => 'Data alat pelindung diri berhasil diperbarui',
         ]);
     }
 }
