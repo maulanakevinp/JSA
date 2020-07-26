@@ -22,9 +22,15 @@ class IjinKerjaPanasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request,$id)
     {
-        //
+        $ijinKerja = IjinKerjaPanas::where('jsa_id', $id)->paginate(12);
+        $jsa = Jsa::findOrFail($id);
+        if (!$ijinKerja) {
+            return abort(404);
+        }
+
+        return view('ijin-kerja-panas.index', compact('ijinKerja','jsa'));
     }
 
     /**
@@ -258,18 +264,21 @@ class IjinKerjaPanasController extends Controller
             'catatan'                                                           => $request->catatan,
         ]);
 
-        for ($i=0; $i < count($request->validasi_hari); $i++) {
-            Validasi::create([
-                'ijin_kerja_panas_id'   =>  $ijinKerja->id,
-                'validasi_hari'         =>  $request->validasi_hari[$i],
-                'validasi_mulai_hari'    =>  $request->validasi_mulai_hari[$i],
-                'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
-                'nama_pelaksana'        =>  $request->nama_pelaksana[$i],
-                'inisial_pelaksana'     =>  $request->inisial_pelaksana[$i],
-                'nama_pengawas'         =>  $request->nama_pengawas[$i],
-                'inisial_pengawas'      =>  $request->inisial_pengawas[$i],
-            ]);
+        if ($request->validasi[0]) {
+            for ($i=0; $i < count($request->validasi_hari); $i++) {
+                Validasi::create([
+                    'ijin_kerja_panas_id'   =>  $ijinKerja->id,
+                    'validasi_hari'         =>  $request->validasi_hari[$i],
+                    'validasi_mulai_hari'    =>  $request->validasi_mulai_hari[$i],
+                    'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
+                    'nama_pelaksana'        =>  $request->nama_pelaksana[$i],
+                    'inisial_pelaksana'     =>  $request->inisial_pelaksana[$i],
+                    'nama_pengawas'         =>  $request->nama_pengawas[$i],
+                    'inisial_pengawas'      =>  $request->inisial_pengawas[$i],
+                ]);
+            }
         }
+
 
         return response()->json([
             'success'   => true,
@@ -318,8 +327,9 @@ class IjinKerjaPanasController extends Controller
      * @param  \App\IjinKerjaPanas  $ijinKerjaPanas
      * @return \Illuminate\Http\Response
      */
-    public function destroy(IjinKerjaPanas $ijinKerjaPanas)
+    public function destroy($id)
     {
+        $ijinKerjaPanas = IjinKerjaPanas::find($id);
         $ijinKerjaPanas->delete();
         return back()->with('success', 'Ijin kerja panas berhasil dihapus');
     }
