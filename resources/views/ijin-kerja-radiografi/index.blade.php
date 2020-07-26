@@ -13,18 +13,18 @@
             <div class="col">
                 <div class="card shadow h-100">
                     <div class="card-header border-0">
-                        <div class="d-flex justify-content-between">
-                            <div class="">
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
+                            <div class="mb-3">
                                 <h2 class="mb-0">Ijin Kerja Radiografi</h2>
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja Radiografi</p>
                             </div>
-                            <div class="">
+                            <div class="mb-3">
                                 <a href="{{ url('/ijin-kerja-radiografi', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-radiografi' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
                                 <a href="{{ url('/ijin-kerja-radiografi-grid', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-radiografi-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
                                 @can('hse')
-                                    <a href="{{ route('ijin-kerja-radiografi.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja Radiografi" data-toggle="tooltip"><i class="fas fa-plus"></i> Tambah</a>
+                                    <a href="{{ route('ijin-kerja-radiografi.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja Radiografi" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
                                 @endcan
-                                <a href="{{ route('jsa.edit', $jsa->id) }}" class="mb-2 btn btn-success" title="Kembali" data-toggle="tooltip"><i class="fas fa-arrow-left"></i></a>
+                                <a href="{{ route('jsa.show', $jsa->id) }}" class="mb-2 btn btn-success" title="Kembali" data-toggle="tooltip"><i class="fas fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </div>

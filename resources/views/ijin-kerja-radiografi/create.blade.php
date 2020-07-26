@@ -9,12 +9,12 @@
             <div class="col">
                 <div class="card shadow h-100">
                     <div class="card-header border-0">
-                        <div class="row">
-                            <div class="col-6">
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
+                            <div class="mb-3">
                                 <h2 class="mb-0">Buat Ijin Kerja Radiografi</h2>
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja Radiografi {{ config('app.name') }}</p>
                             </div>
-                            <div class="col-6 text-right">
+                            <div class="mb-3">
                                 <a href="{{ route('ijin-kerja-radiografi.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
