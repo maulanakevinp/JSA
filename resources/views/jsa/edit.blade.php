@@ -162,6 +162,15 @@
         <form autocomplete="off" action="{{ route('jsa.update', $jsa->id) }}" method="POST">
             @csrf @method('patch')
             <div class="form-group">
+                <label class="form-control-label" for="nama_perusahaan">Nama Perusahaan</label>
+                <input @can('hse-manager_kontraktor') readonly @endcan  @can('admin_kontraktor') @if($jsa->status_review == 1) readonly @endif @endcan class="form-control form-control-alternative @error('nama_perusahaan') is-invalid @enderror" type="text" name="nama_perusahaan" id="nama_perusahaan" placeholder="Masukkan Nama Perusahaan ..." value="{{ old('nama_perusahaan', $jsa->nama_perusahaan) }}">
+                @error('nama_perusahaan')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label class="form-control-label" for="no_jsa">Nomor JSA</label>
                 <input @can('hse-manager_kontraktor') readonly @endcan  @can('admin_kontraktor') @if($jsa->status_review == 1) readonly @endif @endcan class="form-control form-control-alternative @error('no_jsa') is-invalid @enderror" type="text" name="no_jsa" id="no_jsa" placeholder="Masukkan Nomor JSA ..." value="{{ old('no_jsa', $jsa->no_jsa) }}">
                 @error('no_jsa')

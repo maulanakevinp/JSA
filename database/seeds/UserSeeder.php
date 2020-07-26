@@ -23,7 +23,7 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'nama'      => 'Manager Admin',
+            'nama'      => 'Manager Kontraktor',
             'peran_id'  => 3
         ]);
 

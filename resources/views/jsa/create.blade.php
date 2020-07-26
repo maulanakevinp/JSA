@@ -38,6 +38,15 @@
                 <form autocomplete="off" action="{{ route('jsa.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
+                        <label class="form-control-label" for="nama_perusahaan">Nama Perusahaan</label>
+                        <input class="form-control form-control-alternative @error('nama_perusahaan') is-invalid @enderror" type="text" name="nama_perusahaan" id="nama_perusahaan" placeholder="Masukkan Nama Perusahaan ..." value="{{ old('nama_perusahaan') }}">
+                        @error('nama_perusahaan')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label class="form-control-label" for="no_jsa">Nomor JSA</label>
                         <input class="form-control form-control-alternative @error('no_jsa') is-invalid @enderror" type="text" name="no_jsa" id="no_jsa" placeholder="Masukkan nomor JSA ..." value="{{ old('no_jsa') }}">
                         @error('no_jsa')
