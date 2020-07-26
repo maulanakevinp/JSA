@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Buat Ijin Kerja Panas')
+@section('title', 'Buat Ijin Kerja Radiografi')
 
 @section('content-header')
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -11,11 +11,11 @@
                     <div class="card-header border-0">
                         <div class="row">
                             <div class="col-6">
-                                <h2 class="mb-0">Buat Ijin Kerja Panas</h2>
-                                <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
+                                <h2 class="mb-0">Buat Ijin Kerja Radiografi</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja Radiografi {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="{{ route('jsa.edit', $jsa) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                <a href="{{ route('ijin-kerja-radiografi.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
     <div class="col">
         <div class="card bg-secondary shadow h-100">
             <div class="card-header bg-white border-0">
-                <h3 class="mb-0">Buat Ijin Kerja Panas</h3>
+                <h3 class="mb-0">Buat Ijin Kerja Radiografi</h3>
             </div>
             <div class="card-body">
                 <form id="form" autocomplete="off" action="javascript:;" method="POST">
@@ -378,7 +378,7 @@
             let form = this;
             $(".notifikasi").html('');
             $.ajax({
-                url: "{{ route('ijinKerjaPanas.store') }}",
+                url: "{{ route('ijinKerjaRadiografi.store') }}",
                 type: 'POST',
                 data: new FormData(this),
                 dataType: 'json',
@@ -403,7 +403,7 @@
                             </button>
                         </div>
                     `);
-                    location.href = "{{ route('jsa.show', $jsa->id) }}";
+                    location.href = "{{ route('ijin-kerja-radiografi.index', $jsa->id) }}";
                 },
                 error: function (data) {
                     console.clear();

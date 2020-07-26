@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h2 class="mb-0">Buat Ijin Kerja Panas</h2>
-                                <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja Panas {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
                                 <a href="{{ route('ijin-kerja-panas.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>

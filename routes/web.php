@@ -49,7 +49,29 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::group(['middleware' => ['can:hse']], function () {
         Route::get('/ijin-kerja-panas/create/{jsa}', 'IjinKerjaPanasController@create')->name('ijin-kerja-panas.create');
         Route::get('/ijin-kerja-panas/{id}/edit', 'IjinKerjaPanasController@edit')->name('ijin-kerja-panas.edit');
+
+        Route::get('/ijin-kerja-di-ketinggian/create/{jsa}', 'IjinKerjaDiKetinggianController@create')->name('ijin-kerja-di-ketinggian.create');
+        Route::get('/ijin-kerja-di-ketinggian/{id}/edit', 'IjinKerjaDiKetinggianController@edit')->name('ijin-kerja-di-ketinggian.edit');
+
+        Route::get('/ijin-kerja-galian/create/{jsa}', 'IjinKerjaGalianController@create')->name('ijin-kerja-galian.create');
+        Route::get('/ijin-kerja-galian/{id}/edit', 'IjinKerjaGalianController@edit')->name('ijin-kerja-galian.edit');
+
+        Route::get('/ijin-kerja-listrik/create/{jsa}', 'IjinKerjaListrikController@create')->name('ijin-kerja-listrik.create');
+        Route::get('/ijin-kerja-listrik/{id}/edit', 'IjinKerjaListrikController@edit')->name('ijin-kerja-listrik.edit');
+
+        Route::get('/ijin-kerja-radiografi/create/{jsa}', 'IjinKerjaRadiografiController@create')->name('ijin-kerja-radiografi.create');
+        Route::get('/ijin-kerja-radiografi/{id}/edit', 'IjinKerjaRadiografiController@edit')->name('ijin-kerja-radiografi.edit');
+
+        Route::get('/ijin-kerja-ruang-terbatas/create/{jsa}', 'IjinKerjaRuangTerbatasController@create')->name('ijin-kerja-ruang-terbatas.create');
+        Route::get('/ijin-kerja-ruang-terbatas/{id}/edit', 'IjinKerjaRuangTerbatasController@edit')->name('ijin-kerja-ruang-terbatas.edit');
+
         Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaDiKetinggian', 'IjinKerjaDiKetinggianController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaGalian', 'IjinKerjaGalianController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaListrik', 'IjinKerjaListrikController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaRadiografi', 'IjinKerjaRadiografiController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaRuangTerbatas', 'IjinKerjaRuangTerbatasController')->except('index','create','show','edit');
+
         Route::resource('alatPelindungDiri', 'AlatPelindungDiriController')->except('index','create','show','edit');
         Route::resource('dokumenPendukung', 'DokumenPendukungController')->except('index','create','show','edit');
         Route::resource('jenisPekerjaan', 'JenisPekerjaanController')->except('index','create','show','edit');

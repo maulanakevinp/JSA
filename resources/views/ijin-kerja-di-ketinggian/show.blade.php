@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Ijin Kerja Panas')
+@section('title', 'Detail Ijin Kerja Di Ketinggian')
 
 @section('content-header')
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -11,11 +11,11 @@
                     <div class="card-header border-0">
                         <div class="row">
                             <div class="col-6">
-                                <h2 class="mb-0">Detail Ijin Kerja Panas</h2>
-                                <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
+                                <h2 class="mb-0">Detail Ijin Kerja Di Ketinggian</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja Di Ketinggian {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="{{ route('jsa.edit', $ijinKerja->jsa_id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                <a href="{{ URL::previous() }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
     <div class="col">
         <div class="card bg-secondary shadow h-100">
             <div class="card-header bg-white border-0">
-                <h3 class="mb-0">Detail Ijin Kerja Panas</h3>
+                <h3 class="mb-0">Detail Ijin Kerja Di Ketinggian</h3>
             </div>
             <div class="card-body">
                 <input type="hidden" name="jsa_id" value="{{ $ijinKerja->jsa->id }}">
@@ -335,7 +335,7 @@
                 <hr>
                 <div class="form-group">
                     <label class="form-control-label" for="catatan">Catatan</label>
-                    <textarea class="form-control form-control-alternative @error('catatan') is-invalid @enderror" type="text" name="catatan" id="catatan" data-placeholder="Masukkan Catatan ..." disabled>{{ $ijinKerja->catatan }}</textarea>
+                    <textarea class="form-control" type="text" name="catatan" id="catatan" data-placeholder="Masukkan Catatan ..." disabled>{{ $ijinKerja->catatan }}</textarea>
                 </div>
             </div>
         </div>
