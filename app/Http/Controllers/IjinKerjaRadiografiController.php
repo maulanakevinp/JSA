@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\IjinKerjaRadioGrafi;
+use App\IjinKerjaRadiografi;
 use Illuminate\Http\Request;
 
-class IjinKerjaRadioGrafiController extends Controller
+class IjinKerjaRadiografiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class IjinKerjaRadioGrafiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\IjinKerjaRadioGrafi  $ijinKerjaRadioGrafi
+     * @param  \App\IjinKerjaRadiografi  $ijinKerjaRadioGrafi
      * @return \Illuminate\Http\Response
      */
-    public function show(IjinKerjaRadioGrafi $ijinKerjaRadioGrafi)
+    public function show(IjinKerjaRadiografi $ijinKerjaRadioGrafi)
     {
         //
     }
@@ -52,10 +52,10 @@ class IjinKerjaRadioGrafiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\IjinKerjaRadioGrafi  $ijinKerjaRadioGrafi
+     * @param  \App\IjinKerjaRadiografi  $ijinKerjaRadioGrafi
      * @return \Illuminate\Http\Response
      */
-    public function edit(IjinKerjaRadioGrafi $ijinKerjaRadioGrafi)
+    public function edit(IjinKerjaRadiografi $ijinKerjaRadioGrafi)
     {
         //
     }
@@ -64,10 +64,10 @@ class IjinKerjaRadioGrafiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\IjinKerjaRadioGrafi  $ijinKerjaRadioGrafi
+     * @param  \App\IjinKerjaRadiografi  $ijinKerjaRadioGrafi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, IjinKerjaRadioGrafi $ijinKerjaRadioGrafi)
+    public function update(Request $request, IjinKerjaRadiografi $ijinKerjaRadioGrafi)
     {
         //
     }
@@ -75,10 +75,10 @@ class IjinKerjaRadioGrafiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\IjinKerjaRadioGrafi  $ijinKerjaRadioGrafi
+     * @param  \App\IjinKerjaRadiografi  $ijinKerjaRadioGrafi
      * @return \Illuminate\Http\Response
      */
-    public function destroy(IjinKerjaRadioGrafi $ijinKerjaRadioGrafi)
+    public function destroy(IjinKerjaRadiografi $ijinKerjaRadioGrafi)
     {
         //
     }
