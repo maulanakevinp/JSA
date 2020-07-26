@@ -25,7 +25,7 @@
                         <input disabled type="checkbox" name="others_kepala" value="1" data-toggle="tooltip" title="Others" {{ old('others_kepala', $ijinKerja->alatPelindungDiri->others_kepala) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_kepala" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_kepala', $ijinKerja->alatPelindungDiri->keterangan_others_kepala) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_kepala" value="{{ old('keterangan_others_kepala', $ijinKerja->alatPelindungDiri->keterangan_others_kepala) }}">
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
                         <input disabled type="checkbox" name="others_telinga" value="1" data-toggle="tooltip" title="Others" {{ old('others_telinga', $ijinKerja->alatPelindungDiri->others_telinga) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_telinga" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_telinga', $ijinKerja->alatPelindungDiri->keterangan_others_telinga) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_telinga" value="{{ old('keterangan_others_telinga', $ijinKerja->alatPelindungDiri->keterangan_others_telinga) }}">
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
                         <input disabled type="checkbox" name="others_kaki" value="1" data-toggle="tooltip" title="Others" {{ old('others_kaki', $ijinKerja->alatPelindungDiri->others_kaki) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_kaki" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_kaki', $ijinKerja->alatPelindungDiri->keterangan_others_kaki) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_kaki" value="{{ old('keterangan_others_kaki', $ijinKerja->alatPelindungDiri->keterangan_others_kaki) }}">
             </div>
         </div>
     </div>
@@ -92,7 +92,7 @@
                         <input disabled type="checkbox" name="others_ketinggian" value="1" data-toggle="tooltip" title="Others" {{ old('others_ketinggian', $ijinKerja->alatPelindungDiri->others_ketinggian) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_ketinggian" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_ketinggian', $ijinKerja->alatPelindungDiri->keterangan_others_ketinggian) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_ketinggian" value="{{ old('keterangan_others_ketinggian', $ijinKerja->alatPelindungDiri->keterangan_others_ketinggian) }}">
             </div>
         </div>
     </div>
@@ -121,7 +121,7 @@
                         <input disabled type="checkbox" name="others_pernapasan" value="1" data-toggle="tooltip" title="Others" {{ old('others_pernapasan', $ijinKerja->alatPelindungDiri->others_pernapasan) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_pernapasan" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_pernapasan', $ijinKerja->alatPelindungDiri->keterangan_others_pernapasan) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_pernapasan" value="{{ old('keterangan_others_pernapasan', $ijinKerja->alatPelindungDiri->keterangan_others_pernapasan) }}">
             </div>
         </div>
     </div>
@@ -150,7 +150,7 @@
                         <input disabled type="checkbox" name="others_tangan" value="1" data-toggle="tooltip" title="Others" {{ old('others_tangan', $ijinKerja->alatPelindungDiri->others_tangan) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_tangan" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_tangan', $ijinKerja->alatPelindungDiri->keterangan_others_tangan) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_tangan" value="{{ old('keterangan_others_tangan', $ijinKerja->alatPelindungDiri->keterangan_others_tangan) }}">
             </div>
         </div>
     </div>
@@ -179,7 +179,7 @@
                         <input disabled type="checkbox" name="others_badan" value="1" data-toggle="tooltip" title="Others" {{ old('others_badan', $ijinKerja->alatPelindungDiri->others_badan) ? 'checked' : '' }}>
                     </div>
                 </div>
-                <input disabled type="text" class="form-control" name="keterangan_others_badan" placeholder="Keterangan Lainnya ..." value="{{ old('keterangan_others_badan', $ijinKerja->alatPelindungDiri->keterangan_others_badan) }}">
+                <input disabled type="text" class="form-control" name="keterangan_others_badan" value="{{ old('keterangan_others_badan', $ijinKerja->alatPelindungDiri->keterangan_others_badan) }}">
             </div>
         </div>
     </div>

@@ -50,6 +50,15 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/ijin-kerja-panas/create/{jsa}', 'IjinKerjaPanasController@create')->name('ijin-kerja-panas.create');
         Route::get('/ijin-kerja-panas/{id}/edit', 'IjinKerjaPanasController@edit')->name('ijin-kerja-panas.edit');
         Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','show','edit');
+        Route::resource('alatPelindungDiri', 'AlatPelindungDiriController')->except('index','create','show','edit');
+        Route::resource('dokumenPendukung', 'DokumenPendukungController')->except('index','create','show','edit');
+        Route::resource('jenisPekerjaan', 'JenisPekerjaanController')->except('index','create','show','edit');
+        Route::resource('pengesahan', 'PengesahanController')->except('index','create','show','edit');
+        Route::resource('petugasPengawas', 'PetugasPengawasController')->except('index','create','show','edit');
+        Route::resource('sumberBahayaAlat', 'SumberBahayaAlatController')->except('index','create','show','edit');
+        Route::resource('ujiKandunganGas', 'UjiKandunganGasController')->except('index','create','show','edit');
+        Route::resource('umum', 'UmumController')->except('index','create','show','edit');
+        Route::resource('validasi', 'ValidasiController')->except('index','create','show','edit');
     });
 
     Route::group(['middleware' => ['can:no_admin']], function () {

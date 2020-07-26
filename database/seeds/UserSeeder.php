@@ -23,12 +23,12 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'nama'      => 'PGN SOLUTION',
+            'nama'      => 'Manager Admin',
             'peran_id'  => 3
         ]);
 
         User::create([
-            'nama'      => 'PGN SAKA',
+            'nama'      => 'Admin Kontraktor',
             'peran_id'  => 4
         ]);
     }

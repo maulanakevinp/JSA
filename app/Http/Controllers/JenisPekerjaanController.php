@@ -8,78 +8,22 @@ use Illuminate\Http\Request;
 class JenisPekerjaanController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\JenisPekerjaan  $jenisPekerjaan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(JenisPekerjaan $jenisPekerjaan)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\JenisPekerjaan  $jenisPekerjaan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(JenisPekerjaan $jenisPekerjaan)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\JenisPekerjaan  $jenisPekerjaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JenisPekerjaan $jenisPekerjaan)
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $jenisPekerjaan = JenisPekerjaan::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\JenisPekerjaan  $jenisPekerjaan
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(JenisPekerjaan $jenisPekerjaan)
-    {
-        //
+        $data = $this->dataJenisPekerjaan($request);
+
+        $jenisPekerjaan->update($data);
+
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Data jenis pekerjaan berhasil diperbarui',
+        ]);
     }
 }
