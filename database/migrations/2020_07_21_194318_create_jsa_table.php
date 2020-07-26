@@ -15,11 +15,11 @@ class CreateJsaTable extends Migration
     {
         Schema::create('jsa', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pengaju_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('pereview_id')->nullable();
             $table->foreign('pereview_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('penyetuju_id')->nullable();
             $table->foreign('penyetuju_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('nama_perusahaan', 128)->nullable();
             $table->string('no_jsa', 128)->nullable();
             $table->string('nama_pekerjaan', 128)->nullable();
             $table->string('lokasi', 128)->nullable();

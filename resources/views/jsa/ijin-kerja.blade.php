@@ -53,9 +53,9 @@
             <div class="col-lg-6 mb-3">
                 <div class="card shadow">
                     <div class="card-header d-inline-flex justify-content-between">
-                        <h3 class="mb-0">{{ $item->pengaju->nama }}</h3>
+                        <span class="font-weight-bold">{{ $item->nama_perusahaan }}</span>
                         <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-sm btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -150,7 +150,7 @@
                     <tbody>
                         @forelse ($jsa as $item)
                             <tr>
-                                <td width="180px">{{ $item->pengaju->nama }}</td>
+                                <td width="180px">{{ $item->nama_perusahaan }}</td>
                                 <td>{{ $item->no_jsa }}</td>
                                 <td>{{ $item->nama_pekerjaan }}</td>
                                 <td>{{ $item->lokasi }}</td>

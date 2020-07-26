@@ -9,11 +9,6 @@ class Jsa extends Model
     protected $table = 'jsa';
     protected $guarded = [];
 
-    public function pengaju()
-    {
-        return $this->belongsTo('App\User', 'pengaju_id');
-    }
-
     public function pereview()
     {
         return $this->belongsTo('App\User', 'pereview_id');
