@@ -14,6 +14,14 @@
 @endif
 @endsection
 
+@section('styles')
+<style>
+    .hover-up:hover {
+        top: -5px;
+    }
+</style>
+@endsection
+
 @section('content-header')
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     <div class="container-fluid">
@@ -99,7 +107,7 @@
 @if ($jsa->status_review == 1 && $jsa->status_persetujuan == 1)
 
     @can('hse')
-        @if (!$jsa->ijinKerjaPanas)
+        @if (count($jsa->ijinKerjaPanas) == 0 && count($jsa->ijinKerjaListrik) == 0 && count($jsa->ijinKerjaGalian) == 0 && count($jsa->ijinKerjaRadioGrafi) == 0 && count($jsa->ijinKerjaDiKetinggian) == 0 && count($jsa->ijinKerjaRuangTerbatas) == 0)
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <span class="alert-text">
@@ -346,65 +354,72 @@
                             </tr>
                         @endforelse
                     </tbody>
-
                 </table>
             </div>
         </div>
     </div>
 </div>
 @if ($jsa->status_persetujuan == 1)
-    <div class="card shadow h-100 mb-3">
-        <div class="card-header bg-secondary border-0 d-flex justify-content-between">
-            <h3 class="mb-0">Ijin Kerja</h3>
-            @can('hse')
-                <div class="dropdown">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Opsi
+<h3 class="mt-5 text-center">IJIN KERJA</h3>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-panas.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Panas</h4>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                        @if (!$jsa->ijinKerjaPanas)
-                            <a href="{{ route('ijinKerjaPanas.create', $jsa) }}" class="dropdown-item">Buat Ijin Kerja Panas</a>
-                        @endif
-                    </div>
                 </div>
-            @endcan
+            </div>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Jenis Ijin Kerja</th>
-                            <th>Opsi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($jsa->ijinKerjaPanas)
-                            <tr>
-                                <td>
-                                    Ijin Kerja Panas
-                                </td>
-                                <td>
-                                    <a href="{{ route('ijinKerjaPanas.show', $jsa->ijinKerjaPanas->id) }}" class="btn btn-info btn-sm" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
-                                    <a href="{{ route('ijinKerjaPanas.cetak', $jsa->ijinKerjaPanas->id) }}" class="btn btn-neutral btn-sm" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
-                                    @can('hse')
-                                        <a href="{{ route('ijinKerjaPanas.edit', $jsa->ijinKerjaPanas->id) }}" class="btn btn-success btn-sm" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="Ijin Kerja Panas" data-url="{{ route('ijinKerjaPanas.destroy', $jsa->ijinKerjaPanas->id) }}" data-toggle="modal"><i class="fas fa-fw fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
-                                    @endcan
-                                </td>
-                            </tr>
-                        @else
-                            <tr>
-                                @can('hse')
-                                    <td colspan="3" align="center">Harap Membuatkan Ijin Kerja</td>
-                                @endcan
-                                @can('kontraktor')
-                                    <td colspan="3" align="center">Data Tidak Tersedia</td>
-                                @endcan
-                            </tr>
-                        @endif
-                    </tbody>
-                </table>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-di-ketinggian.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja di Ketinggian</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-ruang-terbatas.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Memasuki Ruangan Terbatas</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-listrik.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Listrik</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-galian.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Galian</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-radiografi.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Radiografi</h4>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="{{ route('ijin-kerja-panas.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                <a href="{{ route('jsa.edit', $jsa) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -403,7 +403,7 @@
                             </button>
                         </div>
                     `);
-                    location.href = "{{ route('ijin-kerja-panas.index', $jsa->id) }}";
+                    location.href = "{{ route('jsa.show', $jsa->id) }}";
                 },
                 error: function (data) {
                     console.clear();

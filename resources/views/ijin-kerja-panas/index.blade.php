@@ -1,0 +1,218 @@
+@extends('layouts.app')
+
+@section('title', 'Kelola Ijin Kerja Panas')
+
+@section('styles')
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+@endsection
+
+@section('content-header')
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card shadow h-100">
+                    <div class="card-header border-0">
+                        <div class="d-flex justify-content-between">
+                            <div class="">
+                                <h2 class="mb-0">Ijin Kerja Panas</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja Panas</p>
+                            </div>
+                            <div class="">
+                                <a href="{{ url('/ijin-kerja-panas', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-panas' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
+                                <a href="{{ url('/ijin-kerja-panas-grid', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-panas-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                                @can('hse')
+                                    <a href="{{ route('ijin-kerja-panas.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja Panas" data-toggle="tooltip"><i class="fas fa-plus"></i> Tambah</a>
+                                @endcan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('form-search')
+<form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto" action="{{ URL::current() }}" method="GET">
+    <div class="form-group mb-0">
+        <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Cari ...." type="text" name="cari" value="{{ request('cari') }}">
+        </div>
+    </div>
+</form>
+@endsection
+
+@section('content')
+@include('layouts.components.alert')
+
+@if (Request::segment(1) == 'ijin-kerja-panas-grid')
+    <div class="row d-flex justify-content-center">
+        @forelse ($ijinKerja as $item)
+            <div class="col-lg-6 mb-3">
+                <div class="card shadow">
+                    <div class="card-header d-inline-flex justify-content-between">
+                        <h3 class="mb-0">{{ $item->umum->nomor }}</h3>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Opsi
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                @can('hse')
+                                    <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                    <a href="{{ route('ijin-kerja-panas.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
+                                    <a href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
+                                    <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
+                                @endcan
+                                @can('kontraktor')
+                                    <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                @endcan
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="">
+                            <tr>
+                                <td width="180px" valign="top">Tanggal Pengesahan</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ date('d/m/Y', strtotime($item->umum->tanggal_pengesahan)) }}</td>
+                            </tr>
+                            <tr>
+                                <td width="180px" valign="top">Tanggal Mulai</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ date('d/m/Y', strtotime($item->umum->tanggal_mulai)) }}</td>
+                            </tr>
+                            <tr>
+                                <td width="180px" valign="top">Tanggal Selesai</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ date('d/m/Y', strtotime($item->umum->tanggal_selesai)) }}</td>
+                            </tr>
+                            <tr>
+                                <td width="180px" valign="top">Lokasi Pekerjaan</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->umum->lokasi_pekerjaan }}</td>
+                            </tr>
+                            <tr>
+                                <td width="180px" valign="top">Uraian Pekerjaan</td>
+                                <td valign="top">:</td>
+                                <td valign="top">{{ $item->umum->uraian_pekerjaan }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="col-12">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <h3>Data Tidak Tersedia</h3>
+                    </div>
+                </div>
+            </div>
+        @endforelse
+        <div class="col-12">
+            {{ $ijinKerja->links() }}
+        </div>
+    </div>
+@else
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nomor</th>
+                            <th>Tanggal Pengesahan</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tanggal Selesai</th>
+                            <th>Lokasi Pekerjaan</th>
+                            <th>Uraian Pekerjaan</th>
+                            <th>Opsi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($ijinKerja as $item)
+                            <tr>
+                                <td>{{ $item->umum->nomor }}</td>
+                                <td>{{ $item->umum->tanggal_pengesahan ? date('d/m/Y', strtotime($item->umum->tanggal_pengesahan)) : '-' }}</td>
+                                <td>{{ $item->umum->tanggal_mulai ? date('d/m/Y', strtotime($item->umum->tanggal_mulai)) : '-' }}</td>
+                                <td>{{ $item->umum->tanggal_selesai ? date('d/m/Y', strtotime($item->umum->tanggal_selesai)) : '-' }}</td>
+                                <td>{{ $item->umum->lokasi_pekerjaan }}</td>
+                                <td>{{ $item->umum->uraian_pekerjaan }}</td>
+                                <td>
+                                    @can('hse')
+                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('ijin-kerja-panas.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
+                                        <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i></a>
+                                    @endcan
+                                    @can('kontraktor')
+                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-neutral" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
+                                    @endcan
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td width="180px" colspan="7" align="center">Data Tidak Tersedia</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-3">
+                {{ $ijinKerja->links() }}
+            </div>
+        </div>
+    </div>
+@endif
+
+<div class="modal fade" id="modal-hapus" tabindex="-1" role="dialog" aria-labelledby="modal-hapus" aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+        <div class="modal-content bg-gradient-danger">
+
+            <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-delete">Hapus JSA?</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="py-3 text-center">
+                    <i class="ni ni-bell-55 ni-3x"></i>
+                    <h4 class="heading mt-4">Perhatian!!</h4>
+                    <p>Menghapus ijin kerja panas akan menghapus semua data yang dimilikinya</p>
+                    <p><strong id="nama-hapus"></strong></p>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <form id="form-hapus" action="" method="POST" >
+                    @csrf @method('delete')
+                    <button type="submit" class="btn btn-white">Yakin</button>
+                </form>
+                <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Tidak</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('scripts')
+<script>
+    $(document).ready(function(){
+        $(".pagination").addClass('justify-content-center')
+        $('.hapus').on('click', function(){
+            $('#nama-hapus').html('Apakah Anda yakin ingin menghapus ' + $(this).data('nama') + '???');
+            $('#form-hapus').attr('action', $("meta[name='base-url']").attr('content') + '/ijinKerjaPanas/' + $(this).data('id'));
+        });
+    });
+</script>
+@endpush
