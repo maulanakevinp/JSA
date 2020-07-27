@@ -25,7 +25,7 @@
         @media print{
             @page {
                 margin: 1cm;
-                size: landscape;
+                size: 330mm 215mm;
             }
             .page-break {
                 display: block;

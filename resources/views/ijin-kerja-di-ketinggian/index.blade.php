@@ -64,14 +64,11 @@
                                 Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                <a target="_blank" href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
+                                <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                 @can('hse')
-                                    <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                     <a href="{{ route('ijin-kerja-di-ketinggian.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
-                                    <a href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
                                     <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
-                                @endcan
-                                @can('kontraktor')
-                                    <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                 @endcan
                             </div>
                         </div>
@@ -146,14 +143,11 @@
                                 <td>{{ $item->umum->lokasi_pekerjaan }}</td>
                                 <td>{{ $item->umum->uraian_pekerjaan }}</td>
                                 <td>
+                                    <a target="_blank" href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                     @can('hse')
-                                        <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('ijin-kerja-di-ketinggian.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
                                         <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i></a>
-                                    @endcan
-                                    @can('kontraktor')
-                                        <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="btn btn-sm btn-neutral" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                     @endcan
                                 </td>
                             </tr>

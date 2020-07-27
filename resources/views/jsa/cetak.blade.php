@@ -2,7 +2,15 @@
 @section('title','Cetak JSA ' . $jsa->nama_perusahaan . ' - ' . $jsa->no_jsa)
 
 @section('styles')
-
+<style>
+    @media all {
+        .bg-skyblue {
+            -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+            color-adjust: exact !important;  /*Firefox*/
+            background-color: skyblue !important;
+        }
+    }
+</style>
 @endsection
 
 @section('content')
@@ -43,7 +51,7 @@
 </table>
 
 <table class="table mb-5" style="font-size: 9pt">
-    <thead class="border border-info">
+    <thead class="border border-info bg-skyblue">
         <tr class="border border-info highlighted">
             <td class="border border-info p-1 text-center" colspan="3">Disiapkan oleh / <span class="font-italic">Prepared By</span></td>
             <td class="border border-info p-1 text-center" colspan="3">Direview oleh / <span class="font-italic">Reviewed By</span></td>
@@ -93,17 +101,17 @@
 </table>
 <div class="page-break"></div>
 <table class="table" style="font-size: 8pt">
-    <thead>
-        <tr class="border border-info">
-            <td valign="center" class="border border-info p-1 text-center" width="10px">No.</td>
-            <td valign="center" class="border border-info p-1 text-center" width="200px">Urutan Langkah-langkah Pekerjaan / <span class="font-italic">Sequence of Jobs Steps</span></td>
-            <td valign="center" class="border border-info p-1 text-center" width="100px">Potensi Bahaya / <span class="font-italic">Potential Hazard</span></td>
-            <td valign="center" class="border border-info p-1 text-center" width="100px">Bahaya Spesifik / <span class="font-italic">Specific Hazard</span></td>
-            <td valign="center" class="border border-info p-1 text-center">Pengendalian yang sudah ada / <span class="font-italic">Existing Control</span></td>
-            <td valign="center" class="border border-info p-1 text-center" width="80px">Tingkat Risiko / <span class="font-italic">Risk Level</span></td>
-            <td valign="center" class="border border-info p-1 text-center" width="120px">Rencana Tindakan Pencegahan / <span class="font-italic">Preventif Measure Plan</span></td>
-            <td valign="center" class="border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
-            <td valign="center" class="border border-info p-1 text-center"width="50px">Waktu / <span class="font-italic">When</span></td>
+    <thead class="bg-skyblue">
+        <tr class="border border-info bg-skyblue">
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="10px">No.</td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="200px">Urutan Langkah-langkah Pekerjaan / <span class="font-italic">Sequence of Jobs Steps</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="100px">Potensi Bahaya / <span class="font-italic">Potential Hazard</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="100px">Bahaya Spesifik / <span class="font-italic">Specific Hazard</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center">Pengendalian yang sudah ada / <span class="font-italic">Existing Control</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="80px">Tingkat Risiko / <span class="font-italic">Risk Level</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="120px">Rencana Tindakan Pencegahan / <span class="font-italic">Preventif Measure Plan</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
+            <td valign="center" class="bg-skyblue border border-info p-1 text-center"width="50px">Waktu / <span class="font-italic">When</span></td>
         </tr>
     </thead>
     <tbody>
