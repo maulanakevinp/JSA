@@ -19,7 +19,6 @@ class CreateIjinKerjaGalianTable extends Migration
             $table->foreignId('umum_id')->constrained('umum')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('alat_pelindung_diri_id')->constrained('alat_pelindung_diri')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('dokumen_pendukung_id')->constrained('dokumen_pendukung')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('pengesahan_id')->constrained('pengesahan')->onDelete('cascade')->onUpdate('cascade');
             $table->boolean('jalur_bebas_dari_kabel_listrik')->nullable();
             $table->text('keterangan_jalur_bebas_dari_kabel_listrik')->nullable();
             $table->boolean('jalur_bebas_dari_kabel_telepon')->nullable();
@@ -40,6 +39,7 @@ class CreateIjinKerjaGalianTable extends Migration
             $table->text('keterangan_lokasi_bebas_dari_area_mudah_terbakar')->nullable();
             $table->boolean('perlu_dengan_ijin_kerja_yang_lain')->nullable();
             $table->text('keterangan_perlu_dengan_ijin_kerja_yang_lain')->nullable();
+            $table->foreignId('pengesahan_id')->constrained('pengesahan')->onDelete('cascade')->onUpdate('cascade');
             $table->text('catatan')->nullable();
             $table->timestamps();
         });

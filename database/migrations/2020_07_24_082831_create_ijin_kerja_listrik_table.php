@@ -43,7 +43,8 @@ class CreateIjinKerjaListrikTable extends Migration
             $table->boolean('perlu_dengan_ijin_kerja_yang_lain')->nullable();
             $table->text('keterangan_perlu_dengan_ijin_kerja_yang_lain')->nullable();
             $table->foreignId('dokumen_pendukung_id')->constrained('dokumen_pendukung')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('petugas_pengawas_id')->constrained('pengesahan')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('uji_kandungan_gas_id')->constrained('uji_kandungan_gas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('petugas_pengawas_id')->constrained('petugas_pengawas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('pengesahan_id')->constrained('pengesahan')->onDelete('cascade')->onUpdate('cascade');
             $table->text('catatan')->nullable();
             $table->timestamps();

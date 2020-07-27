@@ -8,6 +8,7 @@ use App\IjinKerjaListrik;
 use App\Jsa;
 use App\Pengesahan;
 use App\PetugasPengawas;
+use App\UjiKandunganGas;
 use App\Umum;
 use App\Validasi;
 use Illuminate\Http\Request;
@@ -53,6 +54,7 @@ class IjinKerjaListrikController extends Controller
         $dataDokumenPendukung = $this->dataDokumenPendukung($request);
         $dataPetugasPengawas = $this->dataPetugasPengawas($request);
         $dataPengesahan = $this->dataPengesahan($request);
+        $dataUjiKandunganGas = $this->dataUjiKandunganGas($request);
         $dataValidasi = $this->dataValidasi($request);
 
         $umum               = Umum::create($dataUmum);
@@ -60,6 +62,7 @@ class IjinKerjaListrikController extends Controller
         $dokumenPendukung   = DokumenPendukung::create($dataDokumenPendukung);
         $petugasPengawas    = PetugasPengawas::create($dataPetugasPengawas);
         $pengesahan         = Pengesahan::create($dataPengesahan);
+        $ujiKandunganGas    = UjiKandunganGas::create($dataUjiKandunganGas);
 
         $ijinKerja = IjinKerjaListrik::create([
             'jsa_id'                                                    => $request->jsa_id,
@@ -68,6 +71,7 @@ class IjinKerjaListrikController extends Controller
             'dokumen_pendukung_id'                                      => $dokumenPendukung->id,
             'petugas_pengawas_id'                                       => $petugasPengawas->id,
             'pengesahan_id'                                             => $pengesahan->id,
+            'uji_kandungan_gas_id'                                      => $ujiKandunganGas->id,
             'jalur_telah_dibebaskan_dari_aliran_listrik'                => $request->jalur_telah_dibebaskan_dari_aliran_listrik,
             'keterangan_jalur_telah_dibebaskan_dari_aliran_listrik'     => $request->keterangan_jalur_telah_dibebaskan_dari_aliran_listrik,
             'jalur_peralatan_yang_terkait_telah_aman'                   => $request->jalur_peralatan_yang_terkait_telah_aman,

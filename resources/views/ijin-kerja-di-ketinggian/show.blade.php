@@ -50,10 +50,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah == 1 ? 'checked' : '' }} name="sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah == 1 ? 'checked' : '' }} name="sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah" value="{{ $ijinKerja->keterangan_sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah" value="{{ $ijinKerja->keterangan_sebagian_pekerjaan_dapat_dikerjakan_dipermukaan_tanah }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -61,10 +61,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->jarak_ketinggian_sudah_diketahui == 1 ? 'checked' : '' }} name="jarak_ketinggian_sudah_diketahui" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->jarak_ketinggian_sudah_diketahui == 1 ? 'checked' : '' }} name="jarak_ketinggian_sudah_diketahui" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_jarak_ketinggian_sudah_diketahui" value="{{ $ijinKerja->keterangan_jarak_ketinggian_sudah_diketahui }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jarak_ketinggian_sudah_diketahui" value="{{ $ijinKerja->keterangan_jarak_ketinggian_sudah_diketahui }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,10 +72,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->terdapat_bahaya_angin == 1 ? 'checked' : '' }} name="terdapat_bahaya_angin" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->terdapat_bahaya_angin == 1 ? 'checked' : '' }} name="terdapat_bahaya_angin" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_terdapat_bahaya_angin" value="{{ $ijinKerja->keterangan_terdapat_bahaya_angin }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_terdapat_bahaya_angin" value="{{ $ijinKerja->keterangan_terdapat_bahaya_angin }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -83,10 +83,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh == 1 ? 'checked' : '' }} name="area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh == 1 ? 'checked' : '' }} name="area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh" value="{{ $ijinKerja->keterangan_area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh" value="{{ $ijinKerja->keterangan_area_kerja_sudah_terbebas_dari_bahaya_benda_jatuh }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -94,10 +94,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_sudah_terbebas_dari_semua_aliran_listrik == 1 ? 'checked' : '' }} name="area_kerja_sudah_terbebas_dari_semua_aliran_listrik" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_sudah_terbebas_dari_semua_aliran_listrik == 1 ? 'checked' : '' }} name="area_kerja_sudah_terbebas_dari_semua_aliran_listrik" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_sudah_terbebas_dari_semua_aliran_listrik" value="{{ $ijinKerja->keterangan_area_kerja_sudah_terbebas_dari_semua_aliran_listrik }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_sudah_terbebas_dari_semua_aliran_listrik" value="{{ $ijinKerja->keterangan_area_kerja_sudah_terbebas_dari_semua_aliran_listrik }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -105,10 +105,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_berada_dipermukaan_yang_landai == 1 ? 'checked' : '' }} name="area_kerja_berada_dipermukaan_yang_landai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_berada_dipermukaan_yang_landai == 1 ? 'checked' : '' }} name="area_kerja_berada_dipermukaan_yang_landai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_berada_dipermukaan_yang_landai" value="{{ $ijinKerja->keterangan_area_kerja_berada_dipermukaan_yang_landai }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_berada_dipermukaan_yang_landai" value="{{ $ijinKerja->keterangan_area_kerja_berada_dipermukaan_yang_landai }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -116,10 +116,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_berada_di_permukaan_yang_basah == 1 ? 'checked' : '' }} name="area_kerja_berada_di_permukaan_yang_basah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_berada_di_permukaan_yang_basah == 1 ? 'checked' : '' }} name="area_kerja_berada_di_permukaan_yang_basah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_berada_di_permukaan_yang_basah" value="{{ $ijinKerja->keterangan_area_kerja_berada_di_permukaan_yang_basah }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_berada_di_permukaan_yang_basah" value="{{ $ijinKerja->keterangan_area_kerja_berada_di_permukaan_yang_basah }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -127,10 +127,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_berada_di_ruang_yang_sempit == 1 ? 'checked' : '' }} name="area_kerja_berada_di_ruang_yang_sempit" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_berada_di_ruang_yang_sempit == 1 ? 'checked' : '' }} name="area_kerja_berada_di_ruang_yang_sempit" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_berada_di_ruang_yang_sempit" value="{{ $ijinKerja->keterangan_area_kerja_berada_di_ruang_yang_sempit }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_berada_di_ruang_yang_sempit" value="{{ $ijinKerja->keterangan_area_kerja_berada_di_ruang_yang_sempit }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -138,10 +138,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->pekerja_bekerja_sendiri == 1 ? 'checked' : '' }} name="pekerja_bekerja_sendiri" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->pekerja_bekerja_sendiri == 1 ? 'checked' : '' }} name="pekerja_bekerja_sendiri" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_pekerja_bekerja_sendiri" value="{{ $ijinKerja->keterangan_pekerja_bekerja_sendiri }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_pekerja_bekerja_sendiri" value="{{ $ijinKerja->keterangan_pekerja_bekerja_sendiri }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -149,10 +149,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->area_kerja_perlu_dipasang_barikade == 1 ? 'checked' : '' }} name="area_kerja_perlu_dipasang_barikade" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->area_kerja_perlu_dipasang_barikade == 1 ? 'checked' : '' }} name="area_kerja_perlu_dipasang_barikade" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_area_kerja_perlu_dipasang_barikade" value="{{ $ijinKerja->keterangan_area_kerja_perlu_dipasang_barikade }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_area_kerja_perlu_dipasang_barikade" value="{{ $ijinKerja->keterangan_area_kerja_perlu_dipasang_barikade }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -160,10 +160,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->tersedia_rambu_keselamatan == 1 ? 'checked' : '' }} name="tersedia_rambu_keselamatan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tersedia_rambu_keselamatan == 1 ? 'checked' : '' }} name="tersedia_rambu_keselamatan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_tersedia_rambu_keselamatan" value="{{ $ijinKerja->keterangan_tersedia_rambu_keselamatan }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_tersedia_rambu_keselamatan" value="{{ $ijinKerja->keterangan_tersedia_rambu_keselamatan }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                     </div>
@@ -174,10 +174,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->alat_perancah_digunakan_pada_pekerjaan_di_ketinggian == 1 ? 'checked' : '' }} name="alat_perancah_digunakan_pada_pekerjaan_di_ketinggian" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->alat_perancah_digunakan_pada_pekerjaan_di_ketinggian == 1 ? 'checked' : '' }} name="alat_perancah_digunakan_pada_pekerjaan_di_ketinggian" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_alat_perancah_digunakan_pada_pekerjaan_di_ketinggian" value="{{ $ijinKerja->keterangan_alat_perancah_digunakan_pada_pekerjaan_di_ketinggian }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_alat_perancah_digunakan_pada_pekerjaan_di_ketinggian" value="{{ $ijinKerja->keterangan_alat_perancah_digunakan_pada_pekerjaan_di_ketinggian }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -185,10 +185,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->alat_perancah_disusun_oleh_petugas_alat_perancah == 1 ? 'checked' : '' }} name="alat_perancah_disusun_oleh_petugas_alat_perancah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->alat_perancah_disusun_oleh_petugas_alat_perancah == 1 ? 'checked' : '' }} name="alat_perancah_disusun_oleh_petugas_alat_perancah" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_alat_perancah_disusun_oleh_petugas_alat_perancah" value="{{ $ijinKerja->keterangan_alat_perancah_disusun_oleh_petugas_alat_perancah }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_alat_perancah_disusun_oleh_petugas_alat_perancah" value="{{ $ijinKerja->keterangan_alat_perancah_disusun_oleh_petugas_alat_perancah }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -196,10 +196,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->komponen_alat_perancah_dalam_kondisi_yang_baik == 1 ? 'checked' : '' }} name="komponen_alat_perancah_dalam_kondisi_yang_baik" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->komponen_alat_perancah_dalam_kondisi_yang_baik == 1 ? 'checked' : '' }} name="komponen_alat_perancah_dalam_kondisi_yang_baik" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik" value="{{ $ijinKerja->keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik" value="{{ $ijinKerja->keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -207,10 +207,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" {{ $ijinKerja->komponen_alat_perancah_sudah_terpasang == 1 ? 'checked' : '' }} name="komponen_alat_perancah_sudah_terpasang" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" {{ $ijinKerja->komponen_alat_perancah_sudah_terpasang == 1 ? 'checked' : '' }} name="komponen_alat_perancah_sudah_terpasang" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_komponen_alat_perancah_sudah_terpasang" value="{{ $ijinKerja->keterangan_komponen_alat_perancah_sudah_terpasang }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_komponen_alat_perancah_sudah_terpasang" value="{{ $ijinKerja->keterangan_komponen_alat_perancah_sudah_terpasang }}" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                     </div>
@@ -224,37 +224,37 @@
                         <div class="row mb-0">
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]" id="validasi_hari" placeholder="Masukkan Hari ...">
+                                    <input disabled disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]" id="validasi_hari" placeholder="Masukkan Hari ...">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" placeholder="Masukkan Waktu Mulai ...">
+                                    <input disabled disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" placeholder="Masukkan Waktu Mulai ...">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" placeholder="Masukkan Waktu Selesai ...">
+                                    <input disabled disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" placeholder="Masukkan Waktu Selesai ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]" id="nama_pelaksana" placeholder="Masukkan Nama Pelaksana ...">
+                                    <input disabled disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]" id="nama_pelaksana" placeholder="Masukkan Nama Pelaksana ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" placeholder="Masukkan Inisial Pelaksana ...">
+                                    <input disabled disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" placeholder="Masukkan Inisial Pelaksana ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]" id="nama_pengawas" placeholder="Masukkan Nama Pengawas ...">
+                                    <input disabled disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]" id="nama_pengawas" placeholder="Masukkan Nama Pengawas ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]" id="inisial_pengawas" placeholder="Masukkan Inisial Pengawas ...">
+                                    <input disabled disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]" id="inisial_pengawas" placeholder="Masukkan Inisial Pengawas ...">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -273,10 +273,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai == 1 ? 'checked' : '' }} name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai == 1 ? 'checked' : '' }} name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="{{ $ijinKerja->keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="{{ $ijinKerja->keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -284,10 +284,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->tangga_dalam_kondisi_layak_dan_sesuai == 1 ? 'checked' : '' }} name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_dalam_kondisi_layak_dan_sesuai == 1 ? 'checked' : '' }} name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" value="{{ $ijinKerja->keterangan_tangga_dalam_kondisi_layak_dan_sesuai }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" value="{{ $ijinKerja->keterangan_tangga_dalam_kondisi_layak_dan_sesuai }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -295,10 +295,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->tangga_mampu_menahan_gerakan == 1 ? 'checked' : '' }} name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_mampu_menahan_gerakan == 1 ? 'checked' : '' }} name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" value="{{ $ijinKerja->keterangan_tangga_mampu_menahan_gerakan }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" value="{{ $ijinKerja->keterangan_tangga_mampu_menahan_gerakan }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -306,10 +306,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->tangga_memiliki_panjang_yang_cukup == 1 ? 'checked' : '' }} name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_panjang_yang_cukup == 1 ? 'checked' : '' }} name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" value="{{ $ijinKerja->keterangan_tangga_memiliki_panjang_yang_cukup }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" value="{{ $ijinKerja->keterangan_tangga_memiliki_panjang_yang_cukup }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -317,10 +317,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->tangga_memiliki_stopper == 1 ? 'checked' : '' }} name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_stopper == 1 ? 'checked' : '' }} name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" value="{{ $ijinKerja->keterangan_tangga_memiliki_stopper }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" value="{{ $ijinKerja->keterangan_tangga_memiliki_stopper }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -328,10 +328,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input type="checkbox" {{ $ijinKerja->pekerja_menggunakan_peralatan_lain == 1 ? 'checked' : '' }} name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" {{ $ijinKerja->pekerja_menggunakan_peralatan_lain == 1 ? 'checked' : '' }} name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                 </div>
                             </div>
-                            <input type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" value="{{ $ijinKerja->keterangan_pekerja_menggunakan_peralatan_lain }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" value="{{ $ijinKerja->keterangan_pekerja_menggunakan_peralatan_lain }}" placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                 </div>
