@@ -15,12 +15,7 @@
                                 <p class="mb-0 text-sm">Kelola Langkah Pekerjaan {{ config('app.name') }}</p>
                             </div>
                             <div class="mb-3">
-                                @can('sub_kontraktor')
-                                    <a href="{{ route('jsa.edit', $langkahPekerjaan->jsa_id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                @endcan
-                                @can('hse-kontraktor')
-                                    <a href="{{ route('jsa.verifikasi', $langkahPekerjaan->jsa_id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
-                                @endcan
+                                <a href="{{ URL::previous() }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
