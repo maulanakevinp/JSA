@@ -66,11 +66,11 @@
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="tanggal_service">Tanggal Service</label>
-                            <input class="form-control" type="text" name="tanggal_service" id="tanggal_service" placeholder="Masukkan Tanggal Service ...">
+                            <input class="form-control" type="date" name="tanggal_service" id="tanggal_service" placeholder="Masukkan Tanggal Service ...">
                         </div>
                         <div class="form-group">
                             <label class="form-control-label" for="tanggal_kalibrasi">Tanggal Kalibrasi</label>
-                            <input class="form-control" type="text" name="tanggal_kalibrasi" id="tanggal_kalibrasi" placeholder="Masukkan Tanggal Kalibrasi ...">
+                            <input class="form-control" type="date" name="tanggal_kalibrasi" id="tanggal_kalibrasi" placeholder="Masukkan Tanggal Kalibrasi ...">
                         </div>
                     </div>
                     <hr>
