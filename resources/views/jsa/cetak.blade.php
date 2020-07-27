@@ -103,25 +103,25 @@
 <table class="table" style="font-size: 8pt">
     <thead class="bg-skyblue">
         <tr class="border border-info bg-skyblue">
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="10px">No.</td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="200px">Urutan Langkah-langkah Pekerjaan / <span class="font-italic">Sequence of Jobs Steps</span></td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="100px">Potensi Bahaya / <span class="font-italic">Potential Hazard</span></td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="100px">Bahaya Spesifik / <span class="font-italic">Specific Hazard</span></td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="120px">Rencana Tindakan Pencegahan / <span class="font-italic">Preventif Measure Plan</span></td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
-            <td valign="center" class="bg-skyblue border border-info p-1 text-center"width="50px">Waktu / <span class="font-italic">When</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="10px">No.</td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="200px">Urutan Langkah-langkah Pekerjaan / <span class="font-italic">Sequence of Jobs Steps</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="100px">Potensi Bahaya / <span class="font-italic">Potential Hazard</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="100px">Bahaya Spesifik / <span class="font-italic">Specific Hazard</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="120px">Rencana Tindakan Pencegahan / <span class="font-italic">Preventif Measure Plan</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
+            <td style="vertical-align: middle" class="bg-skyblue border border-info p-1 text-center" width="50px">Waktu / <span class="font-italic">When</span></td>
         </tr>
     </thead>
     <tbody>
         @foreach ($jsa->langkahPekerjaan as $item)
         <tr class="border border-info">
-                <td valign="center" class="border border-info p-1">{{ $loop->iteration }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->potensi_bahaya }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->bahaya_spesifik }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
-                <td valign="center" class="border border-info p-1">{{ $item->waktu }}</td>
+                <td class="border border-info p-1">{{ $loop->iteration }}</td>
+                <td class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
+                <td class="border border-info p-1">{{ $item->potensi_bahaya }}</td>
+                <td class="border border-info p-1">{{ $item->bahaya_spesifik }}</td>
+                <td class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
+                <td class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
+                <td class="border border-info p-1">{{ $item->waktu }}</td>
             </tr>
         @endforeach
     </tbody>
