@@ -35,7 +35,7 @@
                 <h3 class="mb-0">Detail Ijin Kerja Radiografi</h3>
             </div>
             <div class="card-body">
-                <input type="hidden" name="jsa_id" value="{{ $jsa->id }}">
+                <input type="hidden" name="jsa_id" value="{{ $ijinKerja->jsa->id }}">
                 @include('bagian-isi-kerja.umum.show')
                 <hr>
                 @include('bagian-isi-kerja.alat-pelindung-diri.show')
