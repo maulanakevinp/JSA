@@ -13,6 +13,7 @@
                             <div class="mb-3">
                                 <h2 class="mb-0">Buat Ijin Kerja Listrik</h2>
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja Listrik {{ config('app.name') }}</p>
+                                <p class="mb-0 text-sm">{{ $jsa->nama_perusahaan }} - {{ $jsa->no_jsa }}</p>
                             </div>
                             <div class="mb-3">
                                 <a href="{{ route('ijin-kerja-listrik.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
