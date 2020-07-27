@@ -17,6 +17,7 @@
                             <div class="mb-3">
                                 <h2 class="mb-0">Ijin Kerja Galian</h2>
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja Galian</p>
+                                <p class="mb-0 text-sm">{{ $jsa->nama_perusahaan }} - {{ $jsa->no_jsa }}</p>
                             </div>
                             <div class="mb-3">
                                 <a href="{{ url('/ijin-kerja-galian', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-galian' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>

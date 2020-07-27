@@ -13,6 +13,7 @@
                             <div class="mb-3">
                                 <h2 class="mb-0">Detail Ijin Kerja Panas</h2>
                                 <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
+                                <p class="mb-0 text-sm">{{ $ijinKerja->jsa->nama_perusahaan }} - {{ $ijinKerja->jsa->no_jsa }}</p>
                             </div>
                             <div class="mb-3">
                                 <a href="{{ URL::previous() }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
