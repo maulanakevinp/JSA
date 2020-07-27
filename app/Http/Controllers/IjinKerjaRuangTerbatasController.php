@@ -103,10 +103,10 @@ class IjinKerjaRuangTerbatasController extends Controller
             'catatan'                                                       => $request->catatan,
         ]);
 
-        if ($request->validasi_hari[0]) {
+        try {
             for ($i=0; $i < count($request->validasi_hari); $i++) {
                 Validasi::create([
-                    'ijin_kerja_ruang_terbatas_id'   =>  $ijinKerja->id,
+                    'ijin_kerja_listrik_id' =>  $ijinKerja->id,
                     'validasi_hari'         =>  $request->validasi_hari[$i],
                     'validasi_mulai_hari'   =>  $request->validasi_mulai_hari[$i],
                     'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
@@ -116,6 +116,8 @@ class IjinKerjaRuangTerbatasController extends Controller
                     'inisial_pengawas'      =>  $request->inisial_pengawas[$i],
                 ]);
             }
+        } catch (\Throwable $th) {
+            //throw $th;
         }
 
         return response()->json([
