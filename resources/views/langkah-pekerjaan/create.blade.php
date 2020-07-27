@@ -66,24 +66,6 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label" for="pengendalian_yang_sudah_ada">Pengendalian Yang Sudah Ada</label>
-                        <textarea class="form-control form-control-alternative" name="pengendalian_yang_sudah_ada" id="pengendalian_yang_sudah_ada" placeholder="Masukkan Pengendalian Yang Sudah Ada ...">{{ old('pengendalian_yang_sudah_ada') }}</textarea>
-                        @error('pengendalian_yang_sudah_ada')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="tingkat_risiko">Tingkat Risiko</label>
-                        <input class="form-control form-control-alternative" type="text" name="tingkat_risiko" id="tingkat_risiko" placeholder="Masukkan Tingkat Risiko ..." value="{{ old('tingkat_risiko') }}">
-                        @error('tingkat_risiko')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-                    <div class="form-group">
                         <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
                         <textarea class="form-control form-control-alternative" name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan') }}</textarea>
                         @error('rencana_tindakan_pencegahan')

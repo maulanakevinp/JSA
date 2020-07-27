@@ -19,8 +19,6 @@ class CreateLangkahPekerjaanTable extends Migration
             $table->text('urutan_langkah_langkah_pekerjaan');
             $table->text('potensi_bahaya');
             $table->text('bahaya_spesifik');
-            $table->text('pengendalian_yang_sudah_ada');
-            $table->text('tingkat_risiko');
             $table->text('rencana_tindakan_pencegahan');
             $table->text('pic_pelaksana');
             $table->text('waktu')->nullable();

@@ -53,14 +53,6 @@
                     <input class="form-control form-control-alternative" disabled type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ $langkahPekerjaan->bahaya_spesifik }}">
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="pengendalian_yang_sudah_ada">Pengendalian Yang Sudah Ada</label>
-                    <textarea class="form-control form-control-alternative" disabled name="pengendalian_yang_sudah_ada" id="pengendalian_yang_sudah_ada" placeholder="Masukkan Pengendalian Yang Sudah Ada ...">{{ $langkahPekerjaan->pengendalian_yang_sudah_ada }}</textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="tingkat_risiko">Tingkat Risiko</label>
-                    <input class="form-control form-control-alternative" disabled type="text" name="tingkat_risiko" id="tingkat_risiko" placeholder="Masukkan Tingkat Risiko ..." value="{{ $langkahPekerjaan->tingkat_risiko }}">
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
                     <textarea class="form-control form-control-alternative" disabled name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ $langkahPekerjaan->rencana_tindakan_pencegahan }}</textarea>
                 </div>
