@@ -36,10 +36,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['middleware' => ['can:admin_kontraktor']], function () {
-        Route::resource('jsa', 'JsaController')->except('edit','update','index','show');
 
         Route::get('/langkahPekerjaan/create/{jsa}', 'LangkahPekerjaanController@create')->name('langkahPekerjaan.create');
         Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','show','index');
+        Route::patch('/umum/{id}', 'UmumController@updateTanggalSelesai')->name('umum.updateTanggalSelesai');
+        Route::resource('jsa', 'JsaController')->except('edit','update','index','show');
     });
 
     Route::group(['middleware' => ['can:hse-manager_kontraktor']], function () {
