@@ -76,6 +76,7 @@
                                     <!-- List group -->
                                     @foreach ($expired as $item)
                                         @php
+                                            $url = "";
                                             if (count($item->ijinKerjaPanas) == 1) {
                                                 $url = route('ijin-kerja-panas.show', $item->ijinKerjaPanas[0]->id);
                                             } elseif (count($item->ijinKerjaGalian) == 1) {
@@ -132,6 +133,7 @@
                                     @endforeach
                                     @foreach ($belumExpired as $item)
                                         @php
+                                            $url = "";
                                             if (count($item->ijinKerjaPanas) == 1) {
                                                 $url = route('ijin-kerja-panas.show', $item->ijinKerjaPanas[0]->id);
                                             } elseif (count($item->ijinKerjaGalian) == 1) {

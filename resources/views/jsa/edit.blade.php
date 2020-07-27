@@ -155,7 +155,7 @@
             @endif
         </h3>
         @if ($jsa->status_persetujuan == 1)
-            <a href="{{ route('jsa.show', $jsa) }}" class="btn btn-sm btn-success"><i class="fas fa-print"> Cetak</i></a>
+            <a target="_blank" href="{{ route('jsa.cetak', $jsa) }}" class="btn btn-sm btn-success"><i class="fas fa-print"> Cetak</i></a>
         @endif
     </div>
     <div class="card-body">

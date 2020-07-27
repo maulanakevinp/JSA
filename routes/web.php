@@ -88,6 +88,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     });
 
     Route::group(['middleware' => ['can:no_admin']], function () {
+        Route::get('/cetak-jsa/{id}', 'JsaController@cetak')->name('jsa.cetak');
         Route::get('/jsa-grid', 'JsaController@index');
         Route::resource('jsa', 'JsaController')->except('create','store','destroy');
 
