@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jsa;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class JsaController extends Controller
@@ -291,5 +292,11 @@ class JsaController extends Controller
         $jsa->appends($request->only('cari'));
 
         return view('jsa.ijin-kerja', compact('jsa'));
+    }
+
+    public function cetak($id)
+    {
+        $jsa = Jsa::findOrFail($id);
+        return view('jsa.cetak', compact('jsa'));
     }
 }
