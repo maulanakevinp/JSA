@@ -247,6 +247,7 @@ class IjinKerjaDiKetinggianController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaDiKetinggian::findOrFail($id);
+        return view('ijin-kerja-di-ketinggian.cetak', compact('ijinKerja'));
     }
 }

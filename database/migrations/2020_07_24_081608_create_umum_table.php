@@ -17,9 +17,10 @@ class CreateUmumTable extends Migration
             $table->id();
             $table->string('nomor', 128);
             $table->date('tanggal_pengesahan');
-            $table->date('tanggal_mulai');
-            $table->date('tanggal_selesai');
+            $table->timestamp('tanggal_mulai')->nullable();
+            $table->timestamp('tanggal_selesai')->nullable();
             $table->string('lokasi_pekerjaan', 128);
+            $table->string('pelaksana_pekerjaan', 128);
             $table->text('uraian_pekerjaan');
             $table->timestamps();
         });

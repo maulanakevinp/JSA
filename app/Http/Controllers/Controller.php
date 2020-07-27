@@ -19,6 +19,7 @@ class Controller extends BaseController
             'tanggal_mulai'         => ['required', 'after:yesterday'],
             'tanggal_selesai'       => ['required', 'after:tanggal_mulai'],
             'lokasi_pekerjaan'      => ['required', 'string', 'max:128'],
+            'pelaksana_pekerjaan'   => ['required', 'string', 'max:128'],
             'uraian_pekerjaan'      => ['required'],
         ],[
             'tanggal_pengesahan.after'  => 'tanggal pengesahan harus sesudahnya kemarin',

@@ -38,6 +38,10 @@
         <input disabled class="form-control" type="text" name="lokasi_pekerjaan" id="lokasi_pekerjaan" placeholder="Masukkan Lokasi Pekerjaan ..." value="{{ old('lokasi_pekerjaan', $ijinKerja->umum->lokasi_pekerjaan) }}">
     </div>
     <div class="form-group">
+        <label class="form-control-label" for="pelaksana_pekerjaan">Pelaksana Pekerjaan</label>
+        <input disabled class="form-control" type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan" placeholder="Masukkan Lokasi Pekerjaan ..." value="{{ old('pelaksana_pekerjaan', $ijinKerja->umum->pelaksana_pekerjaan) }}">
+    </div>
+    <div class="form-group">
         <label class="form-control-label" for="uraian_pekerjaan">Uraian pekerjaan</label>
         <input disabled class="form-control" type="text" name="uraian_pekerjaan" id="uraian_pekerjaan" placeholder="Masukkan Uraian pekerjaan ..." value="{{ old('uraian_pekerjaan', $ijinKerja->umum->uraian_pekerjaan) }}">
     </div>

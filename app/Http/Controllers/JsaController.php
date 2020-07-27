@@ -298,5 +298,7 @@ class JsaController extends Controller
     {
         $jsa = Jsa::findOrFail($id);
         return view('jsa.cetak', compact('jsa'));
+        // $pdf = PDF::loadView('jsa.cetak', compact('jsa'))->setPaper(array(0,0,609.449,935.433), 'landscape');
+        // return $pdf->stream('tes.pdf');
     }
 }
