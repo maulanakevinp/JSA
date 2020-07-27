@@ -115,8 +115,8 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($jsa->langkahPekerjaan as $item)
         <tr class="border border-info">
-            @foreach ($jsa->langkahPekerjaan as $item)
                 <td valign="center" class="border border-info p-1">{{ $loop->iteration }}</td>
                 <td valign="center" class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
                 <td valign="center" class="border border-info p-1">{{ $item->potensi_bahaya }}</td>
@@ -126,8 +126,8 @@
                 <td valign="center" class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
                 <td valign="center" class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
                 <td valign="center" class="border border-info p-1">{{ $item->waktu }}</td>
-            @endforeach
-        </tr>
+            </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection
