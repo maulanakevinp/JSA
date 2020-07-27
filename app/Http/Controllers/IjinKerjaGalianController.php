@@ -6,12 +6,8 @@ namespace App\Http\Controllers;
 use App\AlatPelindungDiri;
 use App\DokumenPendukung;
 use App\IjinKerjaGalian;
-use App\JenisPekerjaan;
 use App\Jsa;
 use App\Pengesahan;
-use App\PetugasPengawas;
-use App\SumberBahayaAlat;
-use App\UjiKandunganGas;
 use App\Umum;
 use App\Validasi;
 use Illuminate\Http\Request;
@@ -53,26 +49,19 @@ class IjinKerjaGalianController extends Controller
     public function store(Request $request)
     {
         $dataUmum = $this->dataUmum($request);
-        $dataSumberBahayaAlat = $this->dataSumberBahayaAlat($request);
         $dataAlatPelindungDiri = $this->dataAlatPelindungDiri($request);
         $dataDokumenPendukung = $this->dataDokumenPendukung($request);
-        $dataUjiKandunganGas = $this->dataUjiKandunganGas($request);
-        $dataPetugasPengawas = $this->dataPetugasPengawas($request);
         $dataPengesahan = $this->dataPengesahan($request);
         $dataValidasi = $this->dataValidasi($request);
 
         $umum               = Umum::create($dataUmum);
-        $sumberBahayaAlat   = SumberBahayaAlat::create($dataSumberBahayaAlat);
         $alatPelindungDiri  = AlatPelindungDiri::create($dataAlatPelindungDiri);
         $dokumenPendukung   = DokumenPendukung::create($dataDokumenPendukung);
-        $ujiKandunganGas    = UjiKandunganGas::create($dataUjiKandunganGas);
-        $petugasPengawas    = PetugasPengawas::create($dataPetugasPengawas);
         $pengesahan         = Pengesahan::create($dataPengesahan);
 
         $ijinKerja = IjinKerjaGalian::create([
             'jsa_id'                                                => $request->jsa_id,
             'umum_id'                                               => $umum->id,
-            'sumber_bahaya_alat_id'                                 => $sumberBahayaAlat->id,
             'alat_pelindung_diri_id'                                => $alatPelindungDiri->id,
             'dokumen_pendukung_id'                                  => $dokumenPendukung->id,
             'pengesahan_id'                                         => $pengesahan->id,
