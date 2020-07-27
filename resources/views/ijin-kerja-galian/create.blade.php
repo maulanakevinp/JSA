@@ -302,6 +302,7 @@
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$("[name='" + i + "']").hasClass('is-invalid')) {
                             $("[name='" + i + "']").addClass('is-invalid');
+                            $("[name='" + i + "']").focus();
                         }
                     });
                 }

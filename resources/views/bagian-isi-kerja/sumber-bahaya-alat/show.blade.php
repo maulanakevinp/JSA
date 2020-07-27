@@ -1,4 +1,4 @@
-<h6 class="heading-small text-muted">SUMBER BAHAYA ALAT/KEGIATAN</h6>
+<h6 class="heading-small text-muted font-weight-bold">SUMBER BAHAYA ALAT/KEGIATAN</h6>
 <div class="pl-lg-4 row">
     <div class="col-md-3 mb-3">
         <div class="custom-control custom-checkbox">

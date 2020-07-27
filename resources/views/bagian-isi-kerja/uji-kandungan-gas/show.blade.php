@@ -1,4 +1,4 @@
-<p class="mb-0 heading-small font-weight-bold">Uji Kandungan GAS</p>
+<p class="heading-small text-muted font-weight-bold">Uji Kandungan GAS</p>
 <div class="pl-lg-4">
     <div class="table-responsive">
         <table class="table">

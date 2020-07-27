@@ -1,4 +1,4 @@
-<p class="mb-0 heading-small font-weight-bold">PENGESAHAN</p>
+<p class="heading-small text-muted font-weight-bold">PENGESAHAN</p>
 <div class="pl-lg-4 row">
     <div class="col-md-6 mb-3">
         <p class="mb-0 text-sm">Saya memahami tindakan pecegahan dan akan menghubungi operasi yang berwenang</p>

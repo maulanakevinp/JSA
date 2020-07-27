@@ -218,6 +218,75 @@
                                 </div>
                             </div>
                         </div>
+                        <h6 class="mb-0 font-weight-bold text-sm">Tangga (Ladder / Step Ladder)</h6>
+                        <div class="pl-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">1. Apakah tangga merupakan alat yang bantu yang paling sesuai untuk digunakan pada pekerjaan di ketinggian?</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">2. Apakah tangga dalam kondisi layak dan sesuai untuk digunakan?</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">3. Apakah tangga mampu menahan gerakan saat naik/turun dan bekerja?</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">4. Apakah tangga memiliki panjang yang cukup untuk digunakan?</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">5. Apakah tangga memiliki stopper/pin/pengunci yang dapat digunakan?</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">6. Apakah pekerja menggunakan peralatan lain saat bekerja? (jika "YA", pekerja harus menggunakan belt)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <input type="checkbox" name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" placeholder="Masukkan Keterangan ...">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                     @include('bagian-isi-kerja.pengesahan.create')
@@ -227,76 +296,6 @@
 
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" id="tambahValidasi">Tambah Validasi</button>
-                    <hr>
-                    <h6 class="heading-small text-muted">Tangga (Ladder / Step Ladder)</h6>
-                    <div class="pl-lg-4">
-                        <div class="form-group">
-                            <label class="form-control-label">1. Apakah tangga merupakan alat yang bantu yang paling sesuai untuk digunakan pada pekerjaan di ketinggian?</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">2. Apakah tangga dalam kondisi layak dan sesuai untuk digunakan?</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">3. Apakah tangga mampu menahan gerakan saat naik/turun dan bekerja?</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">4. Apakah tangga memiliki panjang yang cukup untuk digunakan?</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">5. Apakah tangga memiliki stopper/pin/pengunci yang dapat digunakan?</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">6. Apakah pekerja menggunakan peralatan lain saat bekerja? (jika "YA", pekerja harus menggunakan belt)</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                    </div>
                     <hr>
                     <div class="form-group">
                         <label class="form-control-label" for="catatan">Catatan</label>
@@ -430,6 +429,7 @@
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$("[name='" + i + "']").hasClass('is-invalid')) {
                             $("[name='" + i + "']").addClass('is-invalid');
+                            $("[name='" + i + "']").focus();
                         }
                     });
                 }

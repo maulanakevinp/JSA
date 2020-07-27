@@ -398,6 +398,7 @@
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$("[name='" + i + "']").hasClass('is-invalid')) {
                             $("[name='" + i + "']").addClass('is-invalid');
+                            $("[name='" + i + "']").focus();
                         }
                     });
                 }
@@ -459,6 +460,7 @@
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$(form).find("[name='" + i + "']").hasClass('is-invalid')) {
                             $(form).find("[name='" + i + "']").addClass('is-invalid');
+                            $(form).find("[name='" + i + "']").focus();
                         }
                     });
                 }

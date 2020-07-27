@@ -110,14 +110,14 @@ class IjinKerjaDiKetinggianController extends Controller
         try {
             for ($i=0; $i < count($request->validasi_hari); $i++) {
                 Validasi::create([
-                    'ijin_kerja_listrik_id' =>  $ijinKerja->id,
-                    'validasi_hari'         =>  $request->validasi_hari[$i],
-                    'validasi_mulai_hari'   =>  $request->validasi_mulai_hari[$i],
-                    'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
-                    'nama_pelaksana'        =>  $request->nama_pelaksana[$i],
-                    'inisial_pelaksana'     =>  $request->inisial_pelaksana[$i],
-                    'nama_pengawas'         =>  $request->nama_pengawas[$i],
-                    'inisial_pengawas'      =>  $request->inisial_pengawas[$i],
+                    'ijin_kerja_di_ketinggian_id'   =>  $ijinKerja->id,
+                    'validasi_hari'                 =>  $request->validasi_hari[$i],
+                    'validasi_mulai_hari'           =>  $request->validasi_mulai_hari[$i],
+                    'validasi_selesai_hari'         =>  $request->validasi_selesai_hari[$i],
+                    'nama_pelaksana'                =>  $request->nama_pelaksana[$i],
+                    'inisial_pelaksana'             =>  $request->inisial_pelaksana[$i],
+                    'nama_pengawas'                 =>  $request->nama_pengawas[$i],
+                    'inisial_pengawas'              =>  $request->inisial_pengawas[$i],
                 ]);
             }
         } catch (\Throwable $th) {
@@ -194,25 +194,7 @@ class IjinKerjaDiKetinggianController extends Controller
                 'keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik'         => $request->keterangan_komponen_alat_perancah_dalam_kondisi_yang_baik,
                 'komponen_alat_perancah_sudah_terpasang'                            => $request->komponen_alat_perancah_sudah_terpasang,
                 'keterangan_komponen_alat_perancah_sudah_terpasang'                 => $request->keterangan_komponen_alat_perancah_sudah_terpasang,
-                ]);
-            } else {
-                $ijinKerja->update([
-                    'catatan'  => $request->catatan,
-                    ]);
-        }
-
-        return response()->json([
-            'success'   => true,
-            'message'   => 'Ijin kerja di ketinggian berhasil diperbarui',
-        ]);
-    }
-
-    public function updateTangga(Request $request, $id)
-    {
-        $ijinKerja = IjinKerjaDiKetinggian::find($id);
-
-        $ijinKerja->update([
-            'tangga_merupakan_alat_yang_bantu_yang_paling_sesuai'                   => $request->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai,
+                'tangga_merupakan_alat_yang_bantu_yang_paling_sesuai'               => $request->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai,
                 'keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai'    => $request->keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai,
                 'tangga_dalam_kondisi_layak_dan_sesuai'                             => $request->tangga_dalam_kondisi_layak_dan_sesuai,
                 'keterangan_tangga_dalam_kondisi_layak_dan_sesuai'                  => $request->keterangan_tangga_dalam_kondisi_layak_dan_sesuai,
@@ -224,7 +206,12 @@ class IjinKerjaDiKetinggianController extends Controller
                 'keterangan_tangga_memiliki_stopper'                                => $request->keterangan_tangga_memiliki_stopper,
                 'pekerja_menggunakan_peralatan_lain'                                => $request->pekerja_menggunakan_peralatan_lain,
                 'keterangan_pekerja_menggunakan_peralatan_lain'                     => $request->keterangan_pekerja_menggunakan_peralatan_lain,
-        ]);
+            ]);
+        } else {
+            $ijinKerja->update([
+                'catatan'  => $request->catatan,
+            ]);
+        }
 
         return response()->json([
             'success'   => true,

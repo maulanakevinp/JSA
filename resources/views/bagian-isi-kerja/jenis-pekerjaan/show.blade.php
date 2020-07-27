@@ -1,4 +1,4 @@
-<h6 class="heading-small text-muted">JENIS PEKERJAAN</h6>
+<h6 class="heading-small text-muted font-weight-bold">JENIS PEKERJAAN</h6>
 <div class="pl-lg-4 row">
     <div class="col-md-6 mb-3">
         <div class="custom-control custom-checkbox">

@@ -91,7 +91,7 @@ class IjinKerjaGalianController extends Controller
         try {
             for ($i=0; $i < count($request->validasi_hari); $i++) {
                 Validasi::create([
-                    'ijin_kerja_listrik_id' =>  $ijinKerja->id,
+                    'ijin_kerja_galian_id' =>  $ijinKerja->id,
                     'validasi_hari'         =>  $request->validasi_hari[$i],
                     'validasi_mulai_hari'   =>  $request->validasi_mulai_hari[$i],
                     'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],

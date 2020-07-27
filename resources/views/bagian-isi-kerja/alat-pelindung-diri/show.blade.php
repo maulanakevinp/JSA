@@ -1,4 +1,4 @@
-<h6 class="heading-small text-muted">ALAT PELINDUNG DIRI</h6>
+<h6 class="heading-small text-muted font-weight-bold">ALAT PELINDUNG DIRI</h6>
 <div class="pl-lg-4 row">
     <div class="col-md-3 mb-3">
         <p class="mb-0 heading-small font-weight-bold">Kepala/Wajah</p>

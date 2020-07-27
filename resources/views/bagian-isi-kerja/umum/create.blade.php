@@ -1,4 +1,4 @@
-<h6 class="heading-small text-muted">UMUM</h6>
+<h6 class="heading-small text-muted font-weight-bold">UMUM</h6>
 <div class="pl-lg-4">
     <div class="form-group">
         <label class="form-control-label" for="nomor">Nomor</label>

@@ -66,7 +66,6 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/ijin-kerja-ruang-terbatas/create/{jsa}', 'IjinKerjaRuangTerbatasController@create')->name('ijin-kerja-ruang-terbatas.create');
         Route::get('/ijin-kerja-ruang-terbatas/{id}/edit', 'IjinKerjaRuangTerbatasController@edit')->name('ijin-kerja-ruang-terbatas.edit');
 
-        Route::patch('/ijinKerjaDiKetinggian/{id}', 'ijinKerjaDiKetinggianController@updateTangga')->name('ijinKerjaDiKetinggian.updateTangga');
         Route::patch('/ijinKerjaRadiografi/{id}', 'ijinKerjaRadiografiController@updateDeskripsi')->name('ijinKerjaRadiografi.updateDeskripsi');
 
         Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','show','edit');

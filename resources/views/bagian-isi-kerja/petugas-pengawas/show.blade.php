@@ -1,4 +1,4 @@
-<p class="mb-0 heading-small font-weight-bold">PETUGAS PENGAWAS</p>
+<p class="heading-small text-muted font-weight-bold">PETUGAS PENGAWAS</p>
 <div class="pl-lg-4 row">
     <div class="col-md-6 mb-3">
         <p class="mb-0 heading-small font-weight-bold">Petugas Isolasi Listrik</p>

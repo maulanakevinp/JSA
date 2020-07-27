@@ -1,4 +1,4 @@
-<h6 class="heading-small text-muted">DOKUMEN PENDUKUNG</h6>
+<h6 class="heading-small text-muted font-weight-bold">DOKUMEN PENDUKUNG</h6>
 <div class="pl-lg-4">
     <div class="form-group">
         <input disabled class="form-control form-control-alternative" type="text" name="a" id="a" value="{{ old('a', $ijinKerja->dokumenPendukung->a) }}">
