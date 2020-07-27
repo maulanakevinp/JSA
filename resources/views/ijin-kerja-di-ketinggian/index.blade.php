@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kelola Ijin Kerja Panas')
+@section('title', 'Kelola Ijin Kerja di Ketinggian')
 
 @section('styles')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
@@ -15,14 +15,14 @@
                     <div class="card-header border-0">
                         <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
                             <div class="mb-3">
-                                <h2 class="mb-0">Ijin Kerja Panas</h2>
-                                <p class="mb-0 text-sm">Kelola Ijin Kerja Panas</p>
+                                <h2 class="mb-0">Ijin Kerja di Ketinggian</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja di Ketinggian</p>
                             </div>
                             <div class="mb-3">
-                                <a href="{{ url('/ijin-kerja-panas', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-panas' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
-                                <a href="{{ url('/ijin-kerja-panas-grid', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-panas-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
+                                <a href="{{ url('/ijin-kerja-di-ketinggian', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-di-ketinggian' ? 'active' : '' }}" title="Tampilan tabel" data-toggle="tooltip"><i class="fas fa-list"></i></a>
+                                <a href="{{ url('/ijin-kerja-di-ketinggian-grid', $jsa->id) }}" class="mb-2 btn btn-outline-light {{ Request::segment(1) == 'ijin-kerja-di-ketinggian-grid' ? 'active' : '' }}" title="Tampilan grid" data-toggle="tooltip"><i class="fas fa-table"></i></a>
                                 @can('hse')
-                                    <a href="{{ route('ijin-kerja-panas.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja Panas" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja di Ketinggian" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
                                 @endcan
                                 <a href="{{ route('jsa.show', $jsa->id) }}" class="mb-2 btn btn-success" title="Kembali" data-toggle="tooltip"><i class="fas fa-arrow-left"></i></a>
                             </div>
@@ -51,7 +51,7 @@
 @section('content')
 @include('layouts.components.alert')
 
-@if (Request::segment(1) == 'ijin-kerja-panas-grid')
+@if (Request::segment(1) == 'ijin-kerja-di-ketinggian-grid')
     <div class="row d-flex justify-content-center">
         @forelse ($ijinKerja as $item)
             <div class="col-lg-6 mb-3">
@@ -64,13 +64,13 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                                 @can('hse')
-                                    <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
-                                    <a href="{{ route('ijin-kerja-panas.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
-                                    <a href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
                                     <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
                                 @endcan
                                 @can('kontraktor')
-                                    <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                    <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                 @endcan
                             </div>
                         </div>
@@ -146,13 +146,13 @@
                                 <td>{{ $item->umum->uraian_pekerjaan }}</td>
                                 <td>
                                     @can('hse')
-                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
-                                        <a href="{{ route('ijin-kerja-panas.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
+                                        <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('ijin-kerja-di-ketinggian.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('ijin-kerja-di-ketinggian.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
                                         <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i></a>
                                     @endcan
                                     @can('kontraktor')
-                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-neutral" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
+                                        <a href="{{ route('ijin-kerja-di-ketinggian.show',$item) }}" class="btn btn-sm btn-neutral" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                     @endcan
                                 </td>
                             </tr>
@@ -176,7 +176,7 @@
         <div class="modal-content bg-gradient-danger">
 
             <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-delete">Hapus Ijin Kerja Panas?</h6>
+                <h6 class="modal-title" id="modal-title-delete">Hapus Ijin Kerja di Ketinggan?</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
@@ -187,7 +187,7 @@
                 <div class="py-3 text-center">
                     <i class="ni ni-bell-55 ni-3x"></i>
                     <h4 class="heading mt-4">Perhatian!!</h4>
-                    <p>Menghapus ijin kerja panas akan menghapus semua data yang dimilikinya</p>
+                    <p>Menghapus ijin kerja di Ketinggian akan menghapus semua data yang dimilikinya</p>
                     <p><strong id="nama-hapus"></strong></p>
                 </div>
 
@@ -212,7 +212,7 @@
         $(".pagination").addClass('justify-content-center')
         $('.hapus').on('click', function(){
             $('#nama-hapus').html('Apakah Anda yakin ingin menghapus ' + $(this).data('nama') + '???');
-            $('#form-hapus').attr('action', $("meta[name='base-url']").attr('content') + '/ijinKerjaPanas/' + $(this).data('id'));
+            $('#form-hapus').attr('action', $("meta[name='base-url']").attr('content') + '/ijinKerjaDiKetinggian/' + $(this).data('id'));
         });
     });
 </script>

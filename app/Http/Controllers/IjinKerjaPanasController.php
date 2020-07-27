@@ -126,7 +126,7 @@ class IjinKerjaPanasController extends Controller
                 Validasi::create([
                     'ijin_kerja_panas_id'   =>  $ijinKerja->id,
                     'validasi_hari'         =>  $request->validasi_hari[$i],
-                    'validasi_mulai_hari'    =>  $request->validasi_mulai_hari[$i],
+                    'validasi_mulai_hari'   =>  $request->validasi_mulai_hari[$i],
                     'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
                     'nama_pelaksana'        =>  $request->nama_pelaksana[$i],
                     'inisial_pelaksana'     =>  $request->inisial_pelaksana[$i],
@@ -225,7 +225,7 @@ class IjinKerjaPanasController extends Controller
 
         return response()->json([
             'success'   => true,
-            'message'   => 'Data umum berhasil diperbarui',
+            'message'   => 'Ijin kerja panas berhasil diperbarui',
         ]);
     }
 

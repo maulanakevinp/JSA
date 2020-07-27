@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Buat Ijin Kerja Panas')
+@section('title', 'Buat Ijin Kerja Radiografi')
 
 @section('content-header')
 <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
@@ -9,13 +9,13 @@
             <div class="col">
                 <div class="card shadow h-100">
                     <div class="card-header border-0">
-                        <div class="row">
-                            <div class="col-6">
-                                <h2 class="mb-0">Buat Ijin Kerja Panas</h2>
-                                <p class="mb-0 text-sm">Kelola Ijin Kerja {{ config('app.name') }}</p>
+                        <div class="d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-lg-between text-center text-lg-left">
+                            <div class="mb-3">
+                                <h2 class="mb-0">Buat Ijin Kerja Radiografi</h2>
+                                <p class="mb-0 text-sm">Kelola Ijin Kerja Radiografi {{ config('app.name') }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                <a href="{{ route('jsa.edit', $jsa) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                            <div class="mb-3">
+                                <a href="{{ route('ijin-kerja-radiografi.index', $jsa->id) }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
     <div class="col">
         <div class="card bg-secondary shadow h-100">
             <div class="card-header bg-white border-0">
-                <h3 class="mb-0">Buat Ijin Kerja Panas</h3>
+                <h3 class="mb-0">Buat Ijin Kerja Radiografi</h3>
             </div>
             <div class="card-body">
                 <form id="form" autocomplete="off" action="javascript:;" method="POST">
@@ -40,156 +40,57 @@
                     <input type="hidden" name="jsa_id" value="{{ $jsa->id }}">
                     @include('bagian-isi-kerja.umum.create')
                     <hr>
-                    @include('bagian-isi-kerja.jenis-pekerjaan.create')
-                    <hr>
-                    @include('bagian-isi-kerja.sumber-bahaya-alat.create')
-                    <hr>
                     @include('bagian-isi-kerja.alat-pelindung-diri.create')
+                    <hr>
+                    <h6 class="heading-small text-muted">DESKRIPSI PEKERJA RADIOGRAFI</h6>
+                    <div class="pl-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label" for="nama_perusahaan">Nama Perusahaan</label>
+                            <input class="form-control" type="text" name="nama_perusahaan" id="nama_perusahaan" placeholder="Masukkan Nama Perusahaan ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="no_lisensi">Nomor Lisensi</label>
+                            <input class="form-control" type="text" name="no_lisensi" id="no_lisensi" placeholder="Masukkan Nomor Lisensi ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="sumber_radioaktif">Sumber Radioaktif</label>
+                            <input class="form-control" type="text" name="sumber_radioaktif" id="sumber_radioaktif" placeholder="Masukkan Sumber Radioaktif ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="proyektor">Proyektor</label>
+                            <input class="form-control" type="text" name="proyektor" id="proyektor" placeholder="Masukkan Proyektor ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="survey_meter">Survey Meter</label>
+                            <input class="form-control" type="text" name="survey_meter" id="survey_meter" placeholder="Masukkan Survey Meter ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="tanggal_service">Tanggal Service</label>
+                            <input class="form-control" type="text" name="tanggal_service" id="tanggal_service" placeholder="Masukkan Tanggal Service ...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="tanggal_kalibrasi">Tanggal Kalibrasi</label>
+                            <input class="form-control" type="text" name="tanggal_kalibrasi" id="tanggal_kalibrasi" placeholder="Masukkan Tanggal Kalibrasi ...">
+                        </div>
+                    </div>
                     <hr>
                     @include('bagian-isi-kerja.dokumen-pendukung.create')
                     <hr>
                     <h6 class="heading-small text-muted">SAFETY CHECKLIST</h6>
                     <div class="pl-lg-4">
-                        <p class="mb-0 text-sm font-weight-bold">a. Jalur tersebut sesungguhnya telah :</p>
-                        <div class="pl-lg-4">
-                            <div class="form-group">
-                                <label class="form-control-label">1. Dibebaskan dari tekanan</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="jalur_dibebaskan_dari_tekanan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_jalur_dibebaskan_dari_tekanan" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">2. Dikosongkan atau drain</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="jalur_dikosongkan_atau_drain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_jalur_dikosongkan_atau_drain" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                            <p class="mb-0 font-weight-bold text-sm">3. Diisolasi dengan :</p>
-                            <div class="pl-lg-4">
-                                <div class="form-group">
-                                    <label class="form-control-label">Blanking</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_blanking" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_blanking" placeholder="Masukkan Keterangan ...">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Dilepas</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_dilepas" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_dilepas" placeholder="Masukkan Keterangan ...">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Keterangan dikunci</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_keterangan_dikunci" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_keterangan_dikunci" placeholder="Masukkan Keterangan ...">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-control-label">Diberi label</label>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                            <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_keterangan_diberi_label" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                            </div>
-                                        </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_keterangan_diberi_label" placeholder="Masukkan Keterangan ...">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">4. Didorong atau flush dengan air</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="jalur_didorong_atau_flush_dengan_air" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_jalur_didorong_atau_flush_dengan_air" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">5. Steaming out or Purging</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="jalur_steaming_out_or_purging" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_jalur_steaming_out_or_purging" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">6. Dinginkan secara alamiah atau mekanis</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="jalur_dinginkan_secara_alamiah_atau_mekanis" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group">
-                            <label class="form-control-label">b. Semua saluran, drain dan kerangan pada jarak 15 m, dan tempat pekerjaan telah ditutup</label>
+                            <label class="form-control-label">a. Peralatan dapat dioperasikan jarak jauh</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="semua_saluran_drain_dan_kerangan_pada_jarak_15m" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input type="checkbox" name="peralatan_dapat_dioperasikan_jarak_jauh" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_semua_saluran_drain_dan_kerangan_pada_jarak_15m" placeholder="Masukkan Keterangan ...">
+                                <input type="text" class="form-control" name="keterangan_peralatan_dapat_dioperasikan_jarak_jauh" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label">c. Bahan mudah terbakar diamankan</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="bahan_mudah_terbakar_diamankan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_bahan_mudah_terbakar_diamankan" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">d. Alat pemadam kebakaran siap sedia</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="alat_pemadam_kebakaran_siap_sedia" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_alat_pemadam_kebakaran_siap_sedia" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">e. Petugas pemadam kebakaran siap sedia</label>
+                            <label class="form-control-label">b. Petugas pemadam kebakaran siap sedia</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -197,6 +98,39 @@
                                     </div>
                                 </div>
                                 <input type="text" class="form-control" name="keterangan_petugas_pemadam_kebakaran_siap_sedia" placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">c. Penghalang dan tanda bahaya radiasi siap tersedia</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" name="penghalang_dan_tanda_bahaya_radiasi_siap_tersedia" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="keterangan_penghalang_dan_tanda_bahaya_radiasi_siap_tersedia" placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">d. Daerah bebas dari orang tidak berkepentingan</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" name="daerah_bebas_dari_orang_tidak_berkepentingan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="keterangan_daerah_bebas_dari_orang_tidak_berkepentingan" placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">e. Hubungan radio hanya dengan ccr</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" name="hubungan_radio_hanya_dengan_ccr" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="keterangan_hubungan_radio_hanya_dengan_ccr" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -211,18 +145,29 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label">g. Pekerjaan harus terus dibasahi dengan air</label>
+                            <label class="form-control-label">g. Pembacaan hasil pengukuran pada pagar penghalang tidak boleh dari 0.75 mR/jam diudara</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="pekerjaan_harus_terus_dibasahi_dengan_air" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input type="checkbox" name="pembacaan_hasil_pengukuran_pada_pagar_penghalang" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_pekerjaan_harus_terus_dibasahi_dengan_air" placeholder="Masukkan Keterangan ...">
+                                <input type="text" class="form-control" name="keterangan_pembacaan_hasil_pengukuran_pada_pagar_penghalang" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label">h. Perlu dengan ijin kerja yang lain</label>
+                            <label class="form-control-label">h. Alat pemadam api siap sedia</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="checkbox" name="alat_pemadam_api_siap_sedia" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control" name="keterangan_alat_pemadam_api_siap_sedia" placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">i. Perlu dengan ijin kerja yang lain</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -233,57 +178,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-control-label">i. Semua mesin : diesel, kompresor dll, telah diamankan</label>
+                            <label class="form-control-label">j. Semua pekerjaan telah lengkap alat pelindung diri</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input type="checkbox" name="semua_mesin_telah_diamankan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input type="checkbox" name="semua_pekerjaan_telah_lengkap_alat_pelindung_diri" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                     </div>
                                 </div>
-                                <input type="text" class="form-control" name="keterangan_semua_mesin_telah_diamankan" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-control-label">j. Semua pekerjaan telah disetujui untuk penggalian</label>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="checkbox" name="semua_pekerjaan_telah_disetujui_untuk_penggalian" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" name="keterangan_semua_pekerjaan_telah_disetujui_untuk_penggalian" placeholder="Masukkan Keterangan ...">
-                            </div>
-                        </div>
-                        <p class="mb-0 text-sm font-weight-bold">k. Semua penggerak utama peralatan listrik telah :</p>
-                        <div class="pl-lg-4">
-                            <div class="form-group">
-                                <label class="form-control-label">1. Diisolasi dan diberi label</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="semua_peralatan_listrik_telah_diisolasi" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_diisolasi" placeholder="Masukkan Keterangan ...">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">2. Perlu pemeriksaan ulang</label>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">
-                                            <input type="checkbox" name="semua_peralatan_listrik_telah_diisolasi" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                        </div>
-                                    </div>
-                                    <input type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_diisolasi" placeholder="Masukkan Keterangan ...">
-                                </div>
+                                <input type="text" class="form-control" name="keterangan_semua_pekerjaan_telah_lengkap_alat_pelindung_diri" placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                     </div>
-                    <hr>
-                    @include('bagian-isi-kerja.uji-kandungan-gas.create')
-                    <hr>
-                    @include('bagian-isi-kerja.petugas-pengawas.create')
                     <hr>
                     @include('bagian-isi-kerja.pengesahan.create')
                     <hr>
@@ -295,7 +200,7 @@
                     <hr>
                     <div class="form-group">
                         <label class="form-control-label" for="catatan">Catatan</label>
-                        <textarea class="form-control form-control-alternative @error('catatan') is-invalid @enderror" type="text" name="catatan" id="catatan" placeholder="Masukkan Catatan ...">{{ old('catatan') }}</textarea>
+                        <textarea class="form-control" type="text" name="catatan" id="catatan" placeholder="Masukkan Catatan ...">{{ old('catatan') }}</textarea>
                     </div>
                     <hr>
                     <button type="submit" class="btn btn-primary btn-block">SIMPAN</button>
@@ -378,7 +283,7 @@
             let form = this;
             $(".notifikasi").html('');
             $.ajax({
-                url: "{{ route('ijinKerjaPanas.store') }}",
+                url: "{{ route('ijinKerjaRadiografi.store') }}",
                 type: 'POST',
                 data: new FormData(this),
                 dataType: 'json',
@@ -403,7 +308,7 @@
                             </button>
                         </div>
                     `);
-                    location.href = "{{ route('jsa.show', $jsa->id) }}";
+                    location.href = "{{ route('ijin-kerja-radiografi.index', $jsa->id) }}";
                 },
                 error: function (data) {
                     console.clear();
