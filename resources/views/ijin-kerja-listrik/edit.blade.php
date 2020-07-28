@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label">5. Diisolasi dari sumber listrsik</label>
+                    <label class="form-control-label">5. Diisolasi dari sumber listsik</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">

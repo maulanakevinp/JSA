@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="row mb-5 border border-dark">
         <div class="col-1 text-center border border-dark">
-            <img height="50px" src="{{ url('storage/logo.png') }}" alt="">
+            <img class="mw-100" src="{{ url('storage/logo.png') }}" alt="">
         </div>
         <div class="col-10 border border-dark bekgron text-center">
             <h5 class="font-weight-bolder text-white">IZIN KERJA LISTRIK (<span class="font-italic">ELECTRICAL WORK PERMIT</span>)</h5>
@@ -47,7 +47,7 @@
                         @include('bagian-isi-kerja.alat-pelindung-diri.cetak')
                     </div>
                     <div class="px-1 border border-dark bg-white mb-2">
-                        <span class="font-weight-bolder">D. SAFETY CHECKLIST</span>
+                        <span class="font-weight-bolder">C. SAFETY CHECKLIST</span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -84,7 +84,7 @@
                                     <td class="p-0">{{ $ijinKerja->keterangan_jalur_telah_peralatan_dalam_keadaan_bergerak }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="p-0">5. Diisolasi dari sumber listrsik</td>
+                                    <td class="p-0">5. Diisolasi dari sumber listrik</td>
                                     <td class="p-0 text-center">{!! $ijinKerja->jalur_telah_diisolasi_dari_sumber_listrik == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
                                     <td class="p-0">{{ $ijinKerja->keterangan_jalur_telah_diisolasi_dari_sumber_listrik }}</td>
                                 </tr>
@@ -133,7 +133,7 @@
                         </table>
                     </div>
                     <div class="px-1 border border-dark bg-white mb-2">
-                        <span class="font-weight-bolder">C. DOKUMEN PENDUKUNG</span>
+                        <span class="font-weight-bolder">D. DOKUMEN PENDUKUNG</span>
                         @include('bagian-isi-kerja.dokumen-pendukung.cetak')
                     </div>
                     <div class="px-1 border border-dark bg-white mb-2">

@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="row mb-5 border border-dark">
         <div class="col-1 text-center border border-dark">
-            <img height="50px" src="{{ url('storage/logo.png') }}" alt="">
+            <img class="mw-100" src="{{ url('storage/logo.png') }}" alt="">
         </div>
         <div class="col-10 border border-dark bekgron text-center">
             <h5 class="font-weight-bolder text-white">IZIN KERJA DI KETINGGIAN (<span class="font-italic">WORIKING AT HEIGHT PERMIT</span>)</h5>
