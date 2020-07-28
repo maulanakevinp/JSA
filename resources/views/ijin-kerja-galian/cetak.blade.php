@@ -18,7 +18,7 @@
     <img class="mt-5 mb-5" src="{{ url('storage/logo.png') }}" alt="">
     <h1 class="font-weight-bolder mb-5" style="font-family: Arial, Helvetica, sans-serif">INSTRUKSI KERJA</h1>
     <h1 class="font-weight-bolder mb-5" style="font-size: 36pt; font-family: Arial, Helvetica, sans-serif">IZIN KERJA GALIAN</h1>
-    <h1 class="mb-5" style="font-family: Arial, Helvetica, sans-serif">I-006/0.38</h1>
+    <h1 class="mb-5" style="font-family: Arial, Helvetica, sans-serif">I-007/0.38</h1>
     <h2 style="margin-top: 700px; font-family: Arial, Helvetica, sans-serif"><span class="font-weight-bolder" >PT PERUSAHAAN GAS NEGARA</span> (Persero) <span class="font-weight-bolder" >Tbk</span></h2>
     <h2 class="" style="font-family: Arial, Helvetica, sans-serif">Jakarta, {{ date('Y') }}</h2>
 </div>
@@ -35,7 +35,7 @@
             <h6 class="font-weight-bolder text-white">INTEGRATED TEAM JABATI</h6>
         </div>
         <div class="col-1 border border-dark"></div>
-        <div class="col-12 border border-dark text-center py-2" style="font-size: 9pt">NO. {{ $ijinKerja->umum->nomor }}/I-006/Wilayah {{ $ijinKerja->umum->lokasi_pekerjaan }}/{{ date('Y', strtotime($ijinKerja->umum->tanggal_mulai)) }}</div>
+        <div class="col-12 border border-dark text-center py-2" style="font-size: 9pt">NO. {{ $ijinKerja->umum->nomor }}/I-007/Wilayah {{ $ijinKerja->umum->lokasi_pekerjaan }}/{{ date('Y', strtotime($ijinKerja->umum->tanggal_mulai)) }}</div>
         <div class="col-12 bekgron">
             <div class="row" style="font-size: 7pt">
                 <div class="col-6 px-2 pt-2">
