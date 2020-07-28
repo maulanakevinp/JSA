@@ -7,7 +7,7 @@
     .bekgron {
         -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
         color-adjust: exact !important;  /*Firefox*/
-        background-color: rgb(255, 0, 0) !important;
+        background-color: crimson !important;
     }
 }
 </style>

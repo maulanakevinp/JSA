@@ -143,14 +143,11 @@
                                 <td>{{ $item->umum->lokasi_pekerjaan }}</td>
                                 <td>{{ $item->umum->uraian_pekerjaan }}</td>
                                 <td>
+                                    <a target="_blank" href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
+                                    <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                     @can('hse')
-                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-primary" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                         <a href="{{ route('ijin-kerja-panas.edit',$item) }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Edit"><i class="fas fa-edit"></i></a>
-                                        <a href="{{ route('ijin-kerja-panas.cetak',$item) }}" class="btn btn-sm btn-info" data-toggle="tooltip" title="Cetak"><i class="fas fa-print"></i></a>
                                         <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" data-toggle="tooltip" title="Hapus"></i></a>
-                                    @endcan
-                                    @can('kontraktor')
-                                        <a href="{{ route('ijin-kerja-panas.show',$item) }}" class="btn btn-sm btn-neutral" data-toggle="tooltip" title="Detail"><i class="fas fa-eye"></i></a>
                                     @endcan
                                 </td>
                             </tr>
