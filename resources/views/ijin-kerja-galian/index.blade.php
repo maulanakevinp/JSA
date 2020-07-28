@@ -64,14 +64,11 @@
                                 Opsi
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                <a target="_blank" href="{{ route('ijin-kerja-galian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
+                                <a href="{{ route('ijin-kerja-galian.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
                                 @can('hse')
-                                    <a href="{{ route('ijin-kerja-galian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                     <a href="{{ route('ijin-kerja-galian.edit',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-edit"> Edit</i></a>
-                                    <a href="{{ route('ijin-kerja-galian.cetak',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-print"> Cetak</i></a>
                                     <a href="#modal-hapus" class="dropdown-item hapus" data-nama="{{ $item->umum->nomor }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-fw fa-trash"> Hapus</i></a>
-                                @endcan
-                                @can('kontraktor')
-                                    <a href="{{ route('ijin-kerja-galian.show',$item) }}" class="dropdown-item"><i class="fas fa-fw fa-eye"> Detail</i></a>
                                 @endcan
                             </div>
                         </div>

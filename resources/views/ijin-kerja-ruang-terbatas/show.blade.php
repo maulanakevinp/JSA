@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">i.Semua pekerja terlatih untuk masuk ke ruangan terbatas</label>
+                        <label class="form-control-label">k.Semua pekerja terlatih untuk masuk ke ruangan terbatas</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
@@ -192,7 +192,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">k. Semua pekerja telah lengkap alat pelindung diri</label>
+                        <label class="form-control-label">l. Semua pekerja telah lengkap alat pelindung diri</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
