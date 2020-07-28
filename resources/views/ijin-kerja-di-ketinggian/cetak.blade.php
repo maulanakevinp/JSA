@@ -1,5 +1,5 @@
 @extends('layouts.cetak')
-@section('title','Cetak Ijin Kerja Di Ketinggian ' . $ijinKerja->jsa->nama_perusahaan . ' - ' . $ijinKerja->umum->nomor)
+@section('title','Ijin Kerja Di Ketinggian ' . $ijinKerja->jsa->nama_perusahaan . ' - ' . $ijinKerja->umum->nomor)
 
 @section('styles')
 <style>
@@ -31,6 +31,8 @@
         <div class="col-10 border border-dark bg-oren text-center">
             <h5 class="font-weight-bolder text-white">IZIN KERJA DI KETINGGIAN (<span class="font-italic">WORIKING AT HEIGHT PERMIT</span>)</h5>
             <h6 class="font-weight-bolder text-white">PT PERUSAHAAN GAS NEGARA (Persero) Tbk</h6>
+            <h6 class="font-weight-bolder text-white">PMO INFRASTRUCTURE</h6>
+            <h6 class="font-weight-bolder text-white">INTEGRATED TEAM JABATI</h6>
         </div>
         <div class="col-1 border border-dark"></div>
         <div class="col-12 border border-dark text-center py-2" style="font-size: 9pt">NO. {{ $ijinKerja->umum->nomor }}/I-009/Wilayah {{ $ijinKerja->umum->lokasi_pekerjaan }}/{{ date('Y', strtotime($ijinKerja->umum->tanggal_mulai)) }}</div>

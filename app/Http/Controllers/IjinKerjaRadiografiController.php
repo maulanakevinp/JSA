@@ -243,6 +243,7 @@ class IjinKerjaRadiografiController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaRadiografi::findOrFail($id);
+        return view('ijin-kerja-radiografi.cetak', compact('ijinKerja'));
     }
 }

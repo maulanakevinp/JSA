@@ -195,6 +195,7 @@ class IjinKerjaGalianController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaGalian::findOrFail($id);
+        return view('ijin-kerja-galian.cetak', compact('ijinKerja'));
     }
 }

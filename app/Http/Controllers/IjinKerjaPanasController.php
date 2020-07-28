@@ -246,6 +246,7 @@ class IjinKerjaPanasController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaPanas::findOrFail($id);
+        return view('ijin-kerja-panas.cetak', compact('ijinKerja'));
     }
 }

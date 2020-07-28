@@ -210,6 +210,7 @@ class IjinKerjaListrikController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaListrik::findOrFail($id);
+        return view('ijin-kerja-listrik.cetak', compact('ijinKerja'));
     }
 }

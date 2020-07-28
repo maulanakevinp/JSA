@@ -218,6 +218,7 @@ class IjinKerjaRuangTerbatasController extends Controller
 
     public function cetak($id)
     {
-        return "Belum dibuat pdf nya";
+        $ijinKerja = IjinKerjaRuangTerbatas::findOrFail($id);
+        return view('ijin-kerja-ruang-terbatas.cetak', compact('ijinKerja'));
     }
 }
