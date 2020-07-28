@@ -20,12 +20,19 @@
             .page-break {
                 display: none;
             }
+
+            input.cawang {
+                width : 8px;
+                height : 8px;
+                position: relative;
+                top: 1px;
+            }
         }
 
         @media print{
             @page {
                 margin: 1cm;
-                size: 330mm 215mm;
+                size: 215mm 330mm;
             }
             .page-break {
                 display: block;
