@@ -104,10 +104,10 @@
                                 <td width="180px" valign="top">Status</td>
                                 <td valign="top">:</td>
                                 <td valign="top">
-                                    @if ($item->ijinKerjaPanas)
-                                        Telah memiliki ijin kerja
-                                    @else
+                                    @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 || count($item->ijinKerjaGalian) == 0 || count($item->ijinKerjaRadiografi) == 0 || count($item->ijinKerjaDiKetinggian) == 0 || count($item->ijinKerjaRuangTerbatas) == 0)
                                         Belum memiliki ijin kerja
+                                    @else
+                                        Telah memiliki ijin kerja
                                     @endif
                                 </td>
                             </tr>
@@ -159,10 +159,10 @@
                                 <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
                                 <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
                                 <td>
-                                    @if ($item->ijinKerjaPanas)
-                                        Telah memiliki ijin kerja
-                                    @else
+                                    @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
                                         Belum memiliki ijin kerja
+                                    @else
+                                        Telah memiliki ijin kerja
                                     @endif
                                 </td>
                                 <td>
