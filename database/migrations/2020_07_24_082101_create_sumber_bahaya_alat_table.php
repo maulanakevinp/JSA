@@ -41,6 +41,7 @@ class CreateSumberBahayaAlatTable extends Migration
             $table->boolean('pigging')->nullable()->default(0);
             $table->boolean('lifting')->nullable()->default(0);
             $table->boolean('drilling')->nullable()->default(0);
+            $table->boolean('blowdown')->nullable()->default(0);
             $table->boolean('uji_bertekanan')->nullable()->default(0);
             $table->boolean('hot_cutting')->nullable()->default(0);
             $table->boolean('bongkar_muat')->nullable()->default(0);

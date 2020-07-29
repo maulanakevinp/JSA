@@ -29,6 +29,11 @@ class Jsa extends Model
         return $this->hasMany('App\IjinKerjaPanas');
     }
 
+    public function ijinKerjaDingin()
+    {
+        return $this->hasMany('App\IjinKerjaDingin');
+    }
+
     public function ijinKerjaGalian()
     {
         return $this->hasMany('App\IjinKerjaGalian');

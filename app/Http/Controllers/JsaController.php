@@ -131,6 +131,18 @@ class JsaController extends Controller
      */
     public function show(Jsa $jsa)
     {
+        if (auth()->user()->peran->nama == 'Manager Kontraktor') {
+            if (count($jsa->langkahPekerjaan) < 1) {
+                return abort(404);
+            }
+        }
+
+        if (auth()->user()->peran->nama == 'HSE') {
+            if ($jsa->status_review == 0) {
+                return abort(404);
+            }
+        }
+
         return view('jsa.edit', compact('jsa'));
     }
 
@@ -142,6 +154,17 @@ class JsaController extends Controller
      */
     public function edit(Jsa $jsa)
     {
+        if (auth()->user()->peran->nama == 'Manager Kontraktor') {
+            if (count($jsa->langkahPekerjaan) < 1) {
+                return abort(404);
+            }
+        }
+
+        if (auth()->user()->peran->nama == 'HSE') {
+            if ($jsa->status_review == 0) {
+                return abort(404);
+            }
+        }
         return view('jsa.edit', compact('jsa'));
     }
 

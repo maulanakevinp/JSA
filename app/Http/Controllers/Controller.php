@@ -68,6 +68,7 @@ class Controller extends BaseController
             'pigging'                           => ['nullable'],
             'lifting'                           => ['nullable'],
             'drilling'                          => ['nullable'],
+            'blowdown'                          => ['nullable'],
             'uji_bertekanan'                    => ['nullable'],
             'hot_cutting'                       => ['nullable'],
             'bongkar_muat'                      => ['nullable'],
