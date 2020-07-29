@@ -16,8 +16,8 @@
     </div>
     <div class="col-md-6 mb-3">
         <div class="custom-control custom-checkbox">
-            <input disabled type="checkbox" class="custom-control-input" id="hot_tapping" name="hot_tapping" value="1" {{ old('hot_tapping', $ijinKerja->jenisPekerjaan->hot_tapping) ? 'checked' : '' }}>
-            <label class="custom-control-label" for="hot_tapping">Hot Tapping</label>
+            <input disabled type="checkbox" class="custom-control-input" id="hot_tapping_jenis_pekerjaan" name="hot_tapping_jenis_pekerjaan" value="1" {{ old('hot_tapping_jenis_pekerjaan', $ijinKerja->jenisPekerjaan->hot_tapping_jenis_pekerjaan) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="hot_tapping_jenis_pekerjaan">Hot Tapping</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input disabled type="checkbox" class="custom-control-input" id="menyalakan_flare" name="menyalakan_flare" value="1" {{ old('menyalakan_flare', $ijinKerja->jenisPekerjaan->menyalakan_flare) ? 'checked' : '' }}>

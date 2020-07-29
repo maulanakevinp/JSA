@@ -71,12 +71,12 @@
             <label class="mb-0" for="penggalan">Penggalan</label>
         </td>
         <td class="p-1">
-            <input type="checkbox" class="cawang" id="bising" name="bising" value="1" {{ old('bising', $ijinKerja->sumberBahayaAlat->bising) ? 'checked' : '' }}>
-            <label class="mb-0" for="bising">Bising</label>
+            <input type="checkbox" class="cawang" id="hot_tapping_sumber_bahaya_alat" name="hot_tapping_sumber_bahaya_alat" value="1" {{ old('hot_tapping_sumber_bahaya_alat', $ijinKerja->sumberBahayaAlat->hot_tapping_sumber_bahaya_alat) ? 'checked' : '' }}>
+            <label class="mb-0" for="hot_tapping_sumber_bahaya_alat">Hot Tapping</label>
         </td>
         <td class="p-1">
-            <input type="checkbox" class="cawang" id="kejatuhan" name="kejatuhan" value="1" {{ old('kejatuhan', $ijinKerja->sumberBahayaAlat->kejatuhan) ? 'checked' : '' }}>
-            <label class="mb-0" for="kejatuhan">Kejatuhan</label>
+            <input type="checkbox" class="cawang" id="pengelasan" name="pengelasan" value="1" {{ old('pengelasan', $ijinKerja->sumberBahayaAlat->pengelasan) ? 'checked' : '' }}>
+            <label class="mb-0" for="pengelasan">Pengelasan</label>
         </td>
         <td class="p-1">
             <input type="checkbox" class="cawang" id="grinding" name="grinding" value="1" {{ old('grinding', $ijinKerja->sumberBahayaAlat->grinding) ? 'checked' : '' }}>
@@ -93,8 +93,8 @@
             <label class="mb-0" for="materi_berbahaya">Materi Berbahaya</label>
         </td>
         <td class="p-1">
-            <input type="checkbox" class="cawang" id="Pilling" name="Pilling" value="1" {{ old('Pilling', $ijinKerja->sumberBahayaAlat->Pilling) ? 'checked' : '' }}>
-            <label class="mb-0" for="Pilling">Bising</label>
+            <input type="checkbox" class="cawang" id="pilling" name="pilling" value="1" {{ old('pilling', $ijinKerja->sumberBahayaAlat->pilling) ? 'checked' : '' }}>
+            <label class="mb-0" for="pilling">Pilling</label>
         </td>
         <td class="p-1">
             <input type="checkbox" class="cawang" id="paparan_panas_matahari" name="paparan_panas_matahari" value="1" {{ old('paparan_panas_matahari', $ijinKerja->sumberBahayaAlat->paparan_panas_matahari) ? 'checked' : '' }}>

@@ -17,7 +17,7 @@ class CreateJenisPekerjaanTable extends Migration
             $table->id();
             $table->boolean('menimbulkan_api')->nullable()->default(0);
             $table->boolean('menimbulkan_bunga_api')->nullable()->default(0);
-            $table->boolean('alat_potong')->nullable()->default(0);
+            $table->boolean('mesin_gerinda_or_alat_potong')->nullable()->default(0);
             $table->boolean('hot_tapping_jenis_pekerjaan')->nullable()->default(0);
             $table->boolean('menyalakan_flare')->nullable()->default(0);
             $table->boolean('lainnya_jenis_pekerjaan')->nullable()->default(0);

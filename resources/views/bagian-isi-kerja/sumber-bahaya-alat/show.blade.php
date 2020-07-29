@@ -72,12 +72,12 @@
             <label class="custom-control-label" for="penggalan">Penggalan</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input disabled type="checkbox" class="custom-control-input" id="bising" name="bising" value="1" {{ old('bising', $ijinKerja->sumberBahayaAlat->bising) ? 'checked' : '' }}>
-            <label class="custom-control-label" for="bising">Bising</label>
+            <input disabled type="checkbox" class="custom-control-input" id="hot_tapping_sumber_bahaya_alat" name="hot_tapping_sumber_bahaya_alat" value="1" {{ old('hot_tapping_sumber_bahaya_alat', $ijinKerja->sumberBahayaAlat->hot_tapping_sumber_bahaya_alat) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="hot_tapping_sumber_bahaya_alat">Hot Tapping</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input disabled type="checkbox" class="custom-control-input" id="kejatuhan" name="kejatuhan" value="1" {{ old('kejatuhan', $ijinKerja->sumberBahayaAlat->kejatuhan) ? 'checked' : '' }}>
-            <label class="custom-control-label" for="kejatuhan">Kejatuhan</label>
+            <input disabled type="checkbox" class="custom-control-input" id="pengelasan" name="pengelasan" value="1" {{ old('pengelasan', $ijinKerja->sumberBahayaAlat->pengelasan) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="pengelasan">pengelasan</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input disabled type="checkbox" class="custom-control-input" id="grinding" name="grinding" value="1" {{ old('grinding', $ijinKerja->sumberBahayaAlat->grinding) ? 'checked' : '' }}>
@@ -94,8 +94,8 @@
             <label class="custom-control-label" for="materi_berbahaya">Materi Berbahaya</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input disabled type="checkbox" class="custom-control-input" id="Pilling" name="Pilling" value="1" {{ old('Pilling', $ijinKerja->sumberBahayaAlat->Pilling) ? 'checked' : '' }}>
-            <label class="custom-control-label" for="Pilling">Bising</label>
+            <input disabled type="checkbox" class="custom-control-input" id="pilling" name="pilling" value="1" {{ old('pilling', $ijinKerja->sumberBahayaAlat->pilling) ? 'checked' : '' }}>
+            <label class="custom-control-label" for="pilling">Pilling</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input disabled type="checkbox" class="custom-control-input" id="paparan_panas_matahari" name="paparan_panas_matahari" value="1" {{ old('paparan_panas_matahari', $ijinKerja->sumberBahayaAlat->paparan_panas_matahari) ? 'checked' : '' }}>

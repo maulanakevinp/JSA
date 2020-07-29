@@ -68,8 +68,8 @@
             <label class="custom-control-label" for="blasting">Blasting</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="penggalian" name="penggalian" value="1">
-            <label class="custom-control-label" for="penggalian">Penggalian</label>
+            <input type="checkbox" class="custom-control-input" id="penggalan" name="penggalan" value="1">
+            <label class="custom-control-label" for="penggalan">Penggalan</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="hot_tapping_sumber_bahaya_alat" name="hot_tapping_sumber_bahaya_alat" value="1">
@@ -94,8 +94,8 @@
             <label class="custom-control-label" for="materi_berbahaya">Materi Berbahaya</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="Pilling" name="Pilling" value="1">
-            <label class="custom-control-label" for="Pilling">Bising</label>
+            <input type="checkbox" class="custom-control-input" id="pilling" name="pilling" value="1">
+            <label class="custom-control-label" for="pilling">pilling</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="paparan_panas_matahari" name="paparan_panas_matahari" value="1">

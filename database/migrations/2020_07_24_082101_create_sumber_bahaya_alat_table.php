@@ -37,15 +37,16 @@ class CreateSumberBahayaAlatTable extends Migration
             $table->boolean('cuaca_buruk')->nullable()->default(0);
             $table->boolean('materi_berbahaya')->nullable()->default(0);
             $table->boolean('pilling')->nullable()->default(0);
-            $table->boolean('paparang_panas_matahari')->nullable()->default(0);
+            $table->boolean('paparan_panas_matahari')->nullable()->default(0);
             $table->boolean('pigging')->nullable()->default(0);
             $table->boolean('lifting')->nullable()->default(0);
             $table->boolean('drilling')->nullable()->default(0);
             $table->boolean('blowdown')->nullable()->default(0);
             $table->boolean('uji_bertekanan')->nullable()->default(0);
+            $table->boolean('junction_box_opening')->nullable()->default(0);
             $table->boolean('hot_cutting')->nullable()->default(0);
             $table->boolean('bongkar_muat')->nullable()->default(0);
-            $table->boolean('power_bushing')->nullable()->default(0);
+            $table->boolean('power_brushing')->nullable()->default(0);
             $table->boolean('interlock_bypass')->nullable()->default(0);
             $table->boolean('lainnya_sumber_bahaya_alat')->nullable()->default(0);
             $table->timestamps();
