@@ -25,7 +25,7 @@
                                 @can('hse')
                                     <a href="{{ route('ijin-kerja-radiografi.create', $jsa->id) }}" class="mb-2 btn btn-primary" title="Tambah Ijin Kerja Radiografi" data-toggle="tooltip"><i class="fas fa-plus"></i></a>
                                 @endcan
-                                <a href="{{ route('jsa.show', $jsa->id) }}" class="mb-2 btn btn-success" title="Kembali" data-toggle="tooltip"><i class="fas fa-arrow-left"></i></a>
+                                <a href="{{ route('jsa.show', $jsa->id) }}#ijin-kerja" class="mb-2 btn btn-success" title="Kembali" data-toggle="tooltip"><i class="fas fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </div>

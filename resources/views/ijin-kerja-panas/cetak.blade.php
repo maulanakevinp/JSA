@@ -195,8 +195,8 @@
                                         </tr>
                                         <tr>
                                             <td class="p-0">2. Perlu pemeriksaan ulang</td>
-                                            <td class="p-0 text-center">{!! $ijinKerja->semua_peralatan_listrik_telah_diisolasi == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
-                                            <td class="p-0">{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_diisolasi }}</td>
+                                            <td class="p-0 text-center">{!! $ijinKerja->semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
+                                            <td class="p-0">{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang }}</td>
                                         </tr>
                                     </tbody>
                                 </table>

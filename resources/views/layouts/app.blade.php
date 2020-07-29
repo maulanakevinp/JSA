@@ -40,6 +40,13 @@
 
     <!-- CSS Files -->
     <link href="{{ asset('/css/argon-dashboard.css?v=1.1.2') }}" rel="stylesheet" />
+    <style>
+        html, body {
+            scroll-behavior: smooth;
+            height: 100%;
+            margin: 0;
+        }
+    </style>
     @yield('styles')
 </head>
 

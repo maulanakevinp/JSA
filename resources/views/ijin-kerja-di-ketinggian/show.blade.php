@@ -215,6 +215,75 @@
                             </div>
                         </div>
                     </div>
+                    <h6 class="mb-0 font-weight-bold text-sm">Tangga (Ladder / Step Ladder)</h6>
+                    <div class="pl-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">1. Apakah tangga merupakan alat yang bantu yang paling sesuai untuk digunakan pada pekerjaan di ketinggian?</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai == 1 ? 'checked' : '' }} name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="{{ $ijinKerja->keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">2. Apakah tangga dalam kondisi layak dan sesuai untuk digunakan?</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tangga_dalam_kondisi_layak_dan_sesuai == 1 ? 'checked' : '' }} name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" value="{{ $ijinKerja->keterangan_tangga_dalam_kondisi_layak_dan_sesuai }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">3. Apakah tangga mampu menahan gerakan saat naik/turun dan bekerja?</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tangga_mampu_menahan_gerakan == 1 ? 'checked' : '' }} name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" value="{{ $ijinKerja->keterangan_tangga_mampu_menahan_gerakan }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">4. Apakah tangga memiliki panjang yang cukup untuk digunakan?</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_panjang_yang_cukup == 1 ? 'checked' : '' }} name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" value="{{ $ijinKerja->keterangan_tangga_memiliki_panjang_yang_cukup }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">5. Apakah tangga memiliki stopper/pin/pengunci yang dapat digunakan?</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_stopper == 1 ? 'checked' : '' }} name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" value="{{ $ijinKerja->keterangan_tangga_memiliki_stopper }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">6. Apakah pekerja menggunakan peralatan lain saat bekerja? (jika "YA", pekerja harus menggunakan belt)</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input disabled type="checkbox" {{ $ijinKerja->pekerja_menggunakan_peralatan_lain == 1 ? 'checked' : '' }} name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    </div>
+                                </div>
+                                <input disabled type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" value="{{ $ijinKerja->keterangan_pekerja_menggunakan_peralatan_lain }}" data-placeholder="Masukkan Keterangan ...">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 @include('bagian-isi-kerja.pengesahan.show')
@@ -225,37 +294,44 @@
                         <div class="row mb-0">
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]" id="validasi_hari" data-placeholder="Masukkan Hari ...">
+                                    <label class="form-control-label">Hari</label>
+                                    <input disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" data-placeholder="Masukkan Waktu Mulai ...">
+                                    <label class="form-control-label">Waktu Mulai</label>
+                                    <input disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" data-placeholder="Masukkan Waktu Selesai ...">
+                                    <label class="form-control-label">Waktu Selesai</label>
+                                    <input disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]" id="nama_pelaksana" data-placeholder="Masukkan Nama Pelaksana ...">
+                                    <label class="form-control-label">Nama Pelaksana</label>
+                                    <input disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" data-placeholder="Masukkan Inisial Pelaksana ...">
+                                    <label class="form-control-label">Inisial Pelaksana</label>
+                                    <input disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]" id="nama_pengawas" data-placeholder="Masukkan Nama Pengawas ...">
+                                    <label class="form-control-label">Nama Pengawas</label>
+                                    <input disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
-                                    <input disabled disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]" id="inisial_pengawas" data-placeholder="Masukkan Inisial Pengawas ...">
+                                    <label class="form-control-label">Inisial Pengawas</label>
+                                    <input disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -265,76 +341,6 @@
                     @empty
                         <h3>Belum ada data validasi</h3>
                     @endforelse
-                </div>
-                <hr>
-                <h6 class="heading-small text-muted">Tangga (Ladder / Step Ladder)</h6>
-                <div class="pl-lg-4">
-                    <div class="form-group">
-                        <label class="form-control-label">1. Apakah tangga merupakan alat yang bantu yang paling sesuai untuk digunakan pada pekerjaan di ketinggian?</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_merupakan_alat_yang_bantu_yang_paling_sesuai == 1 ? 'checked' : '' }} name="tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai" value="{{ $ijinKerja->keterangan_tangga_merupakan_alat_yang_bantu_yang_paling_sesuai }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label">2. Apakah tangga dalam kondisi layak dan sesuai untuk digunakan?</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_dalam_kondisi_layak_dan_sesuai == 1 ? 'checked' : '' }} name="tangga_dalam_kondisi_layak_dan_sesuai" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_tangga_dalam_kondisi_layak_dan_sesuai" value="{{ $ijinKerja->keterangan_tangga_dalam_kondisi_layak_dan_sesuai }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label">3. Apakah tangga mampu menahan gerakan saat naik/turun dan bekerja?</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_mampu_menahan_gerakan == 1 ? 'checked' : '' }} name="tangga_mampu_menahan_gerakan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_tangga_mampu_menahan_gerakan" value="{{ $ijinKerja->keterangan_tangga_mampu_menahan_gerakan }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label">4. Apakah tangga memiliki panjang yang cukup untuk digunakan?</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_panjang_yang_cukup == 1 ? 'checked' : '' }} name="tangga_memiliki_panjang_yang_cukup" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_panjang_yang_cukup" value="{{ $ijinKerja->keterangan_tangga_memiliki_panjang_yang_cukup }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label">5. Apakah tangga memiliki stopper/pin/pengunci yang dapat digunakan?</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->tangga_memiliki_stopper == 1 ? 'checked' : '' }} name="tangga_memiliki_stopper" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_tangga_memiliki_stopper" value="{{ $ijinKerja->keterangan_tangga_memiliki_stopper }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-control-label">6. Apakah pekerja menggunakan peralatan lain saat bekerja? (jika "YA", pekerja harus menggunakan belt)</label>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <input disabled type="checkbox" {{ $ijinKerja->pekerja_menggunakan_peralatan_lain == 1 ? 'checked' : '' }} name="pekerja_menggunakan_peralatan_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
-                                </div>
-                            </div>
-                            <input disabled type="text" class="form-control" name="keterangan_pekerja_menggunakan_peralatan_lain" value="{{ $ijinKerja->keterangan_pekerja_menggunakan_peralatan_lain }}" data-placeholder="Masukkan Keterangan ...">
-                        </div>
-                    </div>
                 </div>
                 <hr>
                 <div class="form-group">

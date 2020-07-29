@@ -51,6 +51,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/ijin-kerja-panas/create/{jsa}', 'IjinKerjaPanasController@create')->name('ijin-kerja-panas.create');
         Route::get('/ijin-kerja-panas/{id}/edit', 'IjinKerjaPanasController@edit')->name('ijin-kerja-panas.edit');
 
+        Route::get('/ijin-kerja-dingin/create/{jsa}', 'IjinKerjaDinginController@create')->name('ijin-kerja-dingin.create');
+        Route::get('/ijin-kerja-dingin/{id}/edit', 'IjinKerjaDinginController@edit')->name('ijin-kerja-dingin.edit');
+
         Route::get('/ijin-kerja-di-ketinggian/create/{jsa}', 'IjinKerjaDiKetinggianController@create')->name('ijin-kerja-di-ketinggian.create');
         Route::get('/ijin-kerja-di-ketinggian/{id}/edit', 'IjinKerjaDiKetinggianController@edit')->name('ijin-kerja-di-ketinggian.edit');
 
@@ -69,6 +72,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::patch('/ijinKerjaRadiografi/{id}', 'ijinKerjaRadiografiController@updateDeskripsi')->name('ijinKerjaRadiografi.updateDeskripsi');
 
         Route::resource('ijinKerjaPanas', 'IjinKerjaPanasController')->except('index','create','show','edit');
+        Route::resource('ijinKerjaDingin', 'IjinKerjaDinginController')->except('index','create','show','edit');
         Route::resource('ijinKerjaDiKetinggian', 'IjinKerjaDiKetinggianController')->except('index','create','show','edit');
         Route::resource('ijinKerjaGalian', 'IjinKerjaGalianController')->except('index','create','show','edit');
         Route::resource('ijinKerjaListrik', 'IjinKerjaListrikController')->except('index','create','show','edit');
@@ -98,6 +102,11 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::get('/ijin-kerja-panas-grid/{id}', 'IjinKerjaPanasController@index')->name('ijin-kerja-panas-grid.index');
         Route::get('/ijin-kerja-panas/{id}/cetak/', 'IjinKerjaPanasController@cetak')->name('ijin-kerja-panas.cetak');
         Route::get('/ijin-kerja-panas/{id}/show/', 'IjinKerjaPanasController@show')->name('ijin-kerja-panas.show');
+
+        Route::get('/ijin-kerja-dingin/{id}', 'IjinKerjaDinginController@index')->name('ijin-kerja-dingin.index');
+        Route::get('/ijin-kerja-dingin-grid/{id}', 'IjinKerjaDinginController@index')->name('ijin-kerja-dingin-grid.index');
+        Route::get('/ijin-kerja-dingin/{id}/cetak/', 'IjinKerjaDinginController@cetak')->name('ijin-kerja-dingin.cetak');
+        Route::get('/ijin-kerja-dingin/{id}/show/', 'IjinKerjaDinginController@show')->name('ijin-kerja-dingin.show');
 
         Route::get('/ijin-kerja-galian/{id}', 'IjinKerjaGalianController@index')->name('ijin-kerja-galian.index');
         Route::get('/ijin-kerja-galian-grid/{id}', 'IjinKerjaGalianController@index')->name('ijin-kerja-galian-grid.index');

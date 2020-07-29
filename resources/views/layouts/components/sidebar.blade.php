@@ -6,7 +6,7 @@
     </button>
     <!-- Brand -->
     <a class="navbar-brand pt-0" href="#">
-        <h1 class="text-primary font-weight-900">{{ config('app.name') }}</h1>
+        <h1 class="text-primary font-weight-900"><i class="fas fa-home fa-2x"></i></h1>
     </a>
     <!-- User -->
     <ul class="nav align-items-center d-md-none">

@@ -20,6 +20,7 @@ class CreateValidasiTable extends Migration
             $table->unsignedBigInteger('ijin_kerja_listrik_id')->nullable();
             $table->unsignedBigInteger('ijin_kerja_ruang_terbatas_id')->nullable();
             $table->unsignedBigInteger('ijin_kerja_panas_id')->nullable();
+            $table->unsignedBigInteger('ijin_kerja_dingin_id')->nullable();
             $table->unsignedBigInteger('ijin_kerja_radiografi_id')->nullable();
             $table->date('validasi_hari');
             $table->time('validasi_mulai_hari');
@@ -35,6 +36,7 @@ class CreateValidasiTable extends Migration
             $table->foreign('ijin_kerja_listrik_id')->references('id')->on('ijin_kerja_listrik')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ijin_kerja_ruang_terbatas_id')->references('id')->on('ijin_kerja_ruang_terbatas')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ijin_kerja_panas_id')->references('id')->on('ijin_kerja_panas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ijin_kerja_dingin_id')->references('id')->on('ijin_kerja_dingin')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('ijin_kerja_radiografi_id')->references('id')->on('ijin_kerja_radiografi')->onDelete('cascade')->onUpdate('cascade');
         });
     }

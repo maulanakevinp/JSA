@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Umum;
+use App\SumberBahayaAlat;
 use App\AlatPelindungDiri;
 use App\DokumenPendukung;
-use App\IjinKerjaPanas;
-use App\JenisPekerjaan;
+use App\IjinKerjaDingin;
 use App\Jsa;
 use App\Pengesahan;
-use App\PetugasPengawas;
-use App\SumberBahayaAlat;
-use App\UjiKandunganGas;
-use App\Umum;
 use App\Validasi;
 use Illuminate\Http\Request;
 
-class IjinKerjaPanasController extends Controller
+class IjinKerjaDinginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,13 +21,13 @@ class IjinKerjaPanasController extends Controller
      */
     public function index(Request $request,$id)
     {
-        $ijinKerja = IjinKerjaPanas::where('jsa_id', $id)->paginate(12);
+        $ijinKerja = IjinKerjaDingin::where('jsa_id', $id)->paginate(12);
         $jsa = Jsa::findOrFail($id);
         if (!$ijinKerja) {
             return abort(404);
         }
 
-        return view('ijin-kerja-panas.index', compact('ijinKerja','jsa'));
+        return view('ijin-kerja-dingin.index', compact('ijinKerja','jsa'));
     }
 
     /**
@@ -40,7 +37,7 @@ class IjinKerjaPanasController extends Controller
      */
     public function create(Request $request, Jsa $jsa)
     {
-        return view('ijin-kerja-panas.create', compact('jsa'));
+        return view('ijin-kerja-dingin.create', compact('jsa'));
     }
 
     /**
@@ -52,33 +49,24 @@ class IjinKerjaPanasController extends Controller
     public function store(Request $request)
     {
         $dataUmum = $this->dataUmum($request);
-        $dataJenisPekerjaan = $this->dataJenisPekerjaan($request);
         $dataSumberBahayaAlat = $this->dataSumberBahayaAlat($request);
         $dataAlatPelindungDiri = $this->dataAlatPelindungDiri($request);
         $dataDokumenPendukung = $this->dataDokumenPendukung($request);
-        $dataUjiKandunganGas = $this->dataUjiKandunganGas($request);
-        $dataPetugasPengawas = $this->dataPetugasPengawas($request);
         $dataPengesahan = $this->dataPengesahan($request);
         $dataValidasi = $this->dataValidasi($request);
 
         $umum               = Umum::create($dataUmum);
-        $jenisPekerjaan     = JenisPekerjaan::create($dataJenisPekerjaan);
         $sumberBahayaAlat   = SumberBahayaAlat::create($dataSumberBahayaAlat);
         $alatPelindungDiri  = AlatPelindungDiri::create($dataAlatPelindungDiri);
         $dokumenPendukung   = DokumenPendukung::create($dataDokumenPendukung);
-        $ujiKandunganGas    = UjiKandunganGas::create($dataUjiKandunganGas);
-        $petugasPengawas    = PetugasPengawas::create($dataPetugasPengawas);
         $pengesahan         = Pengesahan::create($dataPengesahan);
 
-        $ijinKerja = IjinKerjaPanas::create([
+        $ijinKerja = IjinKerjaDingin::create([
             'jsa_id'                                                            => $request->jsa_id,
             'umum_id'                                                           => $umum->id,
-            'jenis_pekerjaan_id'                                                => $jenisPekerjaan->id,
             'sumber_bahaya_alat_id'                                             => $sumberBahayaAlat->id,
             'alat_pelindung_diri_id'                                            => $alatPelindungDiri->id,
             'dokumen_pendukung_id'                                              => $dokumenPendukung->id,
-            'uji_kandungan_gas_id'                                              => $ujiKandunganGas->id,
-            'petugas_pengawas_id'                                               => $petugasPengawas->id,
             'pengesahan_id'                                                     => $pengesahan->id,
             'jalur_dibebaskan_dari_tekanan'                                     => $request->jalur_dibebaskan_dari_tekanan,
             'jalur_dikosongkan_atau_drain'                                      => $request->jalur_dikosongkan_atau_drain,
@@ -89,15 +77,9 @@ class IjinKerjaPanasController extends Controller
             'jalur_didorong_atau_flush_dengan_air'                              => $request->jalur_didorong_atau_flush_dengan_air,
             'jalur_steaming_out_or_purging'                                     => $request->jalur_steaming_out_or_purging,
             'jalur_dinginkan_secara_alamiah_atau_mekanis'                       => $request->jalur_dinginkan_secara_alamiah_atau_mekanis,
-            'semua_saluran_drain_dan_kerangan_pada_jarak_15m'                   => $request->semua_saluran_drain_dan_kerangan_pada_jarak_15m,
-            'bahan_mudah_terbakar_diamankan'                                    => $request->bahan_mudah_terbakar_diamankan,
-            'alat_pemadam_kebakaran_siap_sedia'                                 => $request->alat_pemadam_kebakaran_siap_sedia,
-            'petugas_pemadam_kebakaran_siap_sedia'                              => $request->petugas_pemadam_kebakaran_siap_sedia,
-            'semua_peralatan_las_telah_diamankan'                               => $request->semua_peralatan_las_telah_diamankan,
-            'pekerjaan_harus_terus_dibasahi_dengan_air'                         => $request->pekerjaan_harus_terus_dibasahi_dengan_air,
+            'semua_pekerjaan_disetujui_untuk_penggalian'                        => $request->semua_pekerjaan_disetujui_untuk_penggalian,
             'perlu_dengan_ijin_kerja_yang_lain'                                 => $request->perlu_dengan_ijin_kerja_yang_lain,
-            'semua_mesin_telah_diamankan'                                       => $request->semua_mesin_telah_diamankan,
-            'semua_pekerjaan_telah_disetujui_untuk_penggalian'                  => $request->semua_pekerjaan_telah_disetujui_untuk_penggalian,
+            'perlu_dilakukan_uji_kandungan_gas'                                 => $request->perlu_dilakukan_uji_kandungan_gas,
             'semua_peralatan_listrik_telah_diisolasi'                           => $request->semua_peralatan_listrik_telah_diisolasi,
             'semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang'             => $request->semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang,
             'keterangan_jalur_dibebaskan_dari_tekanan'                          => $request->keterangan_jalur_dibebaskan_dari_tekanan,
@@ -109,15 +91,9 @@ class IjinKerjaPanasController extends Controller
             'keterangan_jalur_didorong_atau_flush_dengan_air'                   => $request->keterangan_jalur_didorong_atau_flush_dengan_air,
             'keterangan_jalur_steaming_out_or_purging'                          => $request->keterangan_jalur_steaming_out_or_purging,
             'keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis'            => $request->keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis,
-            'keterangan_semua_saluran_drain_dan_kerangan_pada_jarak_15m'        => $request->keterangan_semua_saluran_drain_dan_kerangan_pada_jarak_15m,
-            'keterangan_bahan_mudah_terbakar_diamankan'                         => $request->keterangan_bahan_mudah_terbakar_diamankan,
-            'keterangan_alat_pemadam_kebakaran_siap_sedia'                      => $request->keterangan_alat_pemadam_kebakaran_siap_sedia,
-            'keterangan_petugas_pemadam_kebakaran_siap_sedia'                   => $request->keterangan_petugas_pemadam_kebakaran_siap_sedia,
-            'keterangan_semua_peralatan_las_telah_diamankan'                    => $request->keterangan_semua_peralatan_las_telah_diamankan,
-            'keterangan_pekerjaan_harus_terus_dibasahi_dengan_air'              => $request->keterangan_pekerjaan_harus_terus_dibasahi_dengan_air,
+            'keterangan_semua_pekerjaan_disetujui_untuk_penggalian'             => $request->keterangan_semua_pekerjaan_disetujui_untuk_penggalian,
             'keterangan_perlu_dengan_ijin_kerja_yang_lain'                      => $request->keterangan_perlu_dengan_ijin_kerja_yang_lain,
-            'keterangan_semua_mesin_telah_diamankan'                            => $request->keterangan_semua_mesin_telah_diamankan,
-            'keterangan_semua_pekerjaan_telah_disetujui_untuk_penggalian'       => $request->keterangan_semua_pekerjaan_telah_disetujui_untuk_penggalian,
+            'keterangan_perlu_dilakukan_uji_kandungan_gas'                      => $request->keterangan_perlu_dilakukan_uji_kandungan_gas,
             'keterangan_semua_peralatan_listrik_telah_diisolasi'                => $request->keterangan_semua_peralatan_listrik_telah_diisolasi,
             'keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang'  => $request->keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang,
             'catatan'                                                           => $request->catatan,
@@ -126,7 +102,7 @@ class IjinKerjaPanasController extends Controller
         try {
             for ($i=1; $i < count($request->validasi_hari); $i++) {
                 Validasi::create([
-                    'ijin_kerja_panas_id' =>  $ijinKerja->id,
+                    'ijin_kerja_dingin_id'  =>  $ijinKerja->id,
                     'validasi_hari'         =>  $request->validasi_hari[$i],
                     'validasi_mulai_hari'   =>  $request->validasi_mulai_hari[$i],
                     'validasi_selesai_hari' =>  $request->validasi_selesai_hari[$i],
@@ -142,32 +118,32 @@ class IjinKerjaPanasController extends Controller
 
         return response()->json([
             'success'   => true,
-            'message'   => 'Ijin kerja panas berhasil dibuat'
+            'message'   => 'Ijin kerja dingin berhasil dibuat'
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\IjinKerjaPanas  $ijinKerjaPanas
+     * @param  \App\IjinKerjaDingin  $ijinKerjaDingin
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $ijinKerja = IjinKerjaPanas::findOrFail($id);
-        return view('ijin-kerja-panas.show', compact('ijinKerja'));
+        $ijinKerja = IjinKerjaDingin::findOrFail($id);
+        return view('ijin-kerja-dingin.show', compact('ijinKerja'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\IjinKerjaPanas  $ijinKerjaPanas
+     * @param  \App\IjinKerjaDingin  $ijinKerjaDingin
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $ijinKerja = IjinKerjaPanas::findOrFail($id);
-        return view('ijin-kerja-panas.edit', compact('ijinKerja'));
+        $ijinKerja = IjinKerjaDingin::findOrFail($id);
+        return view('ijin-kerja-dingin.edit', compact('ijinKerja'));
     }
 
     /**
@@ -178,7 +154,7 @@ class IjinKerjaPanasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $ijinKerja = IjinKerjaPanas::find($id);
+        $ijinKerja = IjinKerjaDingin::find($id);
 
         if (!$request->catatan) {
             $ijinKerja->update([
@@ -191,15 +167,9 @@ class IjinKerjaPanasController extends Controller
                 'jalur_didorong_atau_flush_dengan_air'                              => $request->jalur_didorong_atau_flush_dengan_air,
                 'jalur_steaming_out_or_purging'                                     => $request->jalur_steaming_out_or_purging,
                 'jalur_dinginkan_secara_alamiah_atau_mekanis'                       => $request->jalur_dinginkan_secara_alamiah_atau_mekanis,
-                'semua_saluran_drain_dan_kerangan_pada_jarak_15m'                   => $request->semua_saluran_drain_dan_kerangan_pada_jarak_15m,
-                'bahan_mudah_terbakar_diamankan'                                    => $request->bahan_mudah_terbakar_diamankan,
-                'alat_pemadam_kebakaran_siap_sedia'                                 => $request->alat_pemadam_kebakaran_siap_sedia,
-                'petugas_pemadam_kebakaran_siap_sedia'                              => $request->petugas_pemadam_kebakaran_siap_sedia,
-                'semua_peralatan_las_telah_diamankan'                               => $request->semua_peralatan_las_telah_diamankan,
-                'pekerjaan_harus_terus_dibasahi_dengan_air'                         => $request->pekerjaan_harus_terus_dibasahi_dengan_air,
+                'semua_pekerjaan_disetujui_untuk_penggalian'                        => $request->semua_pekerjaan_disetujui_untuk_penggalian,
                 'perlu_dengan_ijin_kerja_yang_lain'                                 => $request->perlu_dengan_ijin_kerja_yang_lain,
-                'semua_mesin_telah_diamankan'                                       => $request->semua_mesin_telah_diamankan,
-                'semua_pekerjaan_telah_disetujui_untuk_penggalian'                  => $request->semua_pekerjaan_telah_disetujui_untuk_penggalian,
+                'perlu_dilakukan_uji_kandungan_gas'                                 => $request->perlu_dilakukan_uji_kandungan_gas,
                 'semua_peralatan_listrik_telah_diisolasi'                           => $request->semua_peralatan_listrik_telah_diisolasi,
                 'semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang'             => $request->semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang,
                 'keterangan_jalur_dibebaskan_dari_tekanan'                          => $request->keterangan_jalur_dibebaskan_dari_tekanan,
@@ -211,15 +181,9 @@ class IjinKerjaPanasController extends Controller
                 'keterangan_jalur_didorong_atau_flush_dengan_air'                   => $request->keterangan_jalur_didorong_atau_flush_dengan_air,
                 'keterangan_jalur_steaming_out_or_purging'                          => $request->keterangan_jalur_steaming_out_or_purging,
                 'keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis'            => $request->keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis,
-                'keterangan_semua_saluran_drain_dan_kerangan_pada_jarak_15m'        => $request->keterangan_semua_saluran_drain_dan_kerangan_pada_jarak_15m,
-                'keterangan_bahan_mudah_terbakar_diamankan'                         => $request->keterangan_bahan_mudah_terbakar_diamankan,
-                'keterangan_alat_pemadam_kebakaran_siap_sedia'                      => $request->keterangan_alat_pemadam_kebakaran_siap_sedia,
-                'keterangan_petugas_pemadam_kebakaran_siap_sedia'                   => $request->keterangan_petugas_pemadam_kebakaran_siap_sedia,
-                'keterangan_semua_peralatan_las_telah_diamankan'                    => $request->keterangan_semua_peralatan_las_telah_diamankan,
-                'keterangan_pekerjaan_harus_terus_dibasahi_dengan_air'              => $request->keterangan_pekerjaan_harus_terus_dibasahi_dengan_air,
+                'keterangan_semua_pekerjaan_disetujui_untuk_penggalian'             => $request->keterangan_semua_pekerjaan_disetujui_untuk_penggalian,
                 'keterangan_perlu_dengan_ijin_kerja_yang_lain'                      => $request->keterangan_perlu_dengan_ijin_kerja_yang_lain,
-                'keterangan_semua_mesin_telah_diamankan'                            => $request->keterangan_semua_mesin_telah_diamankan,
-                'keterangan_semua_pekerjaan_telah_disetujui_untuk_penggalian'       => $request->keterangan_semua_pekerjaan_telah_disetujui_untuk_penggalian,
+                'keterangan_perlu_dilakukan_uji_kandungan_gas'                      => $request->keterangan_perlu_dilakukan_uji_kandungan_gas,
                 'keterangan_semua_peralatan_listrik_telah_diisolasi'                => $request->keterangan_semua_peralatan_listrik_telah_diisolasi,
                 'keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang'  => $request->keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang,
             ]);
@@ -231,26 +195,26 @@ class IjinKerjaPanasController extends Controller
 
         return response()->json([
             'success'   => true,
-            'message'   => 'Ijin kerja panas berhasil diperbarui',
+            'message'   => 'Ijin kerja dingin berhasil diperbarui',
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\IjinKerjaPanas  $ijinKerjaPanas
+     * @param  \App\IjinKerjaDingin  $ijinKerjaDingin
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $ijinKerjaPanas = IjinKerjaPanas::find($id);
-        $ijinKerjaPanas->delete();
-        return back()->with('success', 'Ijin kerja panas berhasil dihapus');
+        $ijinKerjaDingin = IjinKerjaDingin::find($id);
+        $ijinKerjaDingin->delete();
+        return back()->with('success', 'Ijin kerja dingin berhasil dihapus');
     }
 
     public function cetak($id)
     {
-        $ijinKerja = IjinKerjaPanas::findOrFail($id);
-        return view('ijin-kerja-panas.cetak', compact('ijinKerja'));
+        $ijinKerja = IjinKerjaDingin::findOrFail($id);
+        return view('ijin-kerja-dingin.cetak', compact('ijinKerja'));
     }
 }

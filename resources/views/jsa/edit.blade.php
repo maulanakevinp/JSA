@@ -47,7 +47,11 @@
                                 <p class="mb-0 text-sm">Kelola JSA</p>
                             </div>
                             <div class="mb-3">
-                                <a href="{{ route('jsa.index') }}" class="btn btn-primary" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                                <a href="{{ route('jsa.edit', $jsa) }}#langkah-langkah-kerja" class="btn btn-outline-primary mb-3" title="Ijin Kerja"><i class="fas fa-file"></i> Langkah-langkah Kerja</a>
+                                @if ($jsa->status_persetujuan == 1)
+                                    <a href="{{ route('jsa.edit', $jsa) }}#ijin-kerja" class="btn btn-outline-primary mb-3" title="Ijin Kerja"><i class="fas fa-file-alt"></i> Ijin Kerja</a>
+                                @endif
+                                <a href="{{ route('jsa.index') }}" class="btn btn-primary mb-3" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                             </div>
                         </div>
                     </div>
@@ -318,7 +322,7 @@
         </form>
     </div>
 </div>
-<div id="formPekerjaan">
+<div id="langkah-langkah-kerja">
     <div class="card shadow h-100 mb-3">
         <div class="card-header bg-secondary border-0 d-flex justify-content-between">
             <h3 class="mb-0">Urutan Langkah Langkah Pekerjaan</h3>
@@ -369,7 +373,7 @@
     </div>
 </div>
 @if ($jsa->status_persetujuan == 1)
-<h3 class="mt-5 text-center">IJIN KERJA</h3>
+<h3 id="ijin-kerja" class="mt-5 text-center">IJIN KERJA</h3>
     <div class="row d-flex justify-content-center">
         <div class="col-lg-4 col-md-6 mb-3 text-center">
             <div class="card shadow hover-up">
@@ -377,6 +381,16 @@
                     <a href="{{ route('ijin-kerja-panas.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Panas</h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-3 text-center">
+            <div class="card shadow hover-up">
+                <div class="card-body">
+                    <a href="{{ route('ijin-kerja-dingin.index', $jsa->id) }}">
+                        <i class="fas fa-file-alt fa-5x mb-3"></i>
+                        <h4>Ijin Kerja Dingin</h4>
                     </a>
                 </div>
             </div>
