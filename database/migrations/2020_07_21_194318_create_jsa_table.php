@@ -22,6 +22,7 @@ class CreateJsaTable extends Migration
             $table->string('nama_perusahaan', 128)->nullable();
             $table->string('no_jsa', 128)->nullable();
             $table->string('nama_pekerjaan', 128)->nullable();
+            $table->string('judul_pekerjaan', 128)->nullable();
             $table->string('lokasi', 128)->nullable();
             $table->string('nomor_kontrak', 128)->nullable();
             $table->date('tanggal_kontrak')->nullable();

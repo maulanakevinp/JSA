@@ -128,7 +128,6 @@
             </tr>
         </tbody>
     </table>
-
     <table class="table" style="font-size: 8pt">
         <thead class="" style="background-color: skyblue">
             <tr class="border border-info">
@@ -140,6 +139,7 @@
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="50px">Waktu / <span class="font-italic">When</span></td>
             </tr>
+            <tr><td class="border border-info p-1 text-center" colspan="7">{{ $jsa->judul_pekerjaan }}</td></tr>
         </thead>
         <tbody>
             @foreach ($jsa->langkahPekerjaan as $item)

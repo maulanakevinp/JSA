@@ -65,6 +65,15 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <label class="form-control-label" for="judul_pekerjaan">Judul Pekerjaan</label>
+                        <input class="form-control form-control-alternative @error('judul_pekerjaan') is-invalid @enderror" type="text" name="judul_pekerjaan" id="judul_pekerjaan" placeholder="Masukkan judul pekerjaan ..." value="{{ old('judul_pekerjaan') }}">
+                        @error('judul_pekerjaan')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
                         <label class="form-control-label" for="lokasi">Lokasi</label>
                         <input class="form-control form-control-alternative @error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="lokasi" placeholder="Masukkan lokasi ..." value="{{ old('lokasi') }}">
                         @error('lokasi')
