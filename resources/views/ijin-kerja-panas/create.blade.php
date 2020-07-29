@@ -100,14 +100,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-control-label">Keterangan dikunci</label>
+                                    <label class="form-control-label">Kerangan dikunci</label>
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_keterangan_dikunci" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                                <input type="checkbox" name="jalur_diisolasi_dengan_kerangan_dikunci" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_keterangan_dikunci" placeholder="Masukkan Keterangan ...">
+                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_kerangan_dikunci" placeholder="Masukkan Keterangan ...">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -115,10 +115,10 @@
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <div class="input-group-text">
-                                                <input type="checkbox" name="jalur_diisolasi_dengan_keterangan_diberi_label" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                                <input type="checkbox" name="jalur_diisolasi_dengan_diberi_label" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                                             </div>
                                         </div>
-                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_keterangan_diberi_label" placeholder="Masukkan Keterangan ...">
+                                        <input type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_diberi_label" placeholder="Masukkan Keterangan ...">
                                     </div>
                                 </div>
                             </div>

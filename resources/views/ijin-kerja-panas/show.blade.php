@@ -98,14 +98,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">Keterangan dikunci</label>
+                                <label class="form-control-label">Kerangan dikunci</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_keterangan_dikunci" value="1" {{ $ijinKerja->jalur_diisolasi_dengan_keterangan_dikunci == 1 ? 'checked' : '' }} data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_kerangan_dikunci" value="1" {{ $ijinKerja->jalur_diisolasi_dengan_kerangan_dikunci == 1 ? 'checked' : '' }} data-toggle="tooltip" title="Centang untuk status (YA)">
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_keterangan_dikunci }}" name="keterangan_jalur_diisolasi_dengan_keterangan_dikunci" data-placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_kerangan_dikunci }}" name="keterangan_jalur_diisolasi_dengan_kerangan_dikunci" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -113,10 +113,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_keterangan_diberi_label" value="1" {{ $ijinKerja->jalur_diisolasi_dengan_keterangan_diberi_label == 1 ? 'checked' : '' }} data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_diberi_label" value="1" {{ $ijinKerja->jalur_diisolasi_dengan_diberi_label == 1 ? 'checked' : '' }} data-toggle="tooltip" title="Centang untuk status (YA)">
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_keterangan_diberi_label }}" name="keterangan_jalur_diisolasi_dengan_keterangan_diberi_label" data-placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_diberi_label }}" name="keterangan_jalur_diisolasi_dengan_diberi_label" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                         </div>

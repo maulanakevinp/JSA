@@ -78,8 +78,8 @@
             <label class="mb-0" for="half_mask_respirator">Half Mask Respirator</label>
         </div>
         <div class="mb-0">
-            <input class="cawang" type="checkbox" id="full_face_respirator" name="full_face_respirator" value="1" {{ old('full_face_respirator', $ijinKerja->alatPelindungDiri->full_face_respirator) ? 'checked' : '' }}>
-            <label class="mb-0" for="full_face_respirator">Full Face Respirator</label>
+            <input class="cawang" type="checkbox" id="full_face" name="full_face" value="1" {{ old('full_face', $ijinKerja->alatPelindungDiri->full_face) ? 'checked' : '' }}>
+            <label class="mb-0" for="full_face">Full Face Respirator</label>
         </div>
         <div class="mb-0">
             <input class="cawang" type="checkbox" id="dust_mask" name="dust_mask" value="1" {{ old('dust_mask', $ijinKerja->alatPelindungDiri->dust_mask) ? 'checked' : '' }}>

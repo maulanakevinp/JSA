@@ -103,8 +103,8 @@
             <label class="custom-control-label" for="half_mask_respirator">Half Mask Respirator</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="full_face_respirator" name="full_face_respirator" value="1">
-            <label class="custom-control-label" for="full_face_respirator">Full Face Respirator</label>
+            <input type="checkbox" class="custom-control-input" id="full_face" name="full_face" value="1">
+            <label class="custom-control-label" for="full_face">Full Face Respirator</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="dust_mask" name="dust_mask" value="1">

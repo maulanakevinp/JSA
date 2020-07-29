@@ -104,14 +104,14 @@
                                             <td class="p-0">{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_dilepas }}</td>
                                         </tr>
                                         <tr>
-                                            <td class="p-0">&nbsp; &nbsp; &nbsp; &nbsp; Keterangan dikunci</td>
-                                            <td class="p-0 text-center">{!! $ijinKerja->jalur_diisolasi_dengan_keterangan_dikunci == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
-                                            <td class="p-0">{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_keterangan_dikunci }}</td>
+                                            <td class="p-0">&nbsp; &nbsp; &nbsp; &nbsp; Kerangan dikunci</td>
+                                            <td class="p-0 text-center">{!! $ijinKerja->jalur_diisolasi_dengan_kerangan_dikunci == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
+                                            <td class="p-0">{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_kerangan_dikunci }}</td>
                                         </tr>
                                         <tr>
                                             <td class="p-0">&nbsp; &nbsp; &nbsp; &nbsp; Diberi label</td>
-                                            <td class="p-0 text-center">{!! $ijinKerja->jalur_diisolasi_dengan_keterangan_diberi_label == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
-                                            <td class="p-0">{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_keterangan_diberi_label }}</td>
+                                            <td class="p-0 text-center">{!! $ijinKerja->jalur_diisolasi_dengan_diberi_label == 1 ? 'Ya / <span style="text-decoration: line-through">Tidak</span>' : '<span style="text-decoration: line-through">Ya</span> / Tidak' !!}</td>
+                                            <td class="p-0">{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_diberi_label }}</td>
                                         </tr>
                                         <tr>
                                             <td class="p-0">4. Didorong atau flush dengan air</td>

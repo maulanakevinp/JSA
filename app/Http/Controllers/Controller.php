@@ -139,15 +139,15 @@ class Controller extends BaseController
             'o2'                                    => ['nullable'],
             'sebelum_pelaksanaan_pekerjaan1'        => ['nullable'],
             'saat_pelaksanaan_pekerjaan_setiap1'    => ['nullable'],
-            'waktu_pelaksanaan_pekerjaan1'          => ['nullable'],
+            'waktu_pelaksanaan_pekerjaan_setiap1'   => ['nullable'],
             'toxic'                                 => ['nullable'],
             'sebelum_pelaksanaan_pekerjaan2'        => ['nullable'],
             'saat_pelaksanaan_pekerjaan_setiap2'    => ['nullable'],
-            'waktu_pelaksanaan_pekerjaan2'          => ['nullable'],
+            'waktu_pelaksanaan_pekerjaan_setiap2'   => ['nullable'],
             'combustible'                           => ['nullable'],
             'sebelum_pelaksanaan_pekerjaan3'        => ['nullable'],
             'saat_pelaksanaan_pekerjaan_setiap3'    => ['nullable'],
-            'waktu_pelaksanaan_pekerjaan3'          => ['nullable'],
+            'waktu_pelaksanaan_pekerjaan_setiap3'   => ['nullable'],
         ]);
     }
 

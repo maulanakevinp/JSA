@@ -15,7 +15,7 @@
         <td class="p-1">
             <div class="mb-0">
                 <input type="checkbox" class="cawang" name="saat_pelaksanaan_pekerjaan_setiap1" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap1', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap1) ? 'checked' : '' }}>
-                <label class="mb-0">Setiap {{ $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap1 ? $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap1 : ' .................................................. ' }}Jam / Hari</label>
+                <label class="mb-0">Setiap {{ $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap1 ? $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap1 : ' .................................................. ' }} Jam/Hari</label>
             </div>
         </td>
     </tr>
@@ -35,7 +35,7 @@
         <td class="p-1">
             <div class="mb-0">
                 <input type="checkbox" class="cawang" name="saat_pelaksanaan_pekerjaan_setiap2" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap2', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap2) ? 'checked' : '' }}>
-                <label class="mb-0">Setiap {{ $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap2 ? $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap2 : ' .................................................. ' }}Jam / Hari</label>
+                <label class="mb-0">Setiap {{ $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap2 ? $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap2 : ' .................................................. ' }} Jam/Hari</label>
             </div>
         </td>
     </tr>
@@ -55,7 +55,7 @@
         <td class="p-1">
             <div class="mb-0">
                 <input type="checkbox" class="cawang" name="saat_pelaksanaan_pekerjaan_setiap3" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ old('saat_pelaksanaan_pekerjaan_setiap3', $ijinKerja->ujiKandunganGas->saat_pelaksanaan_pekerjaan_setiap3) ? 'checked' : '' }}>
-                <label class="mb-0">Setiap {{ $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap3 ? $ijinKerja->waktu_saat_pelaksanaan_pekerjaan_setiap3 : ' .................................................. ' }}Jam / Hari</label>
+                <label class="mb-0">Setiap {{ $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap3 ? $ijinKerja->ujiKandunganGas->waktu_pelaksanaan_pekerjaan_setiap3 : ' .................................................. ' }} Jam/Hari</label>
             </div>
         </td>
     </tr>
