@@ -44,12 +44,13 @@
 <body onload="window.print()" oncontextmenu="return false;">
 
     <div class="row mb-5">
-        <div class="col-6">
-            <img width="50px" src="{{ url('storage/logo.png') }}" alt="">
+        <div class="col-1">
+            <img class="mw-100" src="{{ url('storage/logo.png') }}" alt="">
         </div>
-        <div class="col-6">
-            <h5 class="text-center font-weight-bolder">FORMULIR ANALISA KESELAMATAN KERJA / JOB SAFETY ANALYSIS FORM</h5>
+        <div class="col-10">
+            <h2 class="text-center font-weight-bolder">FORMULIR ANALISA KESELAMATAN KERJA / JOB SAFETY ANALYSIS FORM</h2>
         </div>
+        <div class="col-1"></div>
     </div>
     <table class="table mb-5">
         <tr class="border border-info">
@@ -139,7 +140,7 @@
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="50px">Waktu / <span class="font-italic">When</span></td>
             </tr>
-            <tr><td class="border border-info p-1 text-center" colspan="7" style="background-color: blue">{{ $jsa->judul_pekerjaan }}</td></tr>
+            <tr><td class="border border-info p-1" colspan="7" style="background-color: blue">{{ $jsa->judul_pekerjaan }}</td></tr>
         </thead>
         <tbody>
             @foreach ($jsa->langkahPekerjaan as $item)
