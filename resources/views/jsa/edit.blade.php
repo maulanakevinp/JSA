@@ -360,7 +360,7 @@
                                     @can('admin_kontraktor')
                                         @if ($jsa->status_review != 1)
                                             <a href="{{ route('langkahPekerjaan.edit', $item->id) }}" class="btn btn-sm btn-success" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->urutan_langkah_langkah_pekerjaan }}" data-id="{{ $item->id }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
+                                            <a href="#modal-hapus" class="btn btn-sm btn-danger hapus" data-nama="{{ $item->urutan_langkah_langkah_pekerjaan }}" data-url="{{ route('langkahPekerjaan.destroy',$item->id) }}" data-toggle="modal"><i class="fas fa-trash" title="Hapus" data-toggle="tooltip"></i></a>
                                         @else
                                             <a href="{{ route('langkahPekerjaan.show', $item->id) }}" class="btn btn-sm btn-info" title="Detail" data-toggle="tooltip"><i class="fas fa-eye"></i></a>
                                         @endif

@@ -17,7 +17,6 @@ class CreateLangkahPekerjaanTable extends Migration
             $table->id();
             $table->foreignId('jsa_id')->constrained('jsa')->onDelete('cascade')->onUpdate('cascade');
             $table->text('urutan_langkah_langkah_pekerjaan');
-            $table->text('potensi_bahaya');
             $table->text('bahaya_spesifik');
             $table->text('rencana_tindakan_pencegahan');
             $table->text('pic_pelaksana');

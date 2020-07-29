@@ -39,6 +39,7 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 
         Route::get('/langkahPekerjaan/create/{jsa}', 'LangkahPekerjaanController@create')->name('langkahPekerjaan.create');
         Route::resource('langkahPekerjaan', 'LangkahPekerjaanController')->except('create','show','index');
+        Route::resource('potensiBahaya', 'PotensiBahayaController')->except('edit','create','show','index');
         Route::patch('/umum/{id}', 'UmumController@updateTanggalSelesai')->name('umum.updateTanggalSelesai');
         Route::resource('jsa', 'JsaController')->except('edit','update','index','show');
     });

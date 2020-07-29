@@ -35,66 +35,71 @@
                 <h3 class="mb-0">Tambah Langkah Pekerjaan</h3>
             </div>
             <div class="card-body">
-                <form class="formPekerjaanUpdate" autocomplete="off" action="{{ route('langkahPekerjaan.store') }}" method="POST">
+                <form autocomplete="off" action="javascript:;" method="POST">
                     @csrf
+                    <input type="hidden" name="potensi_bahaya[]" value="1">
                     <input type="hidden" name="jsa_id" value="{{ $jsa->id }}">
                     <div class="form-group">
                         <label class="form-control-label" for="urutan_langkah_langkah_pekerjaan">Urutan Langkah-Langkah Pekerjaan</label>
-                        <input class="form-control form-control-alternative" type="text" name="urutan_langkah_langkah_pekerjaan" id="urutan_langkah_langkah_pekerjaan" placeholder="Masukkan Urutan Langkah-Langkah Pekerjaan ..." value="{{ old('urutan_langkah_langkah_pekerjaan') }}">
-                        @error('urutan_langkah_langkah_pekerjaan')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input class="form-control" type="text" name="urutan_langkah_langkah_pekerjaan" id="urutan_langkah_langkah_pekerjaan" placeholder="Masukkan Urutan Langkah-Langkah Pekerjaan ...">
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
-                        <input class="form-control form-control-alternative" type="text" name="potensi_bahaya" id="potensi_bahaya" placeholder="Masukkan Potensi Bahaya ..." value="{{ old('potensi_bahaya') }}">
-                        @error('potensi_bahaya')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <div id="potensi-bahaya">
+                        <div class="form-group mb-1">
+                            <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
+                            <input class="form-control" type="text" name="potensi_bahaya[]" placeholder="Masukkan Potensi Bahaya ...">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-sm" id="tambah-potensi-bahaya">Tambah potensi bahaya</button>
+                    <div class="form-group mt-3">
                         <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
-                        <input class="form-control form-control-alternative" type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ old('bahaya_spesifik') }}">
-                        @error('bahaya_spesifik')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input class="form-control" type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ...">
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
-                        <textarea class="form-control form-control-alternative" name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan') }}</textarea>
-                        @error('rencana_tindakan_pencegahan')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <textarea class="form-control" name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan') }}</textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="pic_pelaksana">PIC Pelaksana</label>
-                        <input class="form-control form-control-alternative" type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ..." value="{{ old('pic_pelaksana') }}">
-                        @error('pic_pelaksana')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input class="form-control" type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ...">
                     </div>
                     <div class="form-group">
                         <label class="form-control-label" for="waktu">Waktu</label>
-                        <input class="form-control form-control-alternative" type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ old('waktu') }}">
-                        @error('waktu')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input class="form-control" type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ...">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">SIMPAN</button>
                 </form>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-tambah" tabindex="-1" role="dialog" aria-labelledby="modal-tambah" aria-hidden="true">
+    <div class="modal-dialog modal-success modal-dialog-centered modal-" role="document">
+        <div class="modal-content bg-gradient-success">
+
+            <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-delete">Tambah?</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="py-3 text-center">
+                    <i class="fas fa-check-circle fa-5x"></i>
+                    <h4 class="heading mt-4">Berhasil</h4>
+                    <p>Langkah langkah pekerjaan berhasil ditambahkan</p>
+                    <p><strong>Apakah ingin menambah lagi ???</strong></p>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="{{ route('langkahPekerjaan.create', $jsa->id) }}" class="btn btn-white">YA</a>
+                <a href="{{ route('jsa.edit', $jsa) }}" class="btn btn-link text-white ml-auto">Tidak</a>
+            </div>
+
         </div>
     </div>
 </div>
@@ -106,5 +111,73 @@
         $(element).removeClass('is-invalid');
         $(element).siblings('.invalid-feedback').remove();
     }
+
+    $(document).ready(function(){
+        $("#tambah-potensi-bahaya").click(function(){
+            $("#potensi-bahaya").append(`
+                <div class="form-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="potensi_bahaya[]" placeholder="Masukkan Potensi Bahaya ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).on("click", ".hapus", function () {
+            $(this).tooltip('dispose');
+            $(this).parent('div').parent('div').parent('div').remove();
+        });
+
+        $('form').on('submit',function(){
+            let form = this;
+            $(".notifikasi").html('');
+            $.ajax({
+                url: "{{ route('langkahPekerjaan.store') }}",
+                type: 'POST',
+                data: new FormData(this),
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function(data){
+                    $(form).children('button:submit').attr('disabled','disabled');
+                    $(form).children('button:submit').html(`<img height="20px" src="{{ url('/storage/loading.gif') }}" alt=""> Loading ...`);
+                },
+                success: function(data){
+                    $(form).children('button:submit').html('SIMPAN');
+                    $(form).children('button:submit').removeAttr('disabled');
+                    $("#modal-tambah").modal('show');
+                },
+                error: function (data) {
+                    console.clear();
+                    $(form).children('button:submit').html('SIMPAN');
+                    $(form).children('button:submit').removeAttr('disabled');
+                    $(".notifikasi").html(`
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <span class="alert-icon"><i class="fas fa-times-circle"></i> <strong>Gagal</strong></span>
+                            <span class="alert-text">
+                                <ul id="pesanError">
+                                </ul>
+                            </span>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    `);
+                    $.each(data.responseJSON.errors, function (i, e) {
+                        $('#pesanError').append(`<li>`+e+`</li>`);
+                        if (!$("[name='" + i + "']").hasClass('is-invalid')) {
+                            $("[name='" + i + "']").addClass('is-invalid');
+                            $("[name='" + i + "']").focus();
+                        }
+                    });
+                }
+            });
+        });
+    });
 </script>
 @endpush

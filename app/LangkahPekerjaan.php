@@ -13,4 +13,9 @@ class LangkahPekerjaan extends Model
     {
         return $this->belongsTo('App\Jsa');
     }
+
+    public function potensiBahaya()
+    {
+        return $this->hasMany('App\PotensiBahaya');
+    }
 }

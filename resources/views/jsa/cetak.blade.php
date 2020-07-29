@@ -139,19 +139,25 @@
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="80px">PIC Pelaksana / <span class="font-italic">Action By PIC</span></td>
                 <td style="vertical-align: middle" class="border border-info p-1 text-center" width="50px">Waktu / <span class="font-italic">When</span></td>
             </tr>
-            <tr><td class="border border-info p-1 text-center" colspan="7">{{ $jsa->judul_pekerjaan }}</td></tr>
+            <tr><td class="border border-info p-1 text-center" colspan="7" style="background-color: blue">{{ $jsa->judul_pekerjaan }}</td></tr>
         </thead>
         <tbody>
             @foreach ($jsa->langkahPekerjaan as $item)
             <tr class="border border-info">
-                    <td class="border border-info p-1">{{ $loop->iteration }}</td>
-                    <td class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
-                    <td class="border border-info p-1">{{ $item->potensi_bahaya }}</td>
-                    <td class="border border-info p-1">{{ $item->bahaya_spesifik }}</td>
-                    <td class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
-                    <td class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
-                    <td class="border border-info p-1">{{ $item->waktu }}</td>
-                </tr>
+                <td class="border border-info p-1">{{ $loop->iteration }}</td>
+                <td class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
+                <td class="border border-info p-1">
+                    <ul>
+                        @foreach ($item->potensiBahaya as $potensiBahaya)
+                            <li>{{ $potensiBahaya->deskripsi }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td class="border border-info p-1">{{ $item->bahaya_spesifik }}</td>
+                <td class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
+                <td class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
+                <td class="border border-info p-1">{{ $item->waktu }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>

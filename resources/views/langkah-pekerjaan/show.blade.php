@@ -39,10 +39,12 @@
                     <label class="form-control-label" for="urutan_langkah_langkah_pekerjaan">Urutan Langkah-Langkah Pekerjaan</label>
                     <input class="form-control form-control-alternative" disabled type="text" name="urutan_langkah_langkah_pekerjaan" id="urutan_langkah_langkah_pekerjaan" placeholder="Masukkan Urutan Langkah-Langkah Pekerjaan ..." value="{{ $langkahPekerjaan->urutan_langkah_langkah_pekerjaan }}">
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
-                    <input class="form-control form-control-alternative" disabled type="text" name="potensi_bahaya" id="potensi_bahaya" placeholder="Masukkan Potensi Bahaya ..." value="{{ $langkahPekerjaan->potensi_bahaya }}">
-                </div>
+                <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
+                @foreach ($langkahPekerjaan->potensiBahaya as $item)
+                    <div class="form-group">
+                        <input class="form-control form-control-alternative" disabled type="text" name="potensi_bahaya" id="potensi_bahaya" placeholder="Masukkan Potensi Bahaya ..." value="{{ $item->deskripsi }}">
+                    </div>
+                @endforeach
                 <div class="form-group">
                     <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
                     <input class="form-control form-control-alternative" disabled type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ $langkahPekerjaan->bahaya_spesifik }}">

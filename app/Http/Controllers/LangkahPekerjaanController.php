@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jsa;
 use App\LangkahPekerjaan;
+use App\PotensiBahaya;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -30,18 +31,30 @@ class LangkahPekerjaanController extends Controller
     {
         $data = $request->validate([
             'urutan_langkah_langkah_pekerjaan'  => ['required'],
-            'potensi_bahaya'                    => ['required'],
             'bahaya_spesifik'                   => ['required'],
             'rencana_tindakan_pencegahan'       => ['required'],
             'pic_pelaksana'                     => ['required'],
             'waktu'                             => ['required'],
         ]);
 
+        $request->validate([
+            'potensi_bahaya.*'                  => ['required'],
+        ]);
+
         $data['jsa_id'] = $request->jsa_id;
+        $langkahPekerjaan = LangkahPekerjaan::create($data);
 
-        LangkahPekerjaan::create($data);
+        for ($i=1; $i < count($request->potensi_bahaya) ; $i++) {
+            PotensiBahaya::create([
+                'langkah_pekerjaan_id'   => $langkahPekerjaan->id,
+                'deskripsi'             => $request->potensi_bahaya[$i]
+            ]);
+        }
 
-        return redirect()->route('jsa.edit', $request->jsa_id)->with('success', 'Langkah-langkah pekerjaan berhasil ditambahkan');
+        return response()->json([
+            'success'   => true,
+            'message'   => 'Langkah-langkah pekerjaan berhasil ditambahkan'
+        ]);
     }
 
     /**
