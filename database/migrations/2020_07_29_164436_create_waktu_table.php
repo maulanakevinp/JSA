@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLangkahPekerjaanTable extends Migration
+class CreateWaktuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateLangkahPekerjaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('langkah_pekerjaan', function (Blueprint $table) {
+        Schema::create('waktu', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jsa_id')->constrained('jsa')->onDelete('cascade')->onUpdate('cascade');
-            $table->text('urutan_langkah_langkah_pekerjaan');
+            $table->foreignId('langkah_pekerjaan_id')->constrained('langkah_pekerjaan')->onDelete('cascade')->onUpdate('cascade');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateLangkahPekerjaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('langkah_pekerjaan');
+        Schema::dropIfExists('waktu');
     }
 }

@@ -38,35 +38,56 @@
                 <form autocomplete="off" action="javascript:;" method="POST">
                     @csrf
                     <input type="hidden" name="potensi_bahaya[]" value="1">
+                    <input type="hidden" name="bahaya_spesifik[]" value="1">
+                    <input type="hidden" name="rencana_tindakan_pencegahan[]" value="1">
+                    <input type="hidden" name="pic_pelaksana[]" value="1">
+                    <input type="hidden" name="waktu[]" value="1">
                     <input type="hidden" name="jsa_id" value="{{ $jsa->id }}">
                     <div class="form-group">
                         <label class="form-control-label" for="urutan_langkah_langkah_pekerjaan">Urutan Langkah-Langkah Pekerjaan</label>
                         <input class="form-control" type="text" name="urutan_langkah_langkah_pekerjaan" id="urutan_langkah_langkah_pekerjaan" placeholder="Masukkan Urutan Langkah-Langkah Pekerjaan ...">
                     </div>
-                    <div id="potensi-bahaya">
-                        <div class="form-group mb-1">
-                            <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
+                    <div class="mt-3" id="potensi-bahaya">
+                        <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
+                        <div class="pl-lg-4 form-group mb-1">
                             <input class="form-control" type="text" name="potensi_bahaya[]" placeholder="Masukkan Potensi Bahaya ...">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" id="tambah-potensi-bahaya">Tambah potensi bahaya</button>
-                    <div class="form-group mt-3">
+                    <button type="button" class="btn btn-primary btn-sm ml-lg-4" id="tambah-potensi-bahaya">Tambah potensi bahaya</button>
+
+                    <div class="mt-3" id="bahaya-spesifik">
                         <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
-                        <input class="form-control" type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ...">
+                        <div class="pl-lg-4 form-group mb-1">
+                            <input class="form-control" type="text" name="bahaya_spesifik[]" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ...">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-sm ml-lg-4" id="tambah-bahaya-spesifik">Tambah Bahaya Spesifik</button>
+
+                    <div class="mt-3" id="rencana-tindakan-pencegahan">
                         <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
-                        <textarea class="form-control" name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan') }}</textarea>
+                        <div class="pl-lg-4 form-group mb-1">
+                            <textarea class="form-control" name="rencana_tindakan_pencegahan[]" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan') }}</textarea>
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-sm ml-lg-4" id="tambah-rencana-tindakan-pencegahan">Tambah Rencana Tindakan Pencegahan</button>
+
+                    <div class="mt-3" id="pic-pelaksana">
                         <label class="form-control-label" for="pic_pelaksana">PIC Pelaksana</label>
-                        <input class="form-control" type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ...">
+                        <div class="pl-lg-4 form-group mb-1">
+                            <input class="form-control" type="text" name="pic_pelaksana[]" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ...">
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <button type="button" class="btn btn-primary btn-sm ml-lg-4" id="tambah-pic-pelaksana">Tambah PIC Pelaksana</button>
+
+                    <div class="mt-3" id="waktu">
                         <label class="form-control-label" for="waktu">Waktu</label>
-                        <input class="form-control" type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ...">
+                        <div class="pl-lg-4 form-group mb-1">
+                            <input class="form-control" type="text" name="waktu[]" id="waktu" placeholder="Masukkan Waktu ...">
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">SIMPAN</button>
+                    <button type="button" class="btn btn-primary btn-sm ml-lg-4" id="tambah-waktu">Tambah Waktu</button>
+
+                    <button type="submit" class="btn btn-primary btn-block mt-3">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -115,9 +136,65 @@
     $(document).ready(function(){
         $("#tambah-potensi-bahaya").click(function(){
             $("#potensi-bahaya").append(`
-                <div class="form-group mb-1">
+                <div class="form-group pl-lg-4 mb-1">
                     <div class="input-group">
                         <input class="form-control" type="text" name="potensi_bahaya[]" placeholder="Masukkan Potensi Bahaya ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-bahaya-spesifik").click(function(){
+            $("#bahaya-spesifik").append(`
+                <div class="form-group pl-lg-4 mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="bahaya_spesifik[]" placeholder="Masukkan Bahaya Spesifik ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-pic-pelaksana").click(function(){
+            $("#pic-pelaksana").append(`
+                <div class="form-group pl-lg-4 mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="pic_pelaksana[]" placeholder="Masukkan PIC Pelaksana ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-rencana-tindakan-pencegahan").click(function(){
+            $("#rencana-tindakan-pencegahan").append(`
+                <div class="form-group pl-lg-4 mb-1">
+                    <div class="input-group">
+                        <textarea class="form-control" type="text" name="rencana_tindakan_pencegahan[]" placeholder="Masukkan Rencana Tindakan Pencegahan ..."></textarea>
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-waktu").click(function(){
+            $("#waktu").append(`
+                <div class="form-group pl-lg-4 mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="waktu[]" placeholder="Masukkan Waktu ...">
                         <div class="input-group-append">
     				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
                         </div>

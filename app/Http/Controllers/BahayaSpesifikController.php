@@ -2,69 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\PotensiBahaya;
+use App\BahayaSpesifik;
 use Illuminate\Http\Request;
 
-class PotensiBahayaController extends Controller
+class BahayaSpesifikController extends Controller
 {
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\BahayaSpesifik  $bahayaSpesifik
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
-            'potensi_bahaya' => ['required']
+            'bahaya_spesifik' => ['required']
         ]);
 
-        PotensiBahaya::create([
+        BahayaSpesifik::create([
             'langkah_pekerjaan_id'  => $request->langkah_pekerjaan_id,
-            'deskripsi' => $request->potensi_bahaya
+            'deskripsi' => $request->bahaya_spesifik
         ]);
 
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil ditambahkan"
+            'message'   => "Bahaya Spesifik berhasil ditambahkan"
         ]);
     }
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\BahayaSpesifik  $bahayaSpesifik
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PotensiBahaya $potensiBahaya)
+    public function update(Request $request, BahayaSpesifik $bahayaSpesifik)
     {
         $request->validate([
-            'potensi_bahaya' => ['required']
+            'bahaya_spesifik' => ['required']
         ]);
 
-        $potensiBahaya->update([
-            'deskripsi' => $request->potensi_bahaya
+        $bahayaSpesifik->update([
+            'deskripsi' => $request->bahaya_spesifik
         ]);
 
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil diperbarui"
+            'message'   => "Bahaya Spesifik berhasil diperbarui"
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\BahayaSpesifik  $bahayaSpesifik
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PotensiBahaya $potensiBahaya)
+    public function destroy(BahayaSpesifik $bahayaSpesifik)
     {
-        $potensiBahaya->delete();
+        $bahayaSpesifik->delete();
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil dihapus"
+            'message'   => "Bahaya Spesifik berhasil dihapus"
         ]);
     }
 }

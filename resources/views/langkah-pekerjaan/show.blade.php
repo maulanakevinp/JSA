@@ -41,26 +41,34 @@
                 </div>
                 <label class="form-control-label" for="potensi_bahaya">Potensi Bahaya</label>
                 @foreach ($langkahPekerjaan->potensiBahaya as $item)
-                    <div class="form-group">
+                    <div class="form-group pl-lg-4 mb-2">
                         <input class="form-control form-control-alternative" disabled type="text" name="potensi_bahaya" id="potensi_bahaya" placeholder="Masukkan Potensi Bahaya ..." value="{{ $item->deskripsi }}">
                     </div>
                 @endforeach
-                <div class="form-group">
-                    <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
-                    <input class="form-control form-control-alternative" disabled type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ $langkahPekerjaan->bahaya_spesifik }}">
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
-                    <textarea class="form-control form-control-alternative" disabled name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ $langkahPekerjaan->rencana_tindakan_pencegahan }}</textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="pic_pelaksana">PIC Pelaksana</label>
-                    <input class="form-control form-control-alternative" disabled type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ..." value="{{ $langkahPekerjaan->pic_pelaksana }}">
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" for="waktu">Waktu</label>
-                    <input class="form-control form-control-alternative" disabled type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ $langkahPekerjaan->waktu }}">
-                </div>
+                <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
+                @foreach ($langkahPekerjaan->bahayaSpesifik as $item)
+                    <div class="form-group pl-lg-4 mb-2">
+                        <input class="form-control form-control-alternative" disabled type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ $item->deskripsi }}">
+                    </div>
+                @endforeach
+                <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
+                @foreach ($langkahPekerjaan->rencanaTindakanPencegahan as $item)
+                    <div class="form-group pl-lg-4 mb-2">
+                        <textarea class="form-control form-control-alternative" disabled name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ $item->deskripsi }}</textarea>
+                    </div>
+                @endforeach
+                <label class="form-control-label" for="pic_pelaksana">PIC Pelaksana</label>
+                @foreach ($langkahPekerjaan->picPelaksana as $item)
+                    <div class="form-group pl-lg-4 mb-2">
+                        <input class="form-control form-control-alternative" disabled type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ..." value="{{ $item->deskripsi }}">
+                    </div>
+                @endforeach
+                <label class="form-control-label" for="waktu">Waktu</label>
+                @foreach ($langkahPekerjaan->waktu as $item)
+                    <div class="form-group pl-lg-4 mb-2">
+                        <input class="form-control form-control-alternative" disabled type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ $item->deskripsi }}">
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

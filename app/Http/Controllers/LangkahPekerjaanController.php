@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\BahayaSpesifik;
 use App\Jsa;
 use App\LangkahPekerjaan;
+use App\PicPelaksana;
 use App\PotensiBahaya;
+use App\RencanaTindakanPencegahan;
+use App\Waktu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,14 +35,14 @@ class LangkahPekerjaanController extends Controller
     {
         $data = $request->validate([
             'urutan_langkah_langkah_pekerjaan'  => ['required'],
-            'bahaya_spesifik'                   => ['required'],
-            'rencana_tindakan_pencegahan'       => ['required'],
-            'pic_pelaksana'                     => ['required'],
-            'waktu'                             => ['required'],
         ]);
 
         $request->validate([
-            'potensi_bahaya.*'                  => ['required'],
+            'potensi_bahaya.*'              => ['required'],
+            'bahaya_spesifik.*'             => ['required'],
+            'rencana_tindakan_pencegahan.*' => ['required'],
+            'pic_pelaksana.*'               => ['required'],
+            'waktu.*'                       => ['required'],
         ]);
 
         $data['jsa_id'] = $request->jsa_id;
@@ -46,8 +50,36 @@ class LangkahPekerjaanController extends Controller
 
         for ($i=1; $i < count($request->potensi_bahaya) ; $i++) {
             PotensiBahaya::create([
-                'langkah_pekerjaan_id'   => $langkahPekerjaan->id,
+                'langkah_pekerjaan_id'  => $langkahPekerjaan->id,
                 'deskripsi'             => $request->potensi_bahaya[$i]
+            ]);
+        }
+
+        for ($i=1; $i < count($request->bahaya_spesifik) ; $i++) {
+            BahayaSpesifik::create([
+                'langkah_pekerjaan_id'  => $langkahPekerjaan->id,
+                'deskripsi'             => $request->bahaya_spesifik[$i]
+            ]);
+        }
+
+        for ($i=1; $i < count($request->pic_pelaksana) ; $i++) {
+            PicPelaksana::create([
+                'langkah_pekerjaan_id'  => $langkahPekerjaan->id,
+                'deskripsi'             => $request->pic_pelaksana[$i]
+            ]);
+        }
+
+        for ($i=1; $i < count($request->rencana_tindakan_pencegahan) ; $i++) {
+            RencanaTindakanPencegahan::create([
+                'langkah_pekerjaan_id'  => $langkahPekerjaan->id,
+                'deskripsi'             => $request->rencana_tindakan_pencegahan[$i]
+            ]);
+        }
+
+        for ($i=1; $i < count($request->waktu) ; $i++) {
+            Waktu::create([
+                'langkah_pekerjaan_id'  => $langkahPekerjaan->id,
+                'deskripsi'             => $request->waktu[$i]
             ]);
         }
 
@@ -90,11 +122,6 @@ class LangkahPekerjaanController extends Controller
     {
         $data = $request->validate([
             'urutan_langkah_langkah_pekerjaan'  => ['required'],
-            'potensi_bahaya'                    => ['required'],
-            'bahaya_spesifik'                   => ['required'],
-            'rencana_tindakan_pencegahan'       => ['required'],
-            'pic_pelaksana'                     => ['required'],
-            'waktu'                             => ['required'],
         ]);
 
         $langkahPekerjaan->update($data);

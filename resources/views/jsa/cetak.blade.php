@@ -148,16 +148,40 @@
                 <td class="border border-info p-1">{{ $loop->iteration }}</td>
                 <td class="border border-info p-1">{{ $item->urutan_langkah_langkah_pekerjaan }}</td>
                 <td class="border border-info p-1">
-                    <ul>
+                    <ul class="pl-3">
                         @foreach ($item->potensiBahaya as $potensiBahaya)
                             <li>{{ $potensiBahaya->deskripsi }}</li>
                         @endforeach
                     </ul>
                 </td>
-                <td class="border border-info p-1">{{ $item->bahaya_spesifik }}</td>
-                <td class="border border-info p-1">{{ $item->rencana_tindakan_pencegahan }}</td>
-                <td class="border border-info p-1">{{ $item->pic_pelaksana }}</td>
-                <td class="border border-info p-1">{{ $item->waktu }}</td>
+                <td class="border border-info p-1">
+                    <ul class="pl-3">
+                        @foreach ($item->bahayaSpesifik as $bahayaSpesifik)
+                            <li>{{ $bahayaSpesifik->deskripsi }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td class="border border-info p-1">
+                    <ul class="pl-3">
+                        @foreach ($item->rencanaTindakanPencegahan as $rencanaTindakanPencegahan)
+                            <li>{{ $rencanaTindakanPencegahan->deskripsi }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td class="border border-info p-1">
+                    <ul class="pl-3">
+                        @foreach ($item->picPelaksana as $picPelaksana)
+                            <li>{{ $picPelaksana->deskripsi }}</li>
+                        @endforeach
+                    </ul>
+                </td>
+                <td class="border border-info p-1">
+                    <ul class="pl-3">
+                        @foreach ($item->waktu as $waktu)
+                            <li>{{ $waktu->deskripsi }}</li>
+                        @endforeach
+                    </ul>
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -46,59 +46,93 @@
                             </span>
                         @enderror
                     </div>
-                    <div id="potensi-bahaya">
+
+                    <div class="mt-3" id="potensi-bahaya">
                         <label class="form-control-label">Potensi Bahaya</label>
                         @foreach ($langkahPekerjaan->potensiBahaya as $item)
-                            <div class="form-group mb-1">
+                            <div class="form-group pl-lg-4 mb-1">
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="potensi_bahaya" value="{{ $item->deskripsi }}">
                                     <input type="hidden" name="id" value="{{ $item->id }}">
                                     <div class="input-group-append">
-                                        <button type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
-                                        <button type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                                        <button data-url="{{ route('potensiBahaya.destroy', $item->id) }}" type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button data-url="{{ route('potensiBahaya.update', $item->id) }}" type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    <button type="button" class="btn btn-primary btn-sm" id="tambah-potensi-bahaya">Tambah potensi bahaya</button>
-                    <div class="form-group mt-3">
-                        <label class="form-control-label" for="bahaya_spesifik">Bahaya Spesifik</label>
-                        <input class="form-control @error('bahaya_spesifik') is-invalid @enderror" type="text" name="bahaya_spesifik" id="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ..." value="{{ old('bahaya_spesifik', $langkahPekerjaan->bahaya_spesifik) }}">
-                        @error('bahaya_spesifik')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <button type="button" class="ml-lg-4 btn btn-primary btn-sm" id="tambah-potensi-bahaya">Tambah potensi bahaya</button>
+
+                    <div class="mt-3" id="bahaya-spesifik">
+                        <label class="form-control-label">Bahaya Spesifik</label>
+                        @foreach ($langkahPekerjaan->bahayaSpesifik as $item)
+                            <div class="form-group pl-lg-4 mb-1">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="bahaya_spesifik" value="{{ $item->deskripsi }}">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <div class="input-group-append">
+                                        <button data-url="{{ route('bahayaSpesifik.destroy', $item->id) }}" type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button data-url="{{ route('bahayaSpesifik.update', $item->id) }}" type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="rencana_tindakan_pencegahan">Rencana Tindakan Pencegahan</label>
-                        <textarea class="form-control @error('rencana_tindakan_pencegahan') is-invalid @enderror" name="rencana_tindakan_pencegahan" id="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">{{ old('rencana_tindakan_pencegahan', $langkahPekerjaan->rencana_tindakan_pencegahan) }}</textarea>
-                        @error('rencana_tindakan_pencegahan')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <button type="button" class="ml-lg-4 btn btn-primary btn-sm" id="tambah-bahaya-spesifik">Tambah bahaya spesifik</button>
+
+                    <div class="mt-3" id="rencana-tindakan-pencegahan">
+                        <label class="form-control-label">Rencana Tindakan Pencegahan</label>
+                        @foreach ($langkahPekerjaan->rencanaTindakanPencegahan as $item)
+                            <div class="form-group pl-lg-4 mb-1">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="rencana_tindakan_pencegahan" value="{{ $item->deskripsi }}">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <div class="input-group-append">
+                                        <button data-url="{{ route('rencanaTindakanPencegahan.destroy', $item->id) }}" type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button data-url="{{ route('rencanaTindakanPencegahan.update', $item->id) }}" type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="pic_pelaksana">PIC Pelaksana</label>
-                        <input class="form-control @error('pic_pelaksana') is-invalid @enderror" type="text" name="pic_pelaksana" id="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ..." value="{{ old('pic_pelaksana', $langkahPekerjaan->pic_pelaksana) }}">
-                        @error('pic_pelaksana')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <button type="button" class="ml-lg-4 btn btn-primary btn-sm" id="tambah-rencana-tindakan-pencegahan">Tambah rencana tindakan pencegahan</button>
+
+                    <div class="mt-3" id="pic-pelaksana">
+                        <label class="form-control-label">PIC Pelaksana</label>
+                        @foreach ($langkahPekerjaan->picPelaksana as $item)
+                            <div class="form-group pl-lg-4 mb-1">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="pic_pelaksana" value="{{ $item->deskripsi }}">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <div class="input-group-append">
+                                        <button data-url="{{ route('picPelaksana.destroy', $item->id) }}" type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button data-url="{{ route('picPelaksana.update', $item->id) }}" type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <div class="form-group">
-                        <label class="form-control-label" for="waktu">Waktu</label>
-                        <input class="form-control @error('waktu') is-invalid @enderror" type="text" name="waktu" id="waktu" placeholder="Masukkan Waktu ..." value="{{ old('waktu', $langkahPekerjaan->waktu) }}">
-                        @error('waktu')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                    <button type="button" class="ml-lg-4 btn btn-primary btn-sm" id="tambah-pic-pelaksana">Tambah pic pelaksana</button>
+
+                    <div class="mt-3" id="waktu">
+                        <label class="form-control-label">Waktu</label>
+                        @foreach ($langkahPekerjaan->waktu as $item)
+                            <div class="form-group pl-lg-4 mb-1">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="waktu" value="{{ $item->deskripsi }}">
+                                    <input type="hidden" name="id" value="{{ $item->id }}">
+                                    <div class="input-group-append">
+                                        <button data-url="{{ route('waktu.destroy', $item->id) }}" type="button" class="btn btn-outline-danger delete" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                                        <button data-url="{{ route('waktu.update', $item->id) }}" type="button" class="btn btn-outline-primary update" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">SIMPAN</button>
+                    <button type="button" class="ml-lg-4 btn btn-primary btn-sm" id="tambah-waktu">Tambah waktu</button>
+
+                    <button type="submit" class="btn btn-primary btn-block mt-3">SIMPAN</button>
                 </form>
             </div>
         </div>
@@ -116,12 +150,72 @@
     $(document).ready(function () {
         $("#tambah-potensi-bahaya").click(function(){
             $("#potensi-bahaya").append(`
-                <div class="form-group mb-1">
+                <div class="pl-lg-4 form-group mb-1">
                     <div class="input-group">
                         <input class="form-control" type="text" name="potensi_bahaya" placeholder="Masukkan Potensi Bahaya ...">
                         <div class="input-group-append">
     				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
-    				        <button type="button" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+    				        <button type="button" data-url="{{ route('potensiBahaya.store') }}" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-bahaya-spesifik").click(function(){
+            $("#bahaya-spesifik").append(`
+                <div class="pl-lg-4 form-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="bahaya_spesifik" placeholder="Masukkan Bahaya Spesifik ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+    				        <button type="button" data-url="{{ route('bahayaSpesifik.store') }}" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-pic-pelaksana").click(function(){
+            $("#pic-pelaksana").append(`
+                <div class="pl-lg-4 form-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="pic_pelaksana" placeholder="Masukkan PIC Pelaksana ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+    				        <button type="button" data-url="{{ route('picPelaksana.store') }}" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-rencana-tindakan-pencegahan").click(function(){
+            $("#rencana-tindakan-pencegahan").append(`
+                <div class="pl-lg-4 form-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="rencana_tindakan_pencegahan" placeholder="Masukkan Rencana Tindakan Pencegahan ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+    				        <button type="button" data-url="{{ route('rencanaTindakanPencegahan.store') }}" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `);
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $("#tambah-waktu").click(function(){
+            $("#waktu").append(`
+                <div class="pl-lg-4 form-group mb-1">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="waktu" placeholder="Masukkan Waktu ...">
+                        <div class="input-group-append">
+    				        <button type="button" class="btn btn-outline-danger hapus" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+    				        <button type="button" data-url="{{ route('waktu.store') }}" class="btn btn-outline-primary tambah" data-toggle="tooltip" title="Simpan"><i class="fas fa-save"></i></button>
                         </div>
                     </div>
                 </div>
@@ -135,16 +229,24 @@
         });
 
         $(document).on("click", ".tambah", function () {
-            let btn          = this;
-            let potensi_bahaya  = $(this).parent().siblings('input[name="potensi_bahaya"]').val();
+            let btn                         = this;
+            let potensi_bahaya              = $(this).parent().siblings('input[name="potensi_bahaya"]').val();
+            let bahaya_spesifik             = $(this).parent().siblings('input[name="bahaya_spesifik"]').val();
+            let rencana_tindakan_pencegahan = $(this).parent().siblings('input[name="rencana_tindakan_pencegahan"]').val();
+            let pic_pelaksana               = $(this).parent().siblings('input[name="pic_pelaksana"]').val();
+            let waktu                       = $(this).parent().siblings('input[name="waktu"]').val();
 
             $.ajax({
-                url: "{{ route('potensiBahaya.store') }}",
+                url: $(btn).data('url'),
                 method: "post",
                 data: {
-                    _token      : $("meta[name='csrf-token']").attr('content'),
-                    potensi_bahaya          : potensi_bahaya,
-                    langkah_pekerjaan_id    : "{{ $langkahPekerjaan->id }}",
+                    _token                      : $("meta[name='csrf-token']").attr('content'),
+                    potensi_bahaya              : potensi_bahaya,
+                    bahaya_spesifik             : bahaya_spesifik,
+                    rencana_tindakan_pencegahan : rencana_tindakan_pencegahan,
+                    pic_pelaksana               : pic_pelaksana,
+                    waktu                       : waktu,
+                    langkah_pekerjaan_id        : "{{ $langkahPekerjaan->id }}",
                 },
                 beforeSend: function () {
                     $(btn).attr('disabled','disabled');
@@ -202,10 +304,9 @@
         });
 
         $(document).on("click", ".delete", function () {
-            let btn      = $(this);
-            let id          = $(this).parent().siblings('input[name="id"]').val();
+            let btn = $(this);
             $.ajax({
-                url         : "{{ url('/potensiBahaya') }}/" + id,
+                url         : $(btn).data("url"),
                 method      : 'post',
                 data        : {
                     _token  : $("meta[name='csrf-token']").attr('content'),
@@ -231,8 +332,8 @@
                             </div>
                         `);
 
-                        $(hapus).tooltip('dispose');
-                        $(hapus).parent('div').parent('div').parent('div').remove();
+                        $(btn).tooltip('dispose');
+                        $(btn).parent('div').parent('div').parent('div').remove();
 
                         setTimeout(() => {
                             $(".notifikasi").html('');
@@ -267,16 +368,24 @@
         });
 
         $(document).on("click", ".update", function () {
-            let btn             = $(this);
-            let id              = $(this).parent().siblings('input[name="id"]').val();
-            let potensi_bahaya  = $(this).parent().siblings('[name="potensi_bahaya"]').val();
+            let btn                         = $(this);
+            let id                          = $(this).parent().siblings('input[name="id"]').val();
+            let potensi_bahaya              = $(this).parent().siblings('input[name="potensi_bahaya"]').val();
+            let bahaya_spesifik             = $(this).parent().siblings('input[name="bahaya_spesifik"]').val();
+            let rencana_tindakan_pencegahan = $(this).parent().siblings('input[name="rencana_tindakan_pencegahan"]').val();
+            let pic_pelaksana               = $(this).parent().siblings('input[name="pic_pelaksana"]').val();
+            let waktu                       = $(this).parent().siblings('input[name="waktu"]').val();
             $.ajax({
-                url: "{{ url('/potensiBahaya') }}/" + id,
+                url: $(btn).data("url"),
                 method: "post",
                 data: {
-                    _token  : $("meta[name='csrf-token']").attr('content'),
-                    _method : 'patch',
-                    potensi_bahaya   : potensi_bahaya,
+                    _token                      : $("meta[name='csrf-token']").attr('content'),
+                    _method                     : 'patch',
+                    potensi_bahaya              : potensi_bahaya,
+                    bahaya_spesifik             : bahaya_spesifik,
+                    rencana_tindakan_pencegahan : rencana_tindakan_pencegahan,
+                    pic_pelaksana               : pic_pelaksana,
+                    waktu                       : waktu,
                 },
                 beforeSend: function () {
                     $(btn).attr('disabled','disabled');

@@ -18,4 +18,24 @@ class LangkahPekerjaan extends Model
     {
         return $this->hasMany('App\PotensiBahaya');
     }
+
+    public function bahayaSpesifik()
+    {
+        return $this->hasMany('App\BahayaSpesifik');
+    }
+
+    public function picPelaksana()
+    {
+        return $this->hasMany('App\PicPelaksana');
+    }
+
+    public function rencanaTindakanPencegahan()
+    {
+        return $this->hasMany('App\RencanaTindakanPencegahan');
+    }
+
+    public function waktu()
+    {
+        return $this->hasMany('App\Waktu');
+    }
 }

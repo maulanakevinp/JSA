@@ -2,69 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\PotensiBahaya;
+use App\Waktu;
 use Illuminate\Http\Request;
 
-class PotensiBahayaController extends Controller
+class WaktuController extends Controller
 {
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\Waktu  $waktu
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $request->validate([
-            'potensi_bahaya' => ['required']
+            'waktu' => ['required']
         ]);
 
-        PotensiBahaya::create([
+        Waktu::create([
             'langkah_pekerjaan_id'  => $request->langkah_pekerjaan_id,
-            'deskripsi' => $request->potensi_bahaya
+            'deskripsi' => $request->waktu
         ]);
 
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil ditambahkan"
+            'message'   => "Waktu berhasil ditambahkan"
         ]);
     }
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\Waktu  $waktu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PotensiBahaya $potensiBahaya)
+    public function update(Request $request, Waktu $waktu)
     {
         $request->validate([
-            'potensi_bahaya' => ['required']
+            'waktu' => ['required']
         ]);
 
-        $potensiBahaya->update([
-            'deskripsi' => $request->potensi_bahaya
+        $waktu->update([
+            'deskripsi' => $request->waktu
         ]);
 
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil diperbarui"
+            'message'   => "Waktu berhasil diperbarui"
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PotensiBahaya  $potensiBahaya
+     * @param  \App\Waktu  $waktu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PotensiBahaya $potensiBahaya)
+    public function destroy(Waktu $waktu)
     {
-        $potensiBahaya->delete();
+        $waktu->delete();
         return response()->json([
             'success'   => true,
-            'message'   => "Potensi bahaya berhasil dihapus"
+            'message'   => "Waktu berhasil dihapus"
         ]);
     }
 }
