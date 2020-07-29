@@ -86,7 +86,7 @@
                             <input type="checkbox" name="peralatan_dapat_dioperasikan_jarak_jauh" {{ $ijinKerja->peralatan_dapat_dioperasikan_jarak_jauh == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_peralatan_dapat_dioperasikan_jarak_jauh" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_peralatan_dapat_dioperasikan_jarak_jauh" value="{{ $ijinKerja->keterangan_peralatan_dapat_dioperasikan_jarak_jauh }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -97,7 +97,7 @@
                             <input type="checkbox" name="petugas_pemadam_kebakaran_siap_sedia" {{ $ijinKerja->petugas_pemadam_kebakaran_siap_sedia == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_petugas_pemadam_kebakaran_siap_sedia" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_petugas_pemadam_kebakaran_siap_sedia" value="{{ $ijinKerja->keterangan_petugas_pemadam_kebakaran_siap_sedia }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -108,7 +108,7 @@
                             <input type="checkbox" name="penghalang_dan_tanda_bahaya_radiasi_siap_tersedia" {{ $ijinKerja->penghalang_dan_tanda_bahaya_radiasi_siap_tersedia == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_penghalang_dan_tanda_bahaya_radiasi_siap_tersedia" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_penghalang_dan_tanda_bahaya_radiasi_siap_tersedia" value="{{ $ijinKerja->keterangan_penghalang_dan_tanda_bahaya_radiasi_siap_tersedia }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -119,7 +119,7 @@
                             <input type="checkbox" name="daerah_bebas_dari_orang_tidak_berkepentingan" {{ $ijinKerja->daerah_bebas_dari_orang_tidak_berkepentingan == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_daerah_bebas_dari_orang_tidak_berkepentingan" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_daerah_bebas_dari_orang_tidak_berkepentingan" value="{{ $ijinKerja->keterangan_daerah_bebas_dari_orang_tidak_berkepentingan }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -130,7 +130,7 @@
                             <input type="checkbox" name="hubungan_radio_hanya_dengan_ccr" {{ $ijinKerja->hubungan_radio_hanya_dengan_ccr == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_hubungan_radio_hanya_dengan_ccr" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_hubungan_radio_hanya_dengan_ccr" value="{{ $ijinKerja->keterangan_hubungan_radio_hanya_dengan_ccr }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -141,7 +141,7 @@
                             <input type="checkbox" name="semua_peralatan_las_telah_diamankan" {{ $ijinKerja->semua_peralatan_las_telah_diamankan == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_semua_peralatan_las_telah_diamankan" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_semua_peralatan_las_telah_diamankan" value="{{ $ijinKerja->keterangan_semua_peralatan_las_telah_diamankan }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -152,7 +152,7 @@
                             <input type="checkbox" name="pembacaan_hasil_pengukuran_pada_pagar_penghalang" {{ $ijinKerja->pembacaan_hasil_pengukuran_pada_pagar_penghalang == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_pembacaan_hasil_pengukuran_pada_pagar_penghalang" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_pembacaan_hasil_pengukuran_pada_pagar_penghalang" value="{{ $ijinKerja->keterangan_pembacaan_hasil_pengukuran_pada_pagar_penghalang }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -163,7 +163,7 @@
                             <input type="checkbox" name="alat_pemadam_api_siap_sedia" {{ $ijinKerja->alat_pemadam_api_siap_sedia == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_alat_pemadam_api_siap_sedia" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_alat_pemadam_api_siap_sedia" value="{{ $ijinKerja->keterangan_alat_pemadam_api_siap_sedia }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -174,7 +174,7 @@
                             <input type="checkbox" name="perlu_dengan_ijin_kerja_yang_lain" {{ $ijinKerja->perlu_dengan_ijin_kerja_yang_lain == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_perlu_dengan_ijin_kerja_yang_lain" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_perlu_dengan_ijin_kerja_yang_lain" value="{{ $ijinKerja->keterangan_perlu_dengan_ijin_kerja_yang_lain }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <div class="form-group">
@@ -185,7 +185,7 @@
                             <input type="checkbox" name="semua_pekerjaan_telah_lengkap_alat_pelindung_diri" {{ $ijinKerja->semua_pekerjaan_telah_lengkap_alat_pelindung_diri == 1 ? 'checked' : '' }} value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
                         </div>
                     </div>
-                    <input type="text" class="form-control" name="keterangan_semua_pekerjaan_telah_lengkap_alat_pelindung_diri" placeholder="Masukkan Keterangan ...">
+                    <input type="text" class="form-control" name="keterangan_semua_pekerjaan_telah_lengkap_alat_pelindung_diri" value="{{ $ijinKerja->keterangan_semua_pekerjaan_telah_lengkap_alat_pelindung_diri }}" placeholder="Masukkan Keterangan ...">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block">SIMPAN</button>

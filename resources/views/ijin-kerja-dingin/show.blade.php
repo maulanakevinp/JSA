@@ -54,10 +54,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="jalur_dibebaskan_dari_tekanan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="jalur_dibebaskan_dari_tekanan" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_dibebaskan_dari_tekanan ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_jalur_dibebaskan_dari_tekanan" value="{{ $ijinKerja->keterangan_jalur_dibebaskan_dari_tekanan }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jalur_dibebaskan_dari_tekanan" value="{{ $ijinKerja->keterangan_jalur_dibebaskan_dari_tekanan }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -65,10 +65,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="jalur_dikosongkan_atau_drain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="jalur_dikosongkan_atau_drain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_dikosongkan_atau_drain ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_jalur_dikosongkan_atau_drain" value="{{ $ijinKerja->keterangan_jalur_dikosongkan_atau_drain }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jalur_dikosongkan_atau_drain" value="{{ $ijinKerja->keterangan_jalur_dikosongkan_atau_drain }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <p class="mb-0 font-weight-bold text-sm">3. Diisolasi dengan :</p>
@@ -78,10 +78,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_blanking" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_blanking" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_diisolasi_dengan_blanking ? 'checked' : '' }}>
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_blanking" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_blanking }}" placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_blanking" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_blanking }}" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -89,10 +89,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_dilepas" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_dilepas" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_diisolasi_dengan_dilepas ? 'checked' : '' }}>
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_dilepas" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_dilepas }}" placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_dilepas" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_dilepas }}" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -100,10 +100,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_kerangan_dikunci" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_kerangan_dikunci" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_diisolasi_dengan_kerangan_dikunci ? 'checked' : '' }}>
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_kerangan_dikunci" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_kerangan_dikunci }}" placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_kerangan_dikunci" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_kerangan_dikunci }}" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -111,10 +111,10 @@
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">
-                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_keterangan_diberi_label" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                            <input disabled type="checkbox" name="jalur_diisolasi_dengan_diberi_label" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_diisolasi_dengan_diberi_label ? 'checked' : '' }}>
                                         </div>
                                     </div>
-                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_keterangan_diberi_label" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_keterangan_diberi_label }}" placeholder="Masukkan Keterangan ...">
+                                    <input disabled type="text" class="form-control" name="keterangan_jalur_diisolasi_dengan_diberi_label" value="{{ $ijinKerja->keterangan_jalur_diisolasi_dengan_diberi_label }}" data-placeholder="Masukkan Keterangan ...">
                                 </div>
                             </div>
                         </div>
@@ -123,10 +123,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="jalur_didorong_atau_flush_dengan_air" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="jalur_didorong_atau_flush_dengan_air" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_didorong_atau_flush_dengan_air ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_jalur_didorong_atau_flush_dengan_air" value="{{ $ijinKerja->keterangan_jalur_didorong_atau_flush_dengan_air }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jalur_didorong_atau_flush_dengan_air" value="{{ $ijinKerja->keterangan_jalur_didorong_atau_flush_dengan_air }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -134,10 +134,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="jalur_steaming_out_or_purging" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="jalur_steaming_out_or_purging" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_steaming_out_or_purging ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_jalur_steaming_out_or_purging" value="{{ $ijinKerja->keterangan_jalur_steaming_out_or_purging }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jalur_steaming_out_or_purging" value="{{ $ijinKerja->keterangan_jalur_steaming_out_or_purging }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -145,10 +145,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="jalur_dinginkan_secara_alamiah_atau_mekanis" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="jalur_dinginkan_secara_alamiah_atau_mekanis" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->jalur_dinginkan_secara_alamiah_atau_mekanis ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis" value="{{ $ijinKerja->keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis" value="{{ $ijinKerja->keterangan_jalur_dinginkan_secara_alamiah_atau_mekanis }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                     </div>
@@ -157,10 +157,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input disabled type="checkbox" name="semua_pekerjaan_disetujui_untuk_penggalian" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" name="semua_pekerjaan_disetujui_untuk_penggalian" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->semua_pekerjaan_disetujui_untuk_penggalian ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="text" class="form-control" name="keterangan_semua_pekerjaan_disetujui_untuk_penggalian" value="{{ $ijinKerja->keterangan_semua_pekerjaan_disetujui_untuk_penggalian }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_semua_pekerjaan_disetujui_untuk_penggalian" value="{{ $ijinKerja->keterangan_semua_pekerjaan_disetujui_untuk_penggalian }}" data-placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -168,10 +168,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input disabled type="checkbox" name="perlu_dengan_ijin_kerja_yang_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" name="perlu_dengan_ijin_kerja_yang_lain" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->perlu_dengan_ijin_kerja_yang_lain ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="text" class="form-control" name="keterangan_perlu_dengan_ijin_kerja_yang_lain" value="{{ $ijinKerja->keterangan_perlu_dengan_ijin_kerja_yang_lain }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_perlu_dengan_ijin_kerja_yang_lain" value="{{ $ijinKerja->keterangan_perlu_dengan_ijin_kerja_yang_lain }}" data-placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <div class="form-group">
@@ -179,10 +179,10 @@
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <input disabled type="checkbox" name="perlu_dilakukan_uji_kandungan_gas" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                    <input disabled type="checkbox" name="perlu_dilakukan_uji_kandungan_gas" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->perlu_dilakukan_uji_kandungan_gas ? 'checked' : '' }}>
                                 </div>
                             </div>
-                            <input disabled type="text" class="form-control" name="keterangan_perlu_dilakukan_uji_kandungan_gas" value="{{ $ijinKerja->keterangan_perlu_dilakukan_uji_kandungan_gas }}" placeholder="Masukkan Keterangan ...">
+                            <input disabled type="text" class="form-control" name="keterangan_perlu_dilakukan_uji_kandungan_gas" value="{{ $ijinKerja->keterangan_perlu_dilakukan_uji_kandungan_gas }}" data-placeholder="Masukkan Keterangan ...">
                         </div>
                     </div>
                     <p class="mb-0 text-sm font-weight-bold">k. Semua penggerak utama peralatan listrik telah :</p>
@@ -192,10 +192,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="semua_peralatan_listrik_telah_diisolasi" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="semua_peralatan_listrik_telah_diisolasi" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->semua_peralatan_listrik_telah_diisolasi ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_diisolasi" value="{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_diisolasi }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_diisolasi" value="{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_diisolasi }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -203,10 +203,10 @@
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                        <input disabled type="checkbox" name="semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang" value="1" data-toggle="tooltip" title="Centang untuk status (YA)">
+                                        <input disabled type="checkbox" name="semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang" value="1" data-toggle="tooltip" title="Centang untuk status (YA)" {{ $ijinKerja->semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang ? 'checked' : '' }}>
                                     </div>
                                 </div>
-                                <input disabled type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang" value="{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang }}" placeholder="Masukkan Keterangan ...">
+                                <input disabled type="text" class="form-control" name="keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang" value="{{ $ijinKerja->keterangan_semua_peralatan_listrik_telah_perlu_pemeriksaan_ulang }}" data-placeholder="Masukkan Keterangan ...">
                             </div>
                         </div>
                     </div>
@@ -220,43 +220,43 @@
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Hari</label>
-                                    <input disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]" id="validasi_hari" placeholder="Masukkan Hari ...">
+                                    <input disabled value="{{ $validasi->validasi_hari }}" class="form-control form-control-alternative" type="date" name="validasi_hari[]" id="validasi_hari" data-placeholder="Masukkan Hari ...">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Waktu Mulai</label>
-                                    <input disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" placeholder="Masukkan Waktu Mulai ...">
+                                    <input disabled value="{{ $validasi->validasi_mulai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" data-placeholder="Masukkan Waktu Mulai ...">
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Waktu Selesai</label>
-                                    <input disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" placeholder="Masukkan Waktu Selesai ...">
+                                    <input disabled value="{{ $validasi->validasi_selesai_hari }}" class="form-control form-control-alternative" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" data-placeholder="Masukkan Waktu Selesai ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Nama Pelaksana</label>
-                                    <input disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]" id="nama_pelaksana" placeholder="Masukkan Nama Pelaksana ...">
+                                    <input disabled value="{{ $validasi->nama_pelaksana }}" class="form-control form-control-alternative" type="text" name="nama_pelaksana[]" id="nama_pelaksana" data-placeholder="Masukkan Nama Pelaksana ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Inisial Pelaksana</label>
-                                    <input disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" placeholder="Masukkan Inisial Pelaksana ...">
+                                    <input disabled value="{{ $validasi->inisial_pelaksana }}" class="form-control form-control-alternative" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" data-placeholder="Masukkan Inisial Pelaksana ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Nama Pengawas</label>
-                                    <input disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]" id="nama_pengawas" placeholder="Masukkan Nama Pengawas ...">
+                                    <input disabled value="{{ $validasi->nama_pengawas }}" class="form-control form-control-alternative" type="text" name="nama_pengawas[]" id="nama_pengawas" data-placeholder="Masukkan Nama Pengawas ...">
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <div class="form-group">
                                     <label class="form-control-label">Inisial Pengawas</label>
-                                    <input disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]" id="inisial_pengawas" placeholder="Masukkan Inisial Pengawas ...">
+                                    <input disabled value="{{ $validasi->inisial_pengawas }}" class="form-control form-control-alternative" type="text" name="inisial_pengawas[]" id="inisial_pengawas" data-placeholder="Masukkan Inisial Pengawas ...">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -270,7 +270,7 @@
                 <hr>
                 <div class="form-group">
                     <label class="form-control-label" for="catatan">Catatan</label>
-                    <textarea class="form-control form-control-alternative @error('catatan') is-invalid @enderror" type="text" name="catatan" id="catatan" data-placeholder="Masukkan Catatan ..." disabled>{{ $ijinKerja->catatan }}</textarea>
+                    <textarea class="form-control form-control-alternative @error('catatan') is-invalid @enderror" type="text" name="catatan" id="catatan" data-data-placeholder="Masukkan Catatan ..." disabled>{{ $ijinKerja->catatan }}</textarea>
                 </div>
             </div>
         </div>

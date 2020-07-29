@@ -37,6 +37,8 @@ class CreateIjinKerjaDiKetinggianTable extends Migration
             $table->text('keterangan_area_kerja_berada_di_ruang_yang_sempit')->nullable();
             $table->boolean('pekerja_bekerja_sendiri')->nullable();
             $table->text('keterangan_pekerja_bekerja_sendiri')->nullable();
+            $table->boolean('area_kerja_perlu_dipasang_barikade')->nullable();
+            $table->text('keterangan_area_kerja_perlu_dipasang_barikade')->nullable();
             $table->boolean('tersedia_rambu_keselamatan')->nullable();
             $table->text('keterangan_tersedia_rambu_keselamatan')->nullable();
             $table->boolean('alat_perancah_digunakan_pada_pekerjaan_di_ketinggian')->nullable();
