@@ -390,6 +390,7 @@
                     <a href="{{ route('ijin-kerja-panas.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Panas</h4>
+                        <h5>({{ count($jsa->ijinKerjaPanas) }})</h5>
                     </a>
                 </div>
             </div>
@@ -400,6 +401,7 @@
                     <a href="{{ route('ijin-kerja-dingin.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Dingin</h4>
+                        <h5>({{ count($jsa->ijinKerjaDingin) }})</h5>
                     </a>
                 </div>
             </div>
@@ -410,6 +412,7 @@
                     <a href="{{ route('ijin-kerja-di-ketinggian.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja di Ketinggian</h4>
+                        <h5>({{ count($jsa->ijinKerjaDiKetinggian) }})</h5>
                     </a>
                 </div>
             </div>
@@ -420,6 +423,7 @@
                     <a href="{{ route('ijin-kerja-ruang-terbatas.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Memasuki Ruangan Terbatas</h4>
+                        <h5>({{ count($jsa->ijinKerjaRuangTerbatas) }})</h5>
                     </a>
                 </div>
             </div>
@@ -430,6 +434,7 @@
                     <a href="{{ route('ijin-kerja-listrik.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Listrik</h4>
+                        <h5>({{ count($jsa->ijinKerjaListrik) }})</h5>
                     </a>
                 </div>
             </div>
@@ -440,6 +445,7 @@
                     <a href="{{ route('ijin-kerja-galian.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Galian</h4>
+                        <h5>({{ count($jsa->ijinKerjaGalian) }})</h5>
                     </a>
                 </div>
             </div>
@@ -450,6 +456,7 @@
                     <a href="{{ route('ijin-kerja-radiografi.index', $jsa->id) }}">
                         <i class="fas fa-file-alt fa-5x mb-3"></i>
                         <h4>Ijin Kerja Radiografi</h4>
+                        <h5>({{ count($jsa->ijinKerjaRadiografi) }})</h5>
                     </a>
                 </div>
             </div>
