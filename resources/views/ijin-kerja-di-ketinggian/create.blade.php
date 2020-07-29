@@ -442,11 +442,15 @@
                             </button>
                         </div>
                     `);
+                    let focus = true;
                     $.each(data.responseJSON.errors, function (i, e) {
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$("[name='" + i + "']").hasClass('is-invalid')) {
                             $("[name='" + i + "']").addClass('is-invalid');
-                            $("[name='" + i + "']").focus();
+                            if (focus) {
+                                $("[name='" + i + "']").focus();
+                                focus = false;
+                            }
                         }
                     });
                 }

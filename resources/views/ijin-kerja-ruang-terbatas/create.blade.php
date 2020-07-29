@@ -214,7 +214,13 @@
                     <hr>
                     <p class="mb-0 heading-small font-weight-bold">VALIDASI</p>
                     <div id="validasi" class="pl-lg-4">
-
+                        <input type="hidden" name="validasi_hari[]" value="{{ now() }}">
+                        <input type="hidden" name="validasi_mulai_hari[]" value="0">
+                        <input type="hidden" name="validasi_selesai_hari[]" value="0">
+                        <input type="hidden" name="nama_pelaksana[]" value="0">
+                        <input type="hidden" name="inisial_pelaksana[]" value="0">
+                        <input type="hidden" name="nama_pengawas[]" value="0">
+                        <input type="hidden" name="inisial_pengawas[]" value="0">
                     </div>
                     <button type="button" class="btn btn-primary btn-sm" id="tambahValidasi">Tambah Validasi</button>
                     <hr>
@@ -233,48 +239,52 @@
 
 @push('scripts')
 <script>
-    let i = 0;
+    let i = 1;
     $(document).ready(function () {
         $("#tambahValidasi").click(function () {
-            if (i < 7) {
+            if (i <= 7) {
                 $("#validasi").append(`
                     <div class="row mb-0">
                         <div class="col-md-1 mb-3">
-                            <button type="button" class="btn btn-danger hapusValidasi" data-toggle="tooltip" title="Hapus"><i class="fas fa-trash"></i></button>
+                            <span>#${i}</span>
+                            <button type="button" class="btn btn-danger hapusValidasi btn-sm" data-toggle="tooltip" title="Hapus Validasi ${i}"><i class="fas fa-trash"></i></button>
                         </div>
                         <div class="col-md-5 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="date" name="validasi_hari[]" id="validasi_hari" placeholder="Masukkan Hari ...">
+                                <label class="form-control-label">Masukkan Hari</label>
+                                <input class="form-control" type="date" name="validasi_hari[]" placeholder="Masukkan Hari ...">
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="time" name="validasi_mulai_hari[]" id="validasi_mulai_hari" placeholder="Masukkan Waktu Mulai ...">
+                                <label class="form-control-label">Masukkan Waktu Mulai</label>
+                                <input class="form-control" type="time" name="validasi_mulai_hari[]" placeholder="Masukkan Waktu Mulai ...">
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="time" name="validasi_selesai_hari[]" id="validasi_selesai_hari" placeholder="Masukkan Waktu Selesai ...">
+                                <label class="form-control-label">Masukkan Waktu Selesai</label>
+                                <input class="form-control" type="time" name="validasi_selesai_hari[]" placeholder="Masukkan Waktu Selesai ...">
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="nama_pelaksana[]" id="nama_pelaksana" placeholder="Masukkan Nama Pelaksana ...">
+                                <input class="form-control" type="text" name="nama_pelaksana[]" placeholder="Masukkan Nama Pelaksana ...">
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="inisial_pelaksana[]" id="inisial_pelaksana" placeholder="Masukkan Inisial Pelaksana ...">
+                                <input class="form-control" type="text" name="inisial_pelaksana[]" placeholder="Masukkan Inisial Pelaksana ...">
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="nama_pengawas[]" id="nama_pengawas" placeholder="Masukkan Nama Pengawas ...">
+                                <input class="form-control" type="text" name="nama_pengawas[]" placeholder="Masukkan Nama Pengawas ...">
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <div class="form-group">
-                                <input class="form-control" type="text" name="inisial_pengawas[]" id="inisial_pengawas" placeholder="Masukkan Inisial Pengawas ...">
+                                <input class="form-control" type="text" name="inisial_pengawas[]" placeholder="Masukkan Inisial Pengawas ...">
                             </div>
                         </div>
                         <div class="col-12">
@@ -290,9 +300,16 @@
         });
 
         $(document).on("click", ".hapusValidasi", function () {
+            let btn = this;
             i--;
             $(this).tooltip('hide');
             $(this).parent().parent().remove();
+            let x = 1;
+            $.each($("#validasi").children(".row"), function (i, row) {
+                $(row).children(".col-md-1").children("span").html(`#${x}`);
+                $(row).children(".col-md-1").children("button").attr('data-original-title', `Hapus Validasi ${x}`);
+                x++;
+            });
         });
 
         $("input:checkbox").click(function () {
@@ -346,11 +363,15 @@
                             </button>
                         </div>
                     `);
+                    let focus = true;
                     $.each(data.responseJSON.errors, function (i, e) {
                         $('#pesanError').append(`<li>`+e+`</li>`);
                         if (!$("[name='" + i + "']").hasClass('is-invalid')) {
                             $("[name='" + i + "']").addClass('is-invalid');
-                            $("[name='" + i + "']").focus();
+                            if (focus) {
+                                $("[name='" + i + "']").focus();
+                                focus = false;
+                            }
                         }
                     });
                 }
