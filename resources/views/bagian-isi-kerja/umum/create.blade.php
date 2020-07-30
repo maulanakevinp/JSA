@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
         <label class="form-control-label" for="pelaksana_pekerjaan">Pelaksana Pekerjaan</label>
-        <input class="form-control" type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan" placeholder="Masukkan Lokasi Pekerjaan ...">
+        <input class="form-control" type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan" placeholder="Masukkan Pelaksana Pekerjaan ...">
     </div>
     <div class="form-group">
         <label class="form-control-label" for="uraian_pekerjaan">Uraian pekerjaan</label>
