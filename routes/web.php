@@ -44,7 +44,8 @@ Route::group(['middleware' => ['web', 'auth']], function () {
         Route::resource('rencanaTindakanPencegahan', 'RencanaTindakanPencegahanController')->except('edit','create','show','index');
         Route::resource('picPelaksana', 'PicPelaksanaController')->except('edit','create','show','index');
         Route::resource('waktu', 'WaktuController')->except('edit','create','show','index');
-        Route::patch('/umum/{id}', 'UmumController@updateTanggalSelesai')->name('umum.updateTanggalSelesai');
+        Route::put('/umum/{id}', 'UmumController@updateTanggalSelesai')->name('umum.updateTanggalSelesai');
+        Route::put('/umum/dilihat/{id}', 'UmumController@dilihat')->name('umum.dilihat');
         Route::resource('jsa', 'JsaController')->except('edit','update','index','show');
     });
 

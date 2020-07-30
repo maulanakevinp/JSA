@@ -48,7 +48,7 @@
                             </div>
                             <div class="mb-3">
                                 <a href="{{ route('jsa.edit', $jsa) }}#langkah-langkah-kerja" class="btn btn-outline-primary mb-3" title="Ijin Kerja"><i class="fas fa-file"></i> Langkah-langkah Kerja</a>
-                                @if ($jsa->status_persetujuan == 1)
+                                @if ($jsa->status_persetujuan == 1 && $jsa->perlu_ijin_kerja == 1)
                                     <a href="{{ route('jsa.edit', $jsa) }}#ijin-kerja" class="btn btn-outline-primary mb-3" title="Ijin Kerja"><i class="fas fa-file-alt"></i> Ijin Kerja</a>
                                 @endif
                                 <a href="{{ route('jsa.index') }}" class="btn btn-primary mb-3" title="Kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
@@ -111,7 +111,7 @@
 @if ($jsa->status_review == 1 && $jsa->status_persetujuan == 1)
 
     @can('hse')
-        @if (count($jsa->ijinKerjaPanas) == 0 && count($jsa->ijinKerjaListrik) == 0 && count($jsa->ijinKerjaGalian) == 0 && count($jsa->ijinKerjaRadiografi) == 0 && count($jsa->ijinKerjaDiKetinggian) == 0 && count($jsa->ijinKerjaRuangTerbatas) == 0)
+        @if ($jsa->perlu_ijin_kerja == 1 && count($jsa->ijinKerjaPanas) == 0 && count($jsa->ijinKerjaListrik) == 0 && count($jsa->ijinKerjaGalian) == 0 && count($jsa->ijinKerjaRadiografi) == 0 && count($jsa->ijinKerjaDiKetinggian) == 0 && count($jsa->ijinKerjaRuangTerbatas) == 0)
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <span class="alert-text">
@@ -310,6 +310,26 @@
                         </span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="perlu_ijin_kerja">Perlu Ijin Kerja</label>
+                    <div class="form-check">
+                        <input class="form-check-input" @can('hse') readonly @endcan type="radio" name="perlu_ijin_kerja" id="perlu_ijin_kerja1" value="1" {{ old('perlu_ijin_kerja',$jsa->perlu_ijin_kerja) == 1 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="perlu_ijin_kerja1">
+                            Iya
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" @can('hse') readonly @endcan type="radio" name="perlu_ijin_kerja" id="perlu_ijin_kerja2" value="0" {{ old('perlu_ijin_kerja',$jsa->perlu_ijin_kerja) == 0 ? 'checked' : '' }}>
+                        <label class="form-check-label" for="perlu_ijin_kerja2">
+                            Tidak
+                        </label>
+                    </div>
+                    @error('perlu_ijin_kerja')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
                 <div id="alasan_penolakan_persetujuan" class="form-group">
                     <label class="form-control-label">Alasan Penolakan Persetujuan</label>
                     <textarea class="form-control form-control-alternative @error('alasan_penolakan_persetujuan') is-invalid @enderror" type="text" name="alasan_penolakan_persetujuan" placeholder="Masukkan Alasan Penolakan Persetujuan ...">{{ old('alasan_penolakan_persetujuan', $jsa->alasan_penolakan_persetujuan) }}</textarea>
@@ -381,7 +401,7 @@
         </div>
     </div>
 </div>
-@if ($jsa->status_persetujuan == 1)
+@if ($jsa->status_persetujuan == 1 && $jsa->perlu_ijin_kerja == 1)
 <h3 id="ijin-kerja" class="mt-5 text-center">IJIN KERJA</h3>
     <div class="row d-flex justify-content-center">
         <div class="col-lg-4 col-md-6 mb-3 text-center">

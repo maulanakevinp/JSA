@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jsa;
-use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class JsaController extends Controller
@@ -200,6 +199,7 @@ class JsaController extends Controller
         if (auth()->user()->peran->nama == 'HSE') {
             $validation['satuan_kerja_penanggung_jawab']   = ['required'];
             $validation['status_persetujuan']              = ['required'];
+            $validation['perlu_ijin_kerja']                = ['required'];
             if ($request->status_persetujuan == 2) {
                 $validation['alasan_penolakan_persetujuan']= ['required'];
             }
@@ -323,7 +323,5 @@ class JsaController extends Controller
     {
         $jsa = Jsa::findOrFail($id);
         return view('jsa.cetak', compact('jsa'));
-        // $pdf = PDF::loadView('jsa.cetak', compact('jsa'))->setPaper(array(0,0,609.449,935.433), 'landscape');
-        // return $pdf->stream('tes.pdf');
     }
 }

@@ -125,10 +125,14 @@
                                 <td width="180px" valign="top">Status</td>
                                 <td valign="top">:</td>
                                 <td valign="top">
-                                    @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
-                                        Belum memiliki ijin kerja
+                                    @if ($item->perlu_ijin_kerja == 1)
+                                        @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
+                                            Belum memiliki ijin kerja
+                                        @else
+                                            Telah memiliki ijin kerja
+                                        @endif
                                     @else
-                                        Telah memiliki ijin kerja
+                                        Tidak membutuhkan ijin kerja
                                     @endif
                                 </td>
                             </tr>
@@ -180,10 +184,14 @@
                                 <td>{{ $item->tanggal_review ? date('d/m/Y', strtotime($item->tanggal_review)) : '-' }}</td>
                                 <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
                                 <td>
-                                    @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
-                                        Belum memiliki ijin kerja
+                                    @if ($item->perlu_ijin_kerja == 1)
+                                        @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
+                                            Belum memiliki ijin kerja
+                                        @else
+                                            Telah memiliki ijin kerja
+                                        @endif
                                     @else
-                                        Telah memiliki ijin kerja
+                                        Tidak membutuhkan ijin kerja
                                     @endif
                                 </td>
                                 <td>

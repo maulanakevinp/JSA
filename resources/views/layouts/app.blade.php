@@ -76,12 +76,14 @@
                                     @php
                                         $belumExpired = App\Umum::whereBetween('tanggal_selesai', [date('Y-m-d'),date('Y-m-d', strtotime('+3 day'))])->get();
                                         $expired = App\Umum::whereDate('tanggal_selesai','<', now())->get();
+                                        $statusPersetujuanDitolak = App\Umum::where('status_persetujuan', 2)->get();
+                                        $statusPersetujuanDiterima = App\Umum::where('status_persetujuan', 1)->where('status_persetujuan_dilihat', 0)->get();
                                     @endphp
                                     <div class="px-3 py-3">
-                                        <h6 class="text-sm text-muted m-0">You have <strong class="text-primary">{{ count($expired) + count($belumExpired) }}</strong> notifications.</h6>
+                                        <h6 class="text-sm text-muted m-0">Anda memiliki <strong class="text-primary">{{ count($expired) + count($belumExpired) + count($statusPersetujuanDitolak) + count($statusPersetujuanDiterima) }}</strong> notifikasi.</h6>
                                     </div>
                                     <!-- List group -->
-                                    @foreach ($expired as $item)
+                                    @foreach ($statusPersetujuanDitolak as $item)
                                         @php
                                             $url = "";
                                             if (count($item->ijinKerjaPanas) == 1) {
@@ -96,6 +98,8 @@
                                                 $url = route('ijin-kerja-di-ketinggian.show', $item->ijinKerjaDiKetinggian[0]->id);
                                             } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
                                                 $url = route('ijin-kerja-ruang-terbatas.show', $item->ijinKerjaRuangTerbatas[0]->id);
+                                            } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                $url = route('ijin-kerja-dingin.show', $item->ijinKerjaDingin[0]->id);
                                             }
                                         @endphp
                                         <div class="list-group list-group-flush">
@@ -122,6 +126,113 @@
                                                                             echo $item->ijinKerjaDiKetinggian[0]->jsa->nama_perusahaan;
                                                                         } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
                                                                             echo $item->ijinKerjaRuangTerbatas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                                            echo $item->ijinKerjaDingin[0]->jsa->nama_perusahaan;
+                                                                        }
+                                                                    @endphp
+                                                                </h4>
+                                                            </div>
+                                                            <div class="text-right text-muted">
+                                                                <small>{{ date('d/m/Y', strtotime($item->tanggal_selesai)) }}</small>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-sm mb-0">
+                                                            {{ $item->nomor }}, Perubahan masa berlaku ditolak ({{ $item->alasan_penolakan_persetujuan }})
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                    @foreach ($statusPersetujuanDiterima as $item)
+                                        <div class="list-group list-group-flush">
+                                            <a href="#" class="list-group-item list-group-item-action">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <!-- Avatar -->
+                                                        <i class="ni ni-bell-55 text-primary"></i>
+                                                    </div>
+                                                    <div class="col ml--2">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <h4 class="mb-0 text-sm">
+                                                                    @php
+                                                                        if (count($item->ijinKerjaPanas) == 1) {
+                                                                            echo $item->ijinKerjaPanas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaGalian) == 1) {
+                                                                            echo $item->ijinKerjaGalian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaListrik) == 1) {
+                                                                            echo $item->ijinKerjaListrik[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRadioGrafi) == 1) {
+                                                                            echo $item->ijinKerjaRadioGrafi[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDiKetinggian) == 1) {
+                                                                            echo $item->ijinKerjaDiKetinggian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
+                                                                            echo $item->ijinKerjaRuangTerbatas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                                            echo $item->ijinKerjaDingin[0]->jsa->nama_perusahaan;
+                                                                        }
+                                                                    @endphp
+                                                                </h4>
+                                                            </div>
+                                                            <div class="text-right text-muted">
+                                                                <small>{{ $item->updated_at->diffForHumans() }}</small>
+                                                                <button data-url="{{ route('umum.dilihat', $item) }}" type="button" class="btn btn-sm btn-success btn-dilihat" data-toggle="tooltip" title="Tandai sudah dilihat"><i class="fas fa-check"></i></button>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-sm mb-0">
+                                                            {{ $item->nomor }}, Perubahan masa berlaku telah disetujui
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                    @foreach ($expired as $item)
+                                        @php
+                                            $url = "";
+                                            if (count($item->ijinKerjaPanas) == 1) {
+                                                $url = route('ijin-kerja-panas.show', $item->ijinKerjaPanas[0]->id);
+                                            } elseif (count($item->ijinKerjaGalian) == 1) {
+                                                $url = route('ijin-kerja-galian.show', $item->ijinKerjaGalian[0]->id);
+                                            } elseif (count($item->ijinKerjaListrik) == 1) {
+                                                $url = route('ijin-kerja-listrik.show', $item->ijinKerjaListrik[0]->id);
+                                            } elseif (count($item->ijinKerjaRadioGrafi) == 1) {
+                                                $url = route('ijin-kerja-radiografi.show', $item->ijinKerjaRadioGrafi[0]->id);
+                                            } elseif (count($item->ijinKerjaDiKetinggian) == 1) {
+                                                $url = route('ijin-kerja-di-ketinggian.show', $item->ijinKerjaDiKetinggian[0]->id);
+                                            } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
+                                                $url = route('ijin-kerja-ruang-terbatas.show', $item->ijinKerjaRuangTerbatas[0]->id);
+                                            } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                $url = route('ijin-kerja-dingin.show', $item->ijinKerjaDingin[0]->id);
+                                            }
+                                        @endphp
+                                        <div class="list-group list-group-flush">
+                                            <a href="{{ $url }}" class="list-group-item list-group-item-action">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <!-- Avatar -->
+                                                        <i class="fas fa-exclamation-triangle text-danger"></i>
+                                                    </div>
+                                                    <div class="col ml--2">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <h4 class="mb-0 text-sm">
+                                                                    @php
+                                                                        if (count($item->ijinKerjaPanas) == 1) {
+                                                                            echo $item->ijinKerjaPanas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaGalian) == 1) {
+                                                                            echo $item->ijinKerjaGalian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaListrik) == 1) {
+                                                                            echo $item->ijinKerjaListrik[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRadioGrafi) == 1) {
+                                                                            echo $item->ijinKerjaRadioGrafi[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDiKetinggian) == 1) {
+                                                                            echo $item->ijinKerjaDiKetinggian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
+                                                                            echo $item->ijinKerjaRuangTerbatas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                                            echo $item->ijinKerjaDingin[0]->jsa->nama_perusahaan;
                                                                         }
                                                                     @endphp
                                                                 </h4>
@@ -153,6 +264,8 @@
                                                 $url = route('ijin-kerja-di-ketinggian.show', $item->ijinKerjaDiKetinggian[0]->id);
                                             } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
                                                 $url = route('ijin-kerja-ruang-terbatas.show', $item->ijinKerjaRuangTerbatas[0]->id);
+                                            } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                $url = route('ijin-kerja-dingin.show', $item->ijinKerjaDingin[0]->id);
                                             }
                                         @endphp
                                         <div class="list-group list-group-flush">
@@ -179,6 +292,8 @@
                                                                             echo $item->ijinKerjaDiKetinggian[0]->jsa->nama_perusahaan;
                                                                         } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
                                                                             echo $item->ijinKerjaRuangTerbatas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                                            echo $item->ijinKerjaDingin[0]->jsa->nama_perusahaan;
                                                                         }
                                                                     @endphp
                                                                 </h4>
@@ -189,6 +304,87 @@
                                                         </div>
                                                         <p class="text-sm mb-0">
                                                             {{ $item->nomor }}, Masa ijin kerja akan habis dalam {{ \Carbon\Carbon::parse($item->tanggal_selesai)->diffInDays(now()) }} hari
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                    <!-- View all -->
+                                    {{-- <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a> --}}
+                                </div>
+                            </li>
+                        @endcan
+                        @can('hse')
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <i class="ni ni-bell-55"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-xl dropdown-menu-right py-0" style="overflow: auto; max-height: 400px;">
+                                    <!-- Dropdown header -->
+                                    @php
+                                        $perluVerifikasi = App\Umum::where('status_persetujuan', 0)->get();
+                                    @endphp
+                                    <div class="px-3 py-3">
+                                        <h6 class="text-sm text-muted m-0">Anda memiliki <strong class="text-primary">{{ count($perluVerifikasi) }}</strong> notifikasi.</h6>
+                                    </div>
+                                    <!-- List group -->
+                                    @foreach ($perluVerifikasi as $item)
+                                        @php
+                                            $url = "";
+                                            if (count($item->ijinKerjaPanas) == 1) {
+                                                $url = route('ijin-kerja-panas.edit', $item->ijinKerjaPanas[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaGalian) == 1) {
+                                                $url = route('ijin-kerja-galian.edit', $item->ijinKerjaGalian[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaListrik) == 1) {
+                                                $url = route('ijin-kerja-listrik.edit', $item->ijinKerjaListrik[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaRadioGrafi) == 1) {
+                                                $url = route('ijin-kerja-radiografi.edit', $item->ijinKerjaRadioGrafi[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaDiKetinggian) == 1) {
+                                                $url = route('ijin-kerja-di-ketinggian.edit', $item->ijinKerjaDiKetinggian[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
+                                                $url = route('ijin-kerja-ruang-terbatas.edit', $item->ijinKerjaRuangTerbatas[0]->id) . '#masa-berlaku';
+                                            } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                $url = route('ijin-kerja-dingin.edit', $item->ijinKerjaDingin[0]->id) . '#masa-berlaku';
+                                            }
+                                        @endphp
+                                        <div class="list-group list-group-flush">
+                                            <a href="{{ $url }}" class="list-group-item list-group-item-action">
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <!-- Avatar -->
+                                                        <i class="ni ni-bell-55 text-primary"></i>
+                                                    </div>
+                                                    <div class="col ml--2">
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <div>
+                                                                <h4 class="mb-0 text-sm">
+                                                                    @php
+                                                                        if (count($item->ijinKerjaPanas) == 1) {
+                                                                            echo $item->ijinKerjaPanas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaGalian) == 1) {
+                                                                            echo $item->ijinKerjaGalian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaListrik) == 1) {
+                                                                            echo $item->ijinKerjaListrik[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRadioGrafi) == 1) {
+                                                                            echo $item->ijinKerjaRadioGrafi[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDiKetinggian) == 1) {
+                                                                            echo $item->ijinKerjaDiKetinggian[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaRuangTerbatas) == 1) {
+                                                                            echo $item->ijinKerjaRuangTerbatas[0]->jsa->nama_perusahaan;
+                                                                        } elseif (count($item->ijinKerjaDingin) == 1) {
+                                                                            echo $item->ijinKerjaDingin[0]->jsa->nama_perusahaan;
+                                                                        }
+                                                                    @endphp
+                                                                </h4>
+                                                            </div>
+                                                            <div class="text-right text-muted">
+                                                                <small>{{ date('d/m/Y', strtotime($item->tanggal_selesai)) }}</small>
+                                                            </div>
+                                                        </div>
+                                                        <p class="text-sm mb-0">
+                                                            {{ $item->nomor }}, Membutuhkan persetujuan perubahan tanggal ijin kerja
                                                         </p>
                                                     </div>
                                                 </div>
@@ -291,6 +487,24 @@
                 $(this).removeClass('is-invalid');
                 $(this).siblings('.invalid-feedback').remove();
                 $('.alert-dismissible').remove();
+            });
+
+            $(document).on("click", ".btn-dilihat", function () {
+                let btn = this;
+                $.ajax({
+                    url : $(btn).data('url'),
+                    type: "put",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                    },
+                    beforeSend: function(){
+                        $(btn).attr('disabled','disabled');
+                        $(btn).html(`<img height="20px" src="{{ url('/storage/loading.gif') }}" alt="">`);
+                    },
+                    success: function(data){
+                        location.reload(true);
+                    }
+                });
             });
 
         });

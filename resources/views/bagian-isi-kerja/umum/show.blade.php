@@ -60,7 +60,7 @@
                 method: "post",
                 data: {
                     _token          : $("meta[name='csrf-token']").attr('content'),
-                    _method         : 'patch',
+                    _method         : 'put',
                     tanggal_selesai : tanggal_selesai,
                 },
                 beforeSend: function () {
@@ -82,9 +82,7 @@
                                 </button>
                             </div>
                         `);
-                        setTimeout(() => {
-                            $(".notifikasi").html('');
-                        }, 3000);
+                        location.reload(true);
                     }
                 },
                 error: function (data) {
