@@ -38,7 +38,11 @@ php artisan key:generate
 - Ubah konfigurasi database sesuai nama database yang anda buat tadi lalu simpan
 - lakukan migrate ketik :
 ```terminal
-php artisan migrate:refresh --seed
+php artisan migrate --seed
+```
+- kemudian ketik :
+```
+php artisan storage:link
 ```
 - Finish project laravel bisa dijalankan dengan menggunakan development server dengan cara ketik
 ```terminal
@@ -49,14 +53,15 @@ php artisan serve
 ## Cara instal project TANPA github desktop
 Bagi yang sudah memiliki composer silahkan ikuti tutor dibawah ini
 - Klik tombol Clone or download
+- Klik download zip
 - Silahkan pilih lokasi path yang anda inginkan
 - Kemudian klik Oke
 - Tunggu sampai proses download selesai
 - Extract here 
 - Buka folder porject yang sudah di extract dengan terminal
-- Lakukan update dependecies ketik
+- Lakukan composer install ketik
 ```terminal
-composer update -vvv
+composer install
 ```
 - Tunggu sampai proses selesai
 - Buat database baru di phpmyadmin anda beri nama sesuka hati anda
@@ -72,7 +77,11 @@ php artisan key:generate
 - Ubah konfigurasi database sesuai nama database yang anda buat tadi lalu simpan
 - lakukan migrate ketik :
 ```terminal
-php artisan migrate:refresh --seed
+php artisan migrate --seed
+```
+- kemudian ketik :
+```
+php artisan storage:link
 ```
 - Finish project laravel bisa dijalankan dengan menggunakan development server dengan cara ketik
 ```terminal
