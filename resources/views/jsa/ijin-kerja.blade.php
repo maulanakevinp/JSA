@@ -185,7 +185,7 @@
                                 <td>{{ $item->tanggal_persetujuan ? date('d/m/Y', strtotime($item->tanggal_persetujuan)) : '-' }}</td>
                                 <td>
                                     @if ($item->perlu_ijin_kerja == 1)
-                                        @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
+                                        @if (count($item->ijinKerjaPanas) == 0 && count($item->ijinKerjaDingin) == 0 && count($item->ijinKerjaListrik) == 0 && count($item->ijinKerjaGalian) == 0 && count($item->ijinKerjaRadiografi) == 0 && count($item->ijinKerjaDiKetinggian) == 0 && count($item->ijinKerjaRuangTerbatas) == 0)
                                             Belum memiliki ijin kerja
                                         @else
                                             Telah memiliki ijin kerja

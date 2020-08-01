@@ -111,7 +111,7 @@
 @if ($jsa->status_review == 1 && $jsa->status_persetujuan == 1)
 
     @can('hse')
-        @if ($jsa->perlu_ijin_kerja == 1 && count($jsa->ijinKerjaPanas) == 0 && count($jsa->ijinKerjaListrik) == 0 && count($jsa->ijinKerjaGalian) == 0 && count($jsa->ijinKerjaRadiografi) == 0 && count($jsa->ijinKerjaDiKetinggian) == 0 && count($jsa->ijinKerjaRuangTerbatas) == 0)
+        @if ($jsa->perlu_ijin_kerja == 1 && count($jsa->ijinKerjaPanas) == 0 && count($jsa->ijinKerjaDingin) == 0 && count($jsa->ijinKerjaListrik) == 0 && count($jsa->ijinKerjaGalian) == 0 && count($jsa->ijinKerjaRadiografi) == 0 && count($jsa->ijinKerjaDiKetinggian) == 0 && count($jsa->ijinKerjaRuangTerbatas) == 0)
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <span class="alert-icon"><i class="fas fa-exclamation-triangle"></i></span>
                 <span class="alert-text">

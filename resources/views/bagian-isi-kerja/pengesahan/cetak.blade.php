@@ -9,9 +9,7 @@
             <td class="p-0">{{ $ijinKerja->pengesahan->nama_pelaksana_pekerjaan }}</td>
         </tr>
         <tr>
-            <td class="p-0" width="100px">Tanda Tangan</td>
-            <td class="p-0" width="10px">:</td>
-            <td class="p-0"><br><br></td>
+            <td class="p-0" colspan="3"><img class="ml-3" style="max-width: 15%;" src="{{ asset('/storage/approved.png') }}" alt=""></td>
         </tr>
         <tr>
             <td class="p-0" width="100px">Jabatan</td>
@@ -36,9 +34,7 @@
             <td class="p-0">{{ $ijinKerja->pengesahan->nama_penanggung_jawab_area }}</td>
         </tr>
         <tr>
-            <td class="p-0" width="100px">Tanda Tangan</td>
-            <td class="p-0" width="10px">:</td>
-            <td class="p-0"><br><br></td>
+            <td class="p-0" colspan="3"><img class="ml-3" style="max-width: 15%;" src="{{ asset('/storage/approved.png') }}" alt=""></td>
         </tr>
         <tr>
             <td class="p-0" width="100px">Jabatan</td>
