@@ -59,17 +59,13 @@
                         @include('bagian-isi-kerja.dokumen-pendukung.cetak')
                     </div>
                     <div class="px-1 border border-dark bg-white mb-2">
-                        <span class="font-weight-bolder">F. UJI KANDUNGAN GAS</span>
-                        @include('bagian-isi-kerja.uji-kandungan-gas.cetak')
-                    </div>
-                    <div class="px-1 border border-dark bg-white mb-2">
                         <span class="font-weight-bolder">VALIDASI</span>
                         @include('bagian-isi-kerja.validasi.cetak')
                     </div>
                 </div>
                 <div class="col-6 px-2 pt-2">
                     <div class="px-1 border border-dark bg-white mb-2">
-                        <span class="font-weight-bolder">G. SAFETY CHECKLIST</span>
+                        <span class="font-weight-bolder">F. SAFETY CHECKLIST</span>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -202,6 +198,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="px-1 border border-dark bg-white mb-2">
+                        <span class="font-weight-bolder">G. UJI KANDUNGAN GAS</span>
+                        @include('bagian-isi-kerja.uji-kandungan-gas.cetak')
                     </div>
                     <div class="px-1 border border-dark bg-white mb-2">
                         <span class="font-weight-bolder">H. PETUGAS PENGAWAS</span>

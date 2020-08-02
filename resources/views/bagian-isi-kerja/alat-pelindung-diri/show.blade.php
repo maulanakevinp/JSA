@@ -137,7 +137,7 @@
         </div>
         <div class="custom-control custom-checkbox">
             <input disabled type="checkbox" class="custom-control-input" id="rubber_glove" name="rubber_glove" value="1" {{ old('rubber_glove', $ijinKerja->alatPelindungDiri->rubber_glove) ? 'checked' : '' }}>
-            <label class="custom-control-label" for="rubber_glove">cRubber Glove</label>
+            <label class="custom-control-label" for="rubber_glove">Rubber Glove</label>
         </div>
         <div class="custom-control custom-checkbox">
             <input disabled type="checkbox" class="custom-control-input" id="chemical_glove" name="chemical_glove" value="1" {{ old('chemical_glove', $ijinKerja->alatPelindungDiri->chemical_glove) ? 'checked' : '' }}>

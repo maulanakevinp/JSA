@@ -8,9 +8,6 @@
             <td class="p-0">{{ $ijinKerja->petugasPengawas->nama_petugas_isolasi_listrik }}</td>
         </tr>
         <tr>
-            <td class="p-0" colspan="3"><img class="ml-3" style="max-width: 15%;" src="{{ asset('/storage/approved.png') }}" alt=""></td>
-        </tr>
-        <tr>
             <td class="p-0" width="100px">Jabatan</td>
             <td class="p-0" width="10px">:</td>
             <td class="p-0">{{ $ijinKerja->petugasPengawas->jabatan_petugas_isolasi_listrik }}</td>
@@ -30,9 +27,6 @@
             <td class="p-0" width="100px">Nama</td>
             <td class="p-0" width="10px">:</td>
             <td class="p-0">{{ $ijinKerja->petugasPengawas->nama_petugas_uji_kandungan_gas }}</td>
-        </tr>
-        <tr>
-            <td class="p-0" colspan="3"><img class="ml-3" style="max-width: 15%;" src="{{ asset('/storage/approved.png') }}" alt=""></td>
         </tr>
         <tr>
             <td class="p-0" width="100px">Jabatan</td>

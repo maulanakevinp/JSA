@@ -106,7 +106,7 @@
         </div>
         <div class="mb-0">
             <input class="cawang" type="checkbox" id="rubber_glove" name="rubber_glove" value="1" {{ old('rubber_glove', $ijinKerja->alatPelindungDiri->rubber_glove) ? 'checked' : '' }}>
-            <label class="mb-0" for="rubber_glove">cRubber Glove</label>
+            <label class="mb-0" for="rubber_glove">Rubber Glove</label>
         </div>
         <div class="mb-0">
             <input class="cawang" type="checkbox" id="chemical_glove" name="chemical_glove" value="1" {{ old('chemical_glove', $ijinKerja->alatPelindungDiri->chemical_glove) ? 'checked' : '' }}>
