@@ -21,7 +21,7 @@ class JsaController extends Controller
                 ->where('nomor_kontrak', '!=', null)
                 ->where('tanggal_kontrak', '!=', null)
                 ->whereHas('langkahPekerjaan')
-                ->paginate(12);
+                ->latest()->paginate(12);
 
             if ($request->cari) {
                 $jsa = Jsa::where(function($jsa) use ($request) {
@@ -34,7 +34,7 @@ class JsaController extends Controller
                     $jsa->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%");
                     $jsa->orWhere('nama_perusahaan', 'like', "%{$request->cari}%");
                 })
-                ->paginate(12);
+                ->latest()->paginate(12);
             }
         } elseif (auth()->user()->peran->nama == "HSE") {
             $jsa = Jsa::where('no_jsa', '!=', null)
@@ -44,7 +44,7 @@ class JsaController extends Controller
                 ->where('tanggal_kontrak', '!=', null)
                 ->where('status_review', 1)
                 ->whereHas('langkahPekerjaan')
-                ->paginate(12);
+                ->latest()->paginate(12);
 
             if ($request->cari) {
                 $jsa = Jsa::where(function($jsa) use ($request) {
@@ -57,7 +57,7 @@ class JsaController extends Controller
                     $jsa->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%");
                     $jsa->orWhere('nama_perusahaan', 'like', "%{$request->cari}%");
                 })
-                ->paginate(12);
+                ->latest()->paginate(12);
             }
         } else {
             $jsa = Jsa::where('no_jsa', '!=', null)
@@ -65,7 +65,7 @@ class JsaController extends Controller
                 ->where('lokasi', '!=', null)
                 ->where('nomor_kontrak', '!=', null)
                 ->where('tanggal_kontrak', '!=', null)
-                ->paginate(12);
+                ->latest()->paginate(12);
 
             if ($request->cari) {
                 $jsa = Jsa::where(function($jsa) use ($request) {
@@ -78,7 +78,7 @@ class JsaController extends Controller
                     $jsa->orWhere('tanggal_persetujuan', 'like', "%{$request->cari}%");
                     $jsa->orWhere('nama_perusahaan', 'like', "%{$request->cari}%");
                 })
-                ->paginate(12);
+                ->latest()->paginate(12);
             }
         }
 
